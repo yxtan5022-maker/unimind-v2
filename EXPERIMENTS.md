@@ -80,6 +80,28 @@ v2.0-freeze tag.
 - **Raw data**: `data/qpu_sweep/sweep_localnoise.json`
 - **Conclusion**: noise model explains most good-qubit error (median E_QPU/E_noise = 1.4×); residual attributed to coherent drift between snapshot and execution.
 
+## E-08 | Hardware-aware routing: C(q) score + stratified QPU validation (RQ3)
+- **Date**: 2026-08-23
+- **Pre-registered before running.** Script: `analysis/hw_router.py` (--part local/qpu/analyze)
+- **C(q) definition**: primary = total readout assignment error p01+p10 (justified by E-05: readout dominates single-qubit encoding distortion); tiebreak -min(T1,T2). Transparent monotone variant of charter formula; no weights fitted on anchors (n=2 would overfit).
+- **Design**: full 156-qubit calibration snapshot -> ranking -> anchor check (q98 top, q37 bottom, consistency vs E-05 recorded 0.004395/0.821777) -> stratified mini-sweep: 6 qubits at ranks {best, p25, p50, p75, p95} + q37 anchor, bare 19-weight grid, pinned, 8192 shots, 1 job each -> max_dev & affine (a,b) vs C(q); Spearman rank corr (exact perm n=6); overhead microbench (selector ms, transpile pinned vs free).
+- **Success**: H3.2 top-1 passes 0.05 tolerance & bottom fails; H3.1 all upper-half qubits >=90% weights pass; H3.3 selector+transpile overhead << queue/execution time.
+- **Raw data**: `analysis/results/calib_full_e08.json`, `data/qpu_sweep/router_sweep_q*.json`
+- **Job IDs**: da5c21eaa69c739kmk4g (q98), da5c2es3jnrc73ah4dn0 (q20), da5c2seaa69c739kmksg (q105), da5c39jotlns739bofp0 (q31), da5c3n43jnrc73ah4eu0 (q119), da5c44e1vhnc73flthu0 (q37)
+- **Figure**: `paper/figures/fig_router.pdf`
+- **Conclusion**: ALL THREE HYPOTHESES PASS. max_dev strictly monotone along C(q) rank: 0.020/0.038/0.0496/0.0516/0.197/0.304 (best→worst); Spearman rho=1.000, exact p=0.0028 (n=6). Tolerance boundary between p50 and p75. Affine slope degrades monotonically 0.989→0.771, offset +0.005→+0.173 — consistent with RQ2 readout mechanism. Overhead: selector 0.036 ms, pinned transpile 1.9 ms, aware 3-qubit layout 0.294 ms. Docs: `docs/hw_routing.md`.
+
+## E-09 | End-to-end chain composition on real hardware (RQ5)
+- **Date**: 2026-08-23
+- **Pre-registered before running.** Script: `analysis/e2e_chain.py`
+- **Design**: 36 NL tasks = 9 intent classes x 4 reps, mock LLM q=0.7 f_r=0.1 (same seeds both arms, paired); arms: FULL = validation+heal+full-coverage fallback + hardware-aware placement (pin argmin-C(q) qubit(s)); ABLATED = validation-only + default free placement (v1.7 behaviour). Quantum-task circuits accumulated and submitted as ONE batched job per arm (4096 shots), ibm_marrakesh.
+- **Metrics**: P_E2E per arm (Wilson CI, paired diff), latency breakdown, recovery-path matrix, per-weight E_Z tolerance pass rate (FULL arm, H5.3 >=90%), bell/ghz parity deviation reported separately.
+- **Mock-vs-real boundary**: LLM stage is mock (documented); every later stage (sandbox exec, transpile, QPU) real.
+- **Raw data**: `data/e2e/e2e_{full,ablated}.json` (+ `*_pending.json` with job ids)
+- **Job IDs**: full da5c8kuaa69c739kmr40 (QUEUED), ablated da5d6du1vhnc73fluoqg (QUEUED) — open-plan usage limit met; collect via `python analysis/e2e_chain.py --stage collect` when quota resets (idempotent).
+- **Orchestration-stage result (already final)**: FULL arm 54/54 success (46 first_pass + 8 healed) = 100%; ABLATED 47/54 = 87.0% (7 FAIL_NO_LLM/EXEC_FAILED) — Wilson CIs separated. Quantum PUBs: 18 (full) + 17 (ablated). A-01 model cross-check: S3X pred 97.3% vs obs 100%; healed count 8 vs pred ~10.5 ✓.
+- **Conclusion**: hardware fidelity scoring pending quota; software-path gain already measured.
+
 ## A-01 | Reliability absorbing-chain model vs. logged data (RQ4)
 - **Date**: 2026-08-23
 - **Type**: analysis of existing E-03/E-06 data (no new runs)

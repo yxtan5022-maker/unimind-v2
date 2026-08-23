@@ -1,0 +1,101 @@
+{
+  "cells": [
+    {
+      "q": 98,
+      "rank": 1,
+      "percentile": 0.0,
+      "readout_total": 0.00439453125,
+      "max_dev": 0.0203,
+      "pass_rate": 1.0,
+      "affine_a": 0.989,
+      "affine_b": 0.0047,
+      "job_id": "da5c21eaa69c739kmk4g"
+    },
+    {
+      "q": 20,
+      "rank": 40,
+      "percentile": 25.2,
+      "readout_total": 0.01513671875,
+      "max_dev": 0.0383,
+      "pass_rate": 1.0,
+      "affine_a": 0.9811,
+      "affine_b": -0.0013,
+      "job_id": "da5c2es3jnrc73ah4dn0"
+    },
+    {
+      "q": 105,
+      "rank": 79,
+      "percentile": 50.3,
+      "readout_total": 0.02392578125,
+      "max_dev": 0.0496,
+      "pass_rate": 1.0,
+      "affine_a": 0.9841,
+      "affine_b": 0.0194,
+      "job_id": "da5c2seaa69c739kmksg"
+    },
+    {
+      "q": 31,
+      "rank": 118,
+      "percentile": 75.5,
+      "readout_total": 0.049072265625,
+      "max_dev": 0.0516,
+      "pass_rate": 0.947,
+      "affine_a": 0.9773,
+      "affine_b": 0.0218,
+      "job_id": "da5c39jotlns739bofp0"
+    },
+    {
+      "q": 119,
+      "rank": 149,
+      "percentile": 95.5,
+      "readout_total": 0.320068359375,
+      "max_dev": 0.1968,
+      "pass_rate": 0.316,
+      "affine_a": 0.8716,
+      "affine_b": 0.0597,
+      "job_id": "da5c3n43jnrc73ah4eu0"
+    },
+    {
+      "q": 37,
+      "rank": 153,
+      "percentile": 98.1,
+      "readout_total": 0.82177734375,
+      "max_dev": 0.3043,
+      "pass_rate": 0.211,
+      "affine_a": 0.7712,
+      "affine_b": 0.1734,
+      "job_id": "da5c44e1vhnc73flthu0"
+    }
+  ],
+  "verdicts": {
+    "H3.2_score_validity": {
+      "pass": true,
+      "detail": "top-1 q98 max_dev=0.0203 vs bottom q37 0.3043"
+    },
+    "H3.1_upper_half_ge_90pct": {
+      "pass": true,
+      "detail": [
+        "q98:100%",
+        "q20:100%"
+      ]
+    },
+    "H3.3_overhead_ms": {
+      "pass": true,
+      "overhead": {
+        "selector_argmin_ms": 0.0364,
+        "transpile_pinned_ms_median": 1.9,
+        "transpile_free_ms_median": 1.8,
+        "aware_layout_3q_ms": 0.294,
+        "aware_layout_3q_choice": [
+          98,
+          91,
+          90
+        ]
+      }
+    },
+    "spearman_C_vs_maxdev": {
+      "rho": 1.0,
+      "p_exact": 0.0028
+    }
+  }
+}
