@@ -13,19 +13,20 @@
 
 ## Work State
 ### Completed
-- Phase 0 全部 + RQ 宪章 + A-01/A-02 分析与文档：`docs/reliability_model.md`、`docs/unibit_math.md`（各含 v2.1 修正建议清单）、修正图数据 `analysis/results/unibit_fig_data.json`。commit 99c1120。
+- Phase 0 全部 + RQ 宪章 + A-01/A-02（RQ4/RQ1）+ **E-08（RQ3）完美收官**：C(q)=readout_total 打分，6 分层比特 QPU 验证，max_dev 沿排名严格单调（0.020→0.304），Spearman ρ=1.000 精确 p=0.0028，三假设全过，开销 0.036ms/1.9ms。docs/hw_routing.md + fig_router.pdf。commit c53ee23。
+- **E-09（RQ5）编排层已完成、QPU 已排队**：FULL 臂 S3X 54/54=100%（46 first_pass+8 healed）vs ABLATED S1 47/54=87.0%，CI 分离；18+17 PUBs 提交为两个批量 job（full da5c8kuaa69c739kmr40 / ablated da5d6du1vhnc73fluoqg），**open plan 额度用尽 → QUEUED**。pending 元数据已落盘（data/e2e/*_pending.json）。
 
 ### Active
-- 无进行中任务——等用户决定是否把 A-01/A-02 的修正写入 v2.1 草稿。
+- 等额度恢复后 `python analysis\e2e_chain.py --stage collect`（幂等）→ 得 H5.3 保真度与最终 verdict。
 
 ### Blocked
-- 跨天 drift 验证待明天（E-05 复测）。
-- fig:unibit 重绘后的 PDF 效果需用户过目。
+- E-09 QPU 收集（额度重置时间未知，open plan 月度配额；用户可查 quantum.cloud.ibm.com 实例页确认）。
+- 跨天 drift 验证待明天。
 
 ## Next Move
-1. 用户决策点：(a) 直接开 v2.1 分支落实三项 Unibit 修正 + §5.13 改写（截断效应替代相关性惩罚 + 干预表）；(b) 或继续推进 RQ3/RQ5。
-2. 明天：跨天 drift 复测（命令已就绪）。
-3. RQ2 下次 QPU session：多比特 sweep ≈24 job（open plan 额度需确认）。
+1. 额度恢复：collect E-09 → 补 EXPERIMENTS 结论 + e2e_summary。
+2. 明天：drift 复测（顺带验证 H3.1 "across repeated calibrations"）。
+3. 用户已定调：RQ3/RQ5 之后**整篇论文重写**（v2.1：纳入 A-01 §5.13 修正、A-02 三项 Unibit 修正、E-08 路由方案闭环、E-05/E-08 合并叙事、E-09 收尾证据；fig:unibit 重绘）。
 
 ## Relevant Files
 - `unimind-v2\RESEARCH_QUESTIONS.md` — RQ 宪章
