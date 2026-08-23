@@ -79,3 +79,19 @@ v2.0-freeze tag.
 - **Backend**: AerSimulator + NoiseModel.from_backend(ibm_marrakesh), identical pinned circuits as E-05
 - **Raw data**: `data/qpu_sweep/sweep_localnoise.json`
 - **Conclusion**: noise model explains most good-qubit error (median E_QPU/E_noise = 1.4×); residual attributed to coherent drift between snapshot and execution.
+
+## A-01 | Reliability absorbing-chain model vs. logged data (RQ4)
+- **Date**: 2026-08-23
+- **Type**: analysis of existing E-03/E-06 data (no new runs)
+- **Script**: `analysis/reliability_model.py` → `analysis/results/reliability_model.json`
+- **Model**: exact iid path probabilities (None-abort truncation, broken-slot consumption, H=4 heal budget, mock clipping rule); narrow-fallback coverage c=2/9 derived from quote-injection SyntaxError mechanism
+- **Result**: 23/23 cells PASS (predictions inside Wilson 95% CI). Naive-independence gap at q=0.5 is 12.3pp but structural-exact residual is +0.3pp; q=0.7 residual +4.0pp (in CI). "Correlation penalty" interpretation of §5.13 falsified — the gap is retry-budget truncation.
+- **Intervention ranking** (ρ_h @q0.5): None-as-wasted-slot +12.6pp > healer quality 0.9 (+8.8pp) > budget doubling (+2.1pp).
+- **Docs**: `docs/reliability_model.md`
+
+## A-02 | Unibit mathematics verification + paper-figure audit (RQ1)
+- **Date**: 2026-08-23
+- **Type**: property-based numerical verification against implementation
+- **Script**: `analysis/test_unibit_math.py` (13/13 pass) → `unibit_math.json`; corrected figure data `unibit_fig_data.json`
+- **Findings**: (1) collapse ≡ position-adaptive threshold T_i=τ/g_i, structural dead zone beyond sinc root x*=1.3918 (~56% of tail positions cannot pass at default τ); (2) repo multi-bit fold applies X-then-Ry for b_i=1 → P(1)=1−w_i, diverging from the paper's stated identity (pure-Ry branch verified exact); (3) fig:unibit panel (b) coordinates are fabricated (negative tail impossible under Eq.(3); real s_1=0.7254>τ ⇒ collapse[1]=1, not all-zero). Panel (a) correct.
+- **Docs**: `docs/unibit_math.md` (three v2.1 corrections proposed)

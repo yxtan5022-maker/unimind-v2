@@ -1,0 +1,347 @@
+{
+  "quality_checks": [
+    {
+      "cell": "E03 S0 q=0.5 success",
+      "predicted": 0.555,
+      "observed": 0.58,
+      "k": 261,
+      "n": 450,
+      "ci95": [
+        0.5339,
+        0.6247
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S0 q=0.7 success",
+      "predicted": 0.777,
+      "observed": 0.8022,
+      "k": 361,
+      "n": 450,
+      "ci95": [
+        0.7629,
+        0.8364
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S0 q=0.9 success",
+      "predicted": 0.999,
+      "observed": 1.0,
+      "k": 450,
+      "n": 450,
+      "ci95": [
+        0.9915,
+        1.0
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S1 q=0.5 success",
+      "predicted": 0.555,
+      "observed": 0.58,
+      "k": 261,
+      "n": 450,
+      "ci95": [
+        0.5339,
+        0.6247
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S1 q=0.7 success",
+      "predicted": 0.777,
+      "observed": 0.8022,
+      "k": 361,
+      "n": 450,
+      "ci95": [
+        0.7629,
+        0.8364
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S1 q=0.9 success",
+      "predicted": 0.999,
+      "observed": 1.0,
+      "k": 450,
+      "n": 450,
+      "ci95": [
+        0.9915,
+        1.0
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.5 success",
+      "predicted": 0.9155,
+      "observed": 0.9156,
+      "k": 412,
+      "n": 450,
+      "ci95": [
+        0.8862,
+        0.9379
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.5 path=first_pass",
+      "predicted": 0.555,
+      "observed": 0.5444,
+      "k": 245,
+      "n": 450,
+      "ci95": [
+        0.4982,
+        0.5899
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.5 path=healed",
+      "predicted": 0.3605,
+      "observed": 0.3711,
+      "k": 167,
+      "n": 450,
+      "ci95": [
+        0.3277,
+        0.4167
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.7 success",
+      "predicted": 0.9709,
+      "observed": 0.9822,
+      "k": 442,
+      "n": 450,
+      "ci95": [
+        0.9653,
+        0.991
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.7 path=first_pass",
+      "predicted": 0.777,
+      "observed": 0.7933,
+      "k": 357,
+      "n": 450,
+      "ci95": [
+        0.7535,
+        0.8282
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.7 path=healed",
+      "predicted": 0.1939,
+      "observed": 0.1889,
+      "k": 85,
+      "n": 450,
+      "ci95": [
+        0.1554,
+        0.2276
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.9 success",
+      "predicted": 0.999,
+      "observed": 1.0,
+      "k": 450,
+      "n": 450,
+      "ci95": [
+        0.9915,
+        1.0
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.9 path=first_pass",
+      "predicted": 0.999,
+      "observed": 1.0,
+      "k": 450,
+      "n": 450,
+      "ci95": [
+        0.9915,
+        1.0
+      ],
+      "pred_in_ci": true
+    },
+    {
+      "cell": "E03 S2 q=0.9 path=healed",
+      "predicted": 0.0,
+      "observed": 0.0,
+      "k": 0,
+      "n": 450,
+      "ci95": [
+        0.0,
+        0.0085
+      ],
+      "pred_in_ci": true
+    }
+  ],
+  "stress": {
+    "cells": [
+      {
+        "cell": "E06 S2 fr=0.3",
+        "predicted": 0.973,
+        "observed": 0.96,
+        "k": 432,
+        "n": 450,
+        "ci95": [
+          0.9377,
+          0.9746
+        ],
+        "pred_in_ci": true
+      },
+      {
+        "cell": "E06 S2 fr=0.5",
+        "predicted": 0.875,
+        "observed": 0.8644,
+        "k": 389,
+        "n": 450,
+        "ci95": [
+          0.8297,
+          0.893
+        ],
+        "pred_in_ci": true
+      },
+      {
+        "cell": "E06 S3 fr=0.3",
+        "predicted": 0.979,
+        "observed": 0.9689,
+        "k": 436,
+        "n": 450,
+        "ci95": [
+          0.9485,
+          0.9814
+        ],
+        "pred_in_ci": true
+      },
+      {
+        "cell": "E06 S3 fr=0.5",
+        "predicted": 0.9028,
+        "observed": 0.8956,
+        "k": 403,
+        "n": 450,
+        "ci95": [
+          0.8639,
+          0.9205
+        ],
+        "pred_in_ci": true
+      },
+      {
+        "cell": "E06 S2 fr=0.3",
+        "predicted": 0.973,
+        "observed": 0.96,
+        "k": 432,
+        "n": 450,
+        "ci95": [
+          0.9377,
+          0.9746
+        ],
+        "pred_in_ci": true
+      },
+      {
+        "cell": "E06 S2 fr=0.5",
+        "predicted": 0.875,
+        "observed": 0.8644,
+        "k": 389,
+        "n": 450,
+        "ci95": [
+          0.8297,
+          0.893
+        ],
+        "pred_in_ci": true
+      },
+      {
+        "cell": "E06 S3X fr=0.3",
+        "predicted": 1.0,
+        "observed": 1.0,
+        "k": 450,
+        "n": 450,
+        "ci95": [
+          0.9915,
+          1.0
+        ],
+        "pred_in_ci": true
+      },
+      {
+        "cell": "E06 S3X fr=0.5",
+        "predicted": 1.0,
+        "observed": 1.0,
+        "k": 450,
+        "n": 450,
+        "ci95": [
+          0.9915,
+          1.0
+        ],
+        "pred_in_ci": true
+      }
+    ],
+    "narrow_fallback_events": [
+      {
+        "failrate": 0.3,
+        "predicted": 2.7,
+        "observed": 4
+      },
+      {
+        "failrate": 0.5,
+        "predicted": 12.5,
+        "observed": 14
+      }
+    ]
+  },
+  "decomposition": [
+    {
+      "q": 0.5,
+      "heal_events": 205,
+      "naive_indep": 0.9375,
+      "structural_exact": 0.812,
+      "empirical": 0.8146,
+      "ci95": [
+        0.7558,
+        0.8619
+      ],
+      "struct_in_ci": true,
+      "naive_gap_pp": 12.3,
+      "residual_pp": 0.3
+    },
+    {
+      "q": 0.7,
+      "heal_events": 93,
+      "naive_indep": 0.9919,
+      "structural_exact": 0.8736,
+      "empirical": 0.914,
+      "ci95": [
+        0.8393,
+        0.9558
+      ],
+      "struct_in_ci": true,
+      "naive_gap_pp": 7.8,
+      "residual_pp": 4.0
+    }
+  ],
+  "interventions_q05_fr01": [
+    {
+      "variant": "baseline (abort-on-None, H=4)",
+      "rho": 0.812
+    },
+    {
+      "variant": "None wastes a slot (no abort), H=4",
+      "rho": 0.9375,
+      "delta_pp": 12.5
+    },
+    {
+      "variant": "budget H=8 (abort retained)",
+      "rho": 0.8328,
+      "delta_pp": 2.1
+    },
+    {
+      "variant": "healer quality q_h=0.9 (gen q=0.5)",
+      "rho": 0.9,
+      "delta_pp": 8.8
+    }
+  ]
+}

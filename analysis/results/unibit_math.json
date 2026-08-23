@@ -1,0 +1,71 @@
+{
+  "pass": 13,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "P1a kernel positive",
+      "ok": true,
+      "detail": "min=0.0091 at i=63"
+    },
+    {
+      "name": "P1b kernel strictly decreasing",
+      "ok": true,
+      "detail": "g_0=0.9999 -> g_{n-1}=0.0091"
+    },
+    {
+      "name": "P1c phi breaks grid symmetry",
+      "ok": true,
+      "detail": "phi=0.42 shifts every sample off the integer grid"
+    },
+    {
+      "name": "P2a collapse <=> adaptive threshold T_i=tau/g_i",
+      "ok": true,
+      "detail": "max disagreement over 200 random sequences = 0.0"
+    },
+    {
+      "name": "P2b T_i strictly increasing",
+      "ok": true,
+      "detail": "T_0=0.707 -> T_63=77.3"
+    },
+    {
+      "name": "P2c dead-zone boundary matches sinc root",
+      "ok": true,
+      "detail": "x*=1.3918, first dead i=28 (predicted 28)"
+    },
+    {
+      "name": "P2d n=10 demo input -> collapse[1]=1 (paper claim falsified)",
+      "ok": true,
+      "detail": "s_1=0.7254>tau, collapse=[0, 1, 0, 0, 0, 0, 0, 0, 0, 0]"
+    },
+    {
+      "name": "P2e s_i >= 0 always (no negative sinc tail)",
+      "ok": true,
+      "detail": "published fig data had min -0.0268 -- coordinates not from Eq.(3)"
+    },
+    {
+      "name": "P3a pure Ry: P(1)=w exactly (statevector)",
+      "ok": true,
+      "detail": "max err 1.11e-16"
+    },
+    {
+      "name": "P3b repo X-then-Ry: P(1)=1-w (b=1 branch)",
+      "ok": true,
+      "detail": "max err 1.11e-16; diverges from paper identity by 2w-1 at w extremes"
+    },
+    {
+      "name": "P3c shots sanity (w=0.7, 1e5 shots)",
+      "ok": true,
+      "detail": "emp=0.6992 theory=0.7000 (0.6 SE)"
+    },
+    {
+      "name": "P4 affine channels closed under composition",
+      "ok": true,
+      "detail": "(a1*a2 slope product, b2+a2*b1 offset) -- supports the $P_obs=b+a*w$ channel model"
+    },
+    {
+      "name": "P5 clipped window mean == brute force",
+      "ok": true,
+      "detail": "window widths observed: [3, 4, 5]"
+    }
+  ]
+}
