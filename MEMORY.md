@@ -13,20 +13,25 @@
 
 ## Work State
 ### Completed
-- Phase 0 全部 + RQ 宪章 + A-01/A-02（RQ4/RQ1）+ **E-08（RQ3）完美收官**：C(q)=readout_total 打分，6 分层比特 QPU 验证，max_dev 沿排名严格单调（0.020→0.304），Spearman ρ=1.000 精确 p=0.0028，三假设全过，开销 0.036ms/1.9ms。docs/hw_routing.md + fig_router.pdf。commit c53ee23。
-- **E-09（RQ5）编排层已完成、QPU 已排队**：FULL 臂 S3X 54/54=100%（46 first_pass+8 healed）vs ABLATED S1 47/54=87.0%，CI 分离；18+17 PUBs 提交为两个批量 job（full da5c8kuaa69c739kmr40 / ablated da5d6du1vhnc73fluoqg），**open plan 额度用尽 → QUEUED**。pending 元数据已落盘（data/e2e/*_pending.json）。
+- Phase 0 全部 + RQ 宪章 + A-01/A-02 + E-08 + E-09 编排层（详见上方与 EXPERIMENTS.md）。
+- **论文 v2.1 完整重写完成并编译**（`paper/unimind_paper_v2.1.pdf`，36 页，commit 5f21622）：
+  - §5.13 重写：截断效应替代相关性惩罚 + 精确模型 Eq.(ρ_h) + 23/23 验证声明 + 干预排序 + c=2/9 发现；
+  - 新 §5.9 Hardware-Aware Routing（C(q)、分层表、ρ_s=1.000、开销、fig_router.pdf）；
+  - 新 §5.14 End-to-End Composition（54/54 vs 47/54、z=2.74 p=0.003、硬件腿 pre-registered+queued，job IDs 写入正文）;
+  - Unibit 节修正：Eq.(3) 改 (i−1+φ) 零基约定、fig:unibit 面板(b) 换真实坐标（s₂=0.7254 唯一越限）、新增 collapse 几何段（T_i=τ/g_i、x*≈1.3916、死区 i≥6 五格、渐近 55.7%）、X-then-Ry 分歧披露段；
+  - Limitations/T5/T6/Roadmap/Conclusion 全部同步；演算表 resizebox 修溢出。
 
 ### Active
-- 等额度恢复后 `python analysis\e2e_chain.py --stage collect`（幂等）→ 得 H5.3 保真度与最终 verdict。
+- 无进行中任务——等额度恢复跑 `--stage collect` 后把 E2E 硬件数字填入 §5.14（正文已预留结构，改动量小）。
 
 ### Blocked
 - E-09 QPU 收集（额度重置时间未知，open plan 月度配额；用户可查 quantum.cloud.ibm.com 实例页确认）。
 - 跨天 drift 验证待明天。
 
 ## Next Move
-1. 额度恢复：collect E-09 → 补 EXPERIMENTS 结论 + e2e_summary。
+1. 额度恢复：collect E-09 → §5.14 填硬件保真度结果 + EXPERIMENTS 结论 + 重编译。
 2. 明天：drift 复测（顺带验证 H3.1 "across repeated calibrations"）。
-3. 用户已定调：RQ3/RQ5 之后**整篇论文重写**（v2.1：纳入 A-01 §5.13 修正、A-02 三项 Unibit 修正、E-08 路由方案闭环、E-05/E-08 合并叙事、E-09 收尾证据；fig:unibit 重绘）。
+3. 可选后续：fig:unibit/fig_router 的 PNG 渲染效果需用户过目；X-then-Ry 一行修复进产品代码（v2.2）。
 
 ## Relevant Files
 - `unimind-v2\RESEARCH_QUESTIONS.md` — RQ 宪章
