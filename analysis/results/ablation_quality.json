@@ -1,0 +1,648 @@
+[
+  {
+    "stage": "S0",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 88,
+    "ci95": [
+      0.5067,
+      0.6623
+    ],
+    "median_ms": 0.485,
+    "paths": {
+      "failed_other": 62,
+      "first_pass": 88
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 88,
+    "ci95": [
+      0.5067,
+      0.6623
+    ],
+    "median_ms": 0.561,
+    "paths": {
+      "failed_other": 62,
+      "first_pass": 88
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 139,
+    "ci95": [
+      0.8735,
+      0.9586
+    ],
+    "median_ms": 0.719,
+    "paths": {
+      "healed": 63,
+      "failed_other": 11,
+      "first_pass": 76
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 139,
+    "ci95": [
+      0.8735,
+      0.9586
+    ],
+    "median_ms": 0.733,
+    "paths": {
+      "healed": 63,
+      "failed_other": 11,
+      "first_pass": 76
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S0",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 85,
+    "ci95": [
+      0.4867,
+      0.6433
+    ],
+    "median_ms": 0.457,
+    "paths": {
+      "failed_other": 65,
+      "first_pass": 85
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 85,
+    "ci95": [
+      0.4867,
+      0.6433
+    ],
+    "median_ms": 0.398,
+    "paths": {
+      "failed_other": 65,
+      "first_pass": 85
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 138,
+    "ci95": [
+      0.8654,
+      0.9536
+    ],
+    "median_ms": 0.623,
+    "paths": {
+      "healed": 55,
+      "first_pass": 83,
+      "failed_other": 12
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 138,
+    "ci95": [
+      0.8654,
+      0.9536
+    ],
+    "median_ms": 0.68,
+    "paths": {
+      "healed": 55,
+      "first_pass": 83,
+      "failed_other": 12
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S0",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 88,
+    "ci95": [
+      0.5067,
+      0.6623
+    ],
+    "median_ms": 0.382,
+    "paths": {
+      "first_pass": 88,
+      "failed_other": 62
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 88,
+    "ci95": [
+      0.5067,
+      0.6623
+    ],
+    "median_ms": 0.363,
+    "paths": {
+      "first_pass": 88,
+      "failed_other": 62
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 135,
+    "ci95": [
+      0.8416,
+      0.9385
+    ],
+    "median_ms": 0.641,
+    "paths": {
+      "first_pass": 86,
+      "healed": 49,
+      "failed_other": 15
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.5,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 135,
+    "ci95": [
+      0.8416,
+      0.9385
+    ],
+    "median_ms": 0.71,
+    "paths": {
+      "first_pass": 86,
+      "healed": 49,
+      "failed_other": 15
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S0",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 124,
+    "ci95": [
+      0.7581,
+      0.8789
+    ],
+    "median_ms": 0.364,
+    "paths": {
+      "first_pass": 124,
+      "failed_other": 26
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 124,
+    "ci95": [
+      0.7581,
+      0.8789
+    ],
+    "median_ms": 0.339,
+    "paths": {
+      "first_pass": 124,
+      "failed_other": 26
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 146,
+    "ci95": [
+      0.9334,
+      0.9896
+    ],
+    "median_ms": 0.296,
+    "paths": {
+      "first_pass": 123,
+      "healed": 23,
+      "failed_other": 4
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 146,
+    "ci95": [
+      0.9334,
+      0.9896
+    ],
+    "median_ms": 0.365,
+    "paths": {
+      "first_pass": 123,
+      "healed": 23,
+      "failed_other": 4
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S0",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 120,
+    "ci95": [
+      0.7289,
+      0.8562
+    ],
+    "median_ms": 0.33,
+    "paths": {
+      "first_pass": 120,
+      "failed_other": 30
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 120,
+    "ci95": [
+      0.7289,
+      0.8562
+    ],
+    "median_ms": 0.397,
+    "paths": {
+      "first_pass": 120,
+      "failed_other": 30
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.345,
+    "paths": {
+      "first_pass": 116,
+      "healed": 34
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.375,
+    "paths": {
+      "first_pass": 116,
+      "healed": 34
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S0",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 117,
+    "ci95": [
+      0.7072,
+      0.8388
+    ],
+    "median_ms": 0.313,
+    "paths": {
+      "first_pass": 117,
+      "failed_other": 33
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 117,
+    "ci95": [
+      0.7072,
+      0.8388
+    ],
+    "median_ms": 0.277,
+    "paths": {
+      "first_pass": 117,
+      "failed_other": 33
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 146,
+    "ci95": [
+      0.9334,
+      0.9896
+    ],
+    "median_ms": 0.248,
+    "paths": {
+      "first_pass": 118,
+      "healed": 28,
+      "failed_other": 4
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.7,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 146,
+    "ci95": [
+      0.9334,
+      0.9896
+    ],
+    "median_ms": 0.309,
+    "paths": {
+      "first_pass": 118,
+      "healed": 28,
+      "failed_other": 4
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S0",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.259,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.232,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.189,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 42,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.272,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S0",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.245,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.234,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.201,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 43,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.247,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S0",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.213,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 0
+  },
+  {
+    "stage": "S1",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.239,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S2",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.27,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  },
+  {
+    "stage": "S3",
+    "q": 0.9,
+    "failrate": 0.1,
+    "seed": 44,
+    "n_valid": 150,
+    "success": 150,
+    "ci95": [
+      0.975,
+      1.0
+    ],
+    "median_ms": 0.222,
+    "paths": {
+      "first_pass": 150
+    },
+    "adversarial_breaches": 10
+  }
+]

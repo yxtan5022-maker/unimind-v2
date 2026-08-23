@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/compile*.log
+paper/c*.log

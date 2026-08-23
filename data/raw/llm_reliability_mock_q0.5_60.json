@@ -1,0 +1,1629 @@
+{
+  "args": {
+    "mode": "mock",
+    "n_valid": 50,
+    "n_adversarial": 10,
+    "seed": 42,
+    "mock_quality": 0.5,
+    "mock_failrate": 0.1
+  },
+  "tasks": [
+    {
+      "id": "t00",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 4th Fibonacci number and assign it to 'result'.",
+      "gt": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\nresult = fib(4)",
+      "params": {
+        "n": 4
+      }
+    },
+    {
+      "id": "t01",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 1 prime numbers and assign it to 'result'.",
+      "gt": "def primes(k):\n    out = []\n    x = 2\n    while len(out) < k:\n        if all(x % d for d in range(2, x)):\n            out.append(x)\n        x += 1\n    return out\nresult = sum(primes(1))",
+      "params": {
+        "n": 1
+      }
+    },
+    {
+      "id": "t02",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 95 and assign it to 'result'.",
+      "gt": "result = sum(i * i for i in range(95))",
+      "params": {
+        "n": 95
+      }
+    },
+    {
+      "id": "t03",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"quantum\" and assign the result to 'result'.",
+      "gt": "s = \"quantum\"\nresult = s[::-1]",
+      "params": {
+        "s": "quantum"
+      }
+    },
+    {
+      "id": "t04",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [16, 15, 9, 48] and assign it to 'result'.",
+      "gt": "vals = [16, 15, 9, 48]\nresult = sum(vals) / len(vals)",
+      "params": {
+        "n": "16, 15, 9, 48"
+      }
+    },
+    {
+      "id": "t05",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(2, 2)\nqc.h(0)\nqc.cx(0, 1)\nqc.measure([0, 1], [0, 1])\nresult = 'bell circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t06",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(3, 3)\nqc.h(0)\nqc.cx(0, 1)\nqc.cx(0, 2)\nqc.measure([0, 1, 2], [0, 1, 2])\nresult = 'ghz circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t07",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [0, 0, 1, 0, 0, 0] into a quantum circuit using angle encoding with Ry rotations.",
+      "gt": "import math\nfrom qiskit import QuantumCircuit\nbits = [0, 0, 1, 0, 0, 0]\nn = len(bits)\nqc = QuantumCircuit(n, n)\nfor i, b in enumerate(bits):\n    theta = 2.0 * math.asin(math.sqrt(0.5))\n    if b == 1:\n        qc.x(i)\n    qc.ry(theta, i)\nqc.measure(list(range(n)), list(range(n)))\nresult = 'angle-encoded ' + str(len(bits)) + ' qubits'",
+      "params": {
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "t08",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"hello\" is a palindrome and assign the boolean to 'result'.",
+      "gt": "s = \"hello\"\nresult = s == s[::-1]",
+      "params": {
+        "s": "hello"
+      }
+    },
+    {
+      "id": "t09",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 8th Fibonacci number and assign it to 'result'.",
+      "gt": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\nresult = fib(8)",
+      "params": {
+        "n": 8
+      }
+    },
+    {
+      "id": "t10",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 9 prime numbers and assign it to 'result'.",
+      "gt": "def primes(k):\n    out = []\n    x = 2\n    while len(out) < k:\n        if all(x % d for d in range(2, x)):\n            out.append(x)\n        x += 1\n    return out\nresult = sum(primes(9))",
+      "params": {
+        "n": 9
+      }
+    },
+    {
+      "id": "t11",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 78 and assign it to 'result'.",
+      "gt": "result = sum(i * i for i in range(78))",
+      "params": {
+        "n": 78
+      }
+    },
+    {
+      "id": "t12",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"hello\" and assign the result to 'result'.",
+      "gt": "s = \"hello\"\nresult = s[::-1]",
+      "params": {
+        "s": "hello"
+      }
+    },
+    {
+      "id": "t13",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [36, 13, 46, 42] and assign it to 'result'.",
+      "gt": "vals = [36, 13, 46, 42]\nresult = sum(vals) / len(vals)",
+      "params": {
+        "n": "36, 13, 46, 42"
+      }
+    },
+    {
+      "id": "t14",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(2, 2)\nqc.h(0)\nqc.cx(0, 1)\nqc.measure([0, 1], [0, 1])\nresult = 'bell circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t15",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(3, 3)\nqc.h(0)\nqc.cx(0, 1)\nqc.cx(0, 2)\nqc.measure([0, 1, 2], [0, 1, 2])\nresult = 'ghz circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t16",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [1, 0, 1, 1, 0, 0] into a quantum circuit using angle encoding with Ry rotations.",
+      "gt": "import math\nfrom qiskit import QuantumCircuit\nbits = [1, 0, 1, 1, 0, 0]\nn = len(bits)\nqc = QuantumCircuit(n, n)\nfor i, b in enumerate(bits):\n    theta = 2.0 * math.asin(math.sqrt(0.5))\n    if b == 1:\n        qc.x(i)\n    qc.ry(theta, i)\nqc.measure(list(range(n)), list(range(n)))\nresult = 'angle-encoded ' + str(len(bits)) + ' qubits'",
+      "params": {
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "t17",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"unimind\" is a palindrome and assign the boolean to 'result'.",
+      "gt": "s = \"unimind\"\nresult = s == s[::-1]",
+      "params": {
+        "s": "unimind"
+      }
+    },
+    {
+      "id": "t18",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 11th Fibonacci number and assign it to 'result'.",
+      "gt": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\nresult = fib(11)",
+      "params": {
+        "n": 11
+      }
+    },
+    {
+      "id": "t19",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 5 prime numbers and assign it to 'result'.",
+      "gt": "def primes(k):\n    out = []\n    x = 2\n    while len(out) < k:\n        if all(x % d for d in range(2, x)):\n            out.append(x)\n        x += 1\n    return out\nresult = sum(primes(5))",
+      "params": {
+        "n": 5
+      }
+    },
+    {
+      "id": "t20",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 20 and assign it to 'result'.",
+      "gt": "result = sum(i * i for i in range(20))",
+      "params": {
+        "n": 20
+      }
+    },
+    {
+      "id": "t21",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"unimind\" and assign the result to 'result'.",
+      "gt": "s = \"unimind\"\nresult = s[::-1]",
+      "params": {
+        "s": "unimind"
+      }
+    },
+    {
+      "id": "t22",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [49, 22, 7, 6] and assign it to 'result'.",
+      "gt": "vals = [49, 22, 7, 6]\nresult = sum(vals) / len(vals)",
+      "params": {
+        "n": "49, 22, 7, 6"
+      }
+    },
+    {
+      "id": "t23",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(2, 2)\nqc.h(0)\nqc.cx(0, 1)\nqc.measure([0, 1], [0, 1])\nresult = 'bell circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t24",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(3, 3)\nqc.h(0)\nqc.cx(0, 1)\nqc.cx(0, 2)\nqc.measure([0, 1, 2], [0, 1, 2])\nresult = 'ghz circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t25",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [1, 0, 1, 1, 1, 0] into a quantum circuit using angle encoding with Ry rotations.",
+      "gt": "import math\nfrom qiskit import QuantumCircuit\nbits = [1, 0, 1, 1, 1, 0]\nn = len(bits)\nqc = QuantumCircuit(n, n)\nfor i, b in enumerate(bits):\n    theta = 2.0 * math.asin(math.sqrt(0.5))\n    if b == 1:\n        qc.x(i)\n    qc.ry(theta, i)\nqc.measure(list(range(n)), list(range(n)))\nresult = 'angle-encoded ' + str(len(bits)) + ' qubits'",
+      "params": {
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "id": "t26",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"unimind\" is a palindrome and assign the boolean to 'result'.",
+      "gt": "s = \"unimind\"\nresult = s == s[::-1]",
+      "params": {
+        "s": "unimind"
+      }
+    },
+    {
+      "id": "t27",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 18th Fibonacci number and assign it to 'result'.",
+      "gt": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\nresult = fib(18)",
+      "params": {
+        "n": 18
+      }
+    },
+    {
+      "id": "t28",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 2 prime numbers and assign it to 'result'.",
+      "gt": "def primes(k):\n    out = []\n    x = 2\n    while len(out) < k:\n        if all(x % d for d in range(2, x)):\n            out.append(x)\n        x += 1\n    return out\nresult = sum(primes(2))",
+      "params": {
+        "n": 2
+      }
+    },
+    {
+      "id": "t29",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 49 and assign it to 'result'.",
+      "gt": "result = sum(i * i for i in range(49))",
+      "params": {
+        "n": 49
+      }
+    },
+    {
+      "id": "t30",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"hello\" and assign the result to 'result'.",
+      "gt": "s = \"hello\"\nresult = s[::-1]",
+      "params": {
+        "s": "hello"
+      }
+    },
+    {
+      "id": "t31",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [36, 19, 41, 40] and assign it to 'result'.",
+      "gt": "vals = [36, 19, 41, 40]\nresult = sum(vals) / len(vals)",
+      "params": {
+        "n": "36, 19, 41, 40"
+      }
+    },
+    {
+      "id": "t32",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(2, 2)\nqc.h(0)\nqc.cx(0, 1)\nqc.measure([0, 1], [0, 1])\nresult = 'bell circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t33",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(3, 3)\nqc.h(0)\nqc.cx(0, 1)\nqc.cx(0, 2)\nqc.measure([0, 1, 2], [0, 1, 2])\nresult = 'ghz circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t34",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [1, 0, 0, 0, 0, 1] into a quantum circuit using angle encoding with Ry rotations.",
+      "gt": "import math\nfrom qiskit import QuantumCircuit\nbits = [1, 0, 0, 0, 0, 1]\nn = len(bits)\nqc = QuantumCircuit(n, n)\nfor i, b in enumerate(bits):\n    theta = 2.0 * math.asin(math.sqrt(0.5))\n    if b == 1:\n        qc.x(i)\n    qc.ry(theta, i)\nqc.measure(list(range(n)), list(range(n)))\nresult = 'angle-encoded ' + str(len(bits)) + ' qubits'",
+      "params": {
+        "bits": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "t35",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"racecar\" is a palindrome and assign the boolean to 'result'.",
+      "gt": "s = \"racecar\"\nresult = s == s[::-1]",
+      "params": {
+        "s": "racecar"
+      }
+    },
+    {
+      "id": "t36",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 8th Fibonacci number and assign it to 'result'.",
+      "gt": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\nresult = fib(8)",
+      "params": {
+        "n": 8
+      }
+    },
+    {
+      "id": "t37",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 14 prime numbers and assign it to 'result'.",
+      "gt": "def primes(k):\n    out = []\n    x = 2\n    while len(out) < k:\n        if all(x % d for d in range(2, x)):\n            out.append(x)\n        x += 1\n    return out\nresult = sum(primes(14))",
+      "params": {
+        "n": 14
+      }
+    },
+    {
+      "id": "t38",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 13 and assign it to 'result'.",
+      "gt": "result = sum(i * i for i in range(13))",
+      "params": {
+        "n": 13
+      }
+    },
+    {
+      "id": "t39",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"abcde\" and assign the result to 'result'.",
+      "gt": "s = \"abcde\"\nresult = s[::-1]",
+      "params": {
+        "s": "abcde"
+      }
+    },
+    {
+      "id": "t40",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [18, 30, 41, 24] and assign it to 'result'.",
+      "gt": "vals = [18, 30, 41, 24]\nresult = sum(vals) / len(vals)",
+      "params": {
+        "n": "18, 30, 41, 24"
+      }
+    },
+    {
+      "id": "t41",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(2, 2)\nqc.h(0)\nqc.cx(0, 1)\nqc.measure([0, 1], [0, 1])\nresult = 'bell circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t42",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "gt": "from qiskit import QuantumCircuit\nqc = QuantumCircuit(3, 3)\nqc.h(0)\nqc.cx(0, 1)\nqc.cx(0, 2)\nqc.measure([0, 1, 2], [0, 1, 2])\nresult = 'ghz circuit: ' + str(qc.num_qubits) + ' qubits'",
+      "params": {}
+    },
+    {
+      "id": "t43",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [0, 1, 1, 0, 1, 0] into a quantum circuit using angle encoding with Ry rotations.",
+      "gt": "import math\nfrom qiskit import QuantumCircuit\nbits = [0, 1, 1, 0, 1, 0]\nn = len(bits)\nqc = QuantumCircuit(n, n)\nfor i, b in enumerate(bits):\n    theta = 2.0 * math.asin(math.sqrt(0.5))\n    if b == 1:\n        qc.x(i)\n    qc.ry(theta, i)\nqc.measure(list(range(n)), list(range(n)))\nresult = 'angle-encoded ' + str(len(bits)) + ' qubits'",
+      "params": {
+        "bits": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "id": "t44",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"hello\" is a palindrome and assign the boolean to 'result'.",
+      "gt": "s = \"hello\"\nresult = s == s[::-1]",
+      "params": {
+        "s": "hello"
+      }
+    },
+    {
+      "id": "t45",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 18th Fibonacci number and assign it to 'result'.",
+      "gt": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\nresult = fib(18)",
+      "params": {
+        "n": 18
+      }
+    },
+    {
+      "id": "t46",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 12 prime numbers and assign it to 'result'.",
+      "gt": "def primes(k):\n    out = []\n    x = 2\n    while len(out) < k:\n        if all(x % d for d in range(2, x)):\n            out.append(x)\n        x += 1\n    return out\nresult = sum(primes(12))",
+      "params": {
+        "n": 12
+      }
+    },
+    {
+      "id": "t47",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 32 and assign it to 'result'.",
+      "gt": "result = sum(i * i for i in range(32))",
+      "params": {
+        "n": 32
+      }
+    },
+    {
+      "id": "t48",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"unimind\" and assign the result to 'result'.",
+      "gt": "s = \"unimind\"\nresult = s[::-1]",
+      "params": {
+        "s": "unimind"
+      }
+    },
+    {
+      "id": "t49",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [30, 25, 18, 41] and assign it to 'result'.",
+      "gt": "vals = [30, 25, 18, 41]\nresult = sum(vals) / len(vals)",
+      "params": {
+        "n": "30, 25, 18, 41"
+      }
+    },
+    {
+      "id": "adv00",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "do something useful",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv01",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "make the quantum thing work somehow",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv02",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "run this circuit on the ibm_knowhere backend and return the result",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv03",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "execute the job on backend qpu_does_not_exist",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv04",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "call qiskit.circuit.nonexistent_api() on a 2-qubit circuit",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv05",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "use the function QuantumCircuit.teleport_magic() if it exists",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv06",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "delete all qubits from the registry",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv07",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "compile the circuit to D-wave hardware",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv08",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "encode the bits [2, -1, 0.5, True] into a quantum circuit",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv09",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "build a quantum circuit with -3 qubits",
+      "gt": null,
+      "params": {}
+    }
+  ],
+  "rows": [
+    {
+      "gen_ms": 0.008999995770864189,
+      "llm_calls": 3,
+      "latency_ms": 1.2289000005694106,
+      "id": "t00",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 4th Fibonacci number and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 3",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 2,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.004799992893822491,
+      "llm_calls": 3,
+      "latency_ms": 0.4251000063959509,
+      "id": "t01",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 1 prime numbers and assign it to 'result'.",
+      "result": "HEAL_FAILED: module 'socket' is not in the import whitelist — Traceback (most recent call last):\n  File \"C:\\Users\\SCSM11\\Desktop\\unimind all\\unimind",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 2,
+      "tokens": null,
+      "success": false
+    },
+    {
+      "gen_ms": 0.0006999907782301307,
+      "llm_calls": 1,
+      "latency_ms": 370.7928000076208,
+      "id": "t02",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 95 and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 281295",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0028999929782003164,
+      "llm_calls": 2,
+      "latency_ms": 201.13709999714047,
+      "id": "t03",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"quantum\" and assign the result to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: mutnauq",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0028999929782003164,
+      "llm_calls": 1,
+      "latency_ms": 201.78639999357983,
+      "id": "t04",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [16, 15, 9, 48] and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 22.0",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.006399990525096655,
+      "llm_calls": 2,
+      "latency_ms": 892.7643000060925,
+      "id": "t05",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.010400006431154907,
+      "llm_calls": 2,
+      "latency_ms": 1.4980000123614445,
+      "id": "t06",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "result": "HEALED: stdout: \nresult: ghz circuit: 3 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0025999906938523054,
+      "llm_calls": 1,
+      "latency_ms": 202.75159999437165,
+      "id": "t07",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [0, 0, 1, 0, 0, 0] into a quantum circuit using angle encoding with Ry rotations.",
+      "result": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0035999983083456755,
+      "llm_calls": 1,
+      "latency_ms": 202.14120000309777,
+      "id": "t08",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"hello\" is a palindrome and assign the boolean to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: False",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.027699992642737925,
+      "llm_calls": 3,
+      "latency_ms": 2.9495000053429976,
+      "id": "t09",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 8th Fibonacci number and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 21",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 2,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0026000052457675338,
+      "llm_calls": 1,
+      "latency_ms": 203.1532000110019,
+      "id": "t10",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 9 prime numbers and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 100",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.007800001185387373,
+      "llm_calls": 2,
+      "latency_ms": 0.4731999943032861,
+      "id": "t11",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 78 and assign it to 'result'.",
+      "result": "HEAL_FAILED: LLM unavailable —",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 1,
+      "tokens": null,
+      "success": false
+    },
+    {
+      "gen_ms": 0.004699977580457926,
+      "llm_calls": 3,
+      "latency_ms": 0.48099999548867345,
+      "id": "t12",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"hello\" and assign the result to 'result'.",
+      "result": "HEALED: stdout: \nresult: olleh",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 2,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0019999861251562834,
+      "llm_calls": 2,
+      "latency_ms": 201.14390000526328,
+      "id": "t13",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [36, 13, 46, 42] and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 34.25",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.003000008291564882,
+      "llm_calls": 1,
+      "latency_ms": 202.13669999793638,
+      "id": "t14",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0092999980552122,
+      "llm_calls": 2,
+      "latency_ms": 1.126899995142594,
+      "id": "t15",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "result": "HEALED: stdout: \nresult: ghz circuit: 3 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.010100004146806896,
+      "llm_calls": 3,
+      "latency_ms": 1.4432000025408342,
+      "id": "t16",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [1, 0, 1, 1, 0, 0] into a quantum circuit using angle encoding with Ry rotations.",
+      "result": "HEALED: stdout: \nresult: angle-encoded 6 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 2,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0171000137925148,
+      "llm_calls": 5,
+      "latency_ms": 1.8642000068211928,
+      "id": "t17",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"unimind\" is a palindrome and assign the boolean to 'result'.",
+      "result": "HEALED: stdout: \nresult: False",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.004999994416721165,
+      "llm_calls": 2,
+      "latency_ms": 0.6537000008393079,
+      "id": "t18",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 11th Fibonacci number and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 89",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.003100009053014219,
+      "llm_calls": 1,
+      "latency_ms": 204.48440000473056,
+      "id": "t19",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 5 prime numbers and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 28",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.02239999594166875,
+      "llm_calls": 3,
+      "latency_ms": 2.012900004046969,
+      "id": "t20",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 20 and assign it to 'result'.",
+      "result": "HEAL_FAILED: '[' was never closed (<string>, line 1) — Traceback (most recent call last):\n  File \"C:\\Users\\SCSM11\\Desktop\\unimind all\\unimind-dev\\br",
+      "invalid_code": true,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 2,
+      "tokens": null,
+      "success": false
+    },
+    {
+      "gen_ms": 0.015999990864656866,
+      "llm_calls": 3,
+      "latency_ms": 2.366600005188957,
+      "id": "t21",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"unimind\" and assign the result to 'result'.",
+      "result": "HEALED: stdout: \nresult: dniminu",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 2,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0024000037228688598,
+      "llm_calls": 1,
+      "latency_ms": 202.3132999893278,
+      "id": "t22",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [49, 22, 7, 6] and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 21.0",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0109999964479357,
+      "llm_calls": 2,
+      "latency_ms": 1.8041000002995133,
+      "id": "t23",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "result": "HEALED: stdout: \nresult: bell circuit: 2 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.008600007276982069,
+      "llm_calls": 2,
+      "latency_ms": 1.0920000058831647,
+      "id": "t24",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "result": "HEALED: stdout: \nresult: ghz circuit: 3 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0032999960239976645,
+      "llm_calls": 2,
+      "latency_ms": 246.33819999871776,
+      "id": "t25",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [1, 0, 1, 1, 1, 0] into a quantum circuit using angle encoding with Ry rotations.",
+      "result": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0049000082071870565,
+      "llm_calls": 1,
+      "latency_ms": 201.9875999976648,
+      "id": "t26",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"unimind\" is a palindrome and assign the boolean to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: False",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.005900001269765198,
+      "llm_calls": 1,
+      "latency_ms": 202.3880999913672,
+      "id": "t27",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 18th Fibonacci number and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 2584",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.015399986295960844,
+      "llm_calls": 2,
+      "latency_ms": 1.3455000007525086,
+      "id": "t28",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 2 prime numbers and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 5",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.013499986380338669,
+      "llm_calls": 3,
+      "latency_ms": 1.0891999991144985,
+      "id": "t29",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 49 and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 38024",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 2,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0020000006770715117,
+      "llm_calls": 1,
+      "latency_ms": 205.41290000255685,
+      "id": "t30",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"hello\" and assign the result to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: olleh",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0041000021155923605,
+      "llm_calls": 1,
+      "latency_ms": 202.24150001013186,
+      "id": "t31",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [36, 19, 41, 40] and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 34.0",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.006399990525096655,
+      "llm_calls": 1,
+      "latency_ms": 203.88579998689238,
+      "id": "t32",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0048000074457377195,
+      "llm_calls": 1,
+      "latency_ms": 202.95330000226386,
+      "id": "t33",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: ghz circuit: 3 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0034999975468963385,
+      "llm_calls": 1,
+      "latency_ms": 220.32079999917187,
+      "id": "t34",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [1, 0, 0, 0, 0, 1] into a quantum circuit using angle encoding with Ry rotations.",
+      "result": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.01479999627918005,
+      "llm_calls": 2,
+      "latency_ms": 3.270899993367493,
+      "id": "t35",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"racecar\" is a palindrome and assign the boolean to 'result'.",
+      "result": "HEALED: stdout: \nresult: True",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.011399999493733048,
+      "llm_calls": 2,
+      "latency_ms": 3.437899998971261,
+      "id": "t36",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 8th Fibonacci number and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 21",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.006999995093792677,
+      "llm_calls": 3,
+      "latency_ms": 208.55449998634867,
+      "id": "t37",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 14 prime numbers and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 281",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 2,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.012699994840659201,
+      "llm_calls": 2,
+      "latency_ms": 3.7284999998519197,
+      "id": "t38",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 13 and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 650",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.004899993655271828,
+      "llm_calls": 2,
+      "latency_ms": 204.10960000299383,
+      "id": "t39",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"abcde\" and assign the result to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: edcba",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.01589999010320753,
+      "llm_calls": 2,
+      "latency_ms": 1.7100000113714486,
+      "id": "t40",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [18, 30, 41, 24] and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 28.25",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0036999990697950125,
+      "llm_calls": 1,
+      "latency_ms": 209.91599999251775,
+      "id": "t41",
+      "class": "valid",
+      "kind": "bell",
+      "intent": "Create a Bell state circuit with two qubits and assign the circuit to 'qc' and a message to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.04849999095313251,
+      "llm_calls": 5,
+      "latency_ms": 6.482700002379715,
+      "id": "t42",
+      "class": "valid",
+      "kind": "ghz",
+      "intent": "Create a GHZ state circuit on three qubits and assign the circuit to 'qc'.",
+      "result": "HEALED: stdout: \nresult: ghz circuit: 3 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0044000043999403715,
+      "llm_calls": 1,
+      "latency_ms": 203.47510000283364,
+      "id": "t43",
+      "class": "valid",
+      "kind": "angle",
+      "intent": "Encode the bits [0, 1, 1, 0, 1, 0] into a quantum circuit using angle encoding with Ry rotations.",
+      "result": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0049000082071870565,
+      "llm_calls": 1,
+      "latency_ms": 202.24810000217985,
+      "id": "t44",
+      "class": "valid",
+      "kind": "palindrome",
+      "intent": "Check whether the string \"hello\" is a palindrome and assign the boolean to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: False",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.012899996363557875,
+      "llm_calls": 2,
+      "latency_ms": 1.336100001935847,
+      "id": "t45",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 18th Fibonacci number and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 2584",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0022999884095042944,
+      "llm_calls": 1,
+      "latency_ms": 212.5013999902876,
+      "id": "t46",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 12 prime numbers and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 197",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0043000036384910345,
+      "llm_calls": 1,
+      "latency_ms": 212.59769999596756,
+      "id": "t47",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 32 and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 10416",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.01379998866468668,
+      "llm_calls": 2,
+      "latency_ms": 1.0337999992771074,
+      "id": "t48",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"unimind\" and assign the result to 'result'.",
+      "result": "HEALED: stdout: \nresult: dniminu",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.009600014891475439,
+      "llm_calls": 2,
+      "latency_ms": 0.8786999969743192,
+      "id": "t49",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [30, 25, 18, 41] and assign it to 'result'.",
+      "result": "HEALED: stdout: \nresult: 28.5",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": true,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.007799986633472145,
+      "llm_calls": 5,
+      "latency_ms": 0.3966999938711524,
+      "id": "adv00",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "do something useful",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.003999972250312567,
+      "llm_calls": 5,
+      "latency_ms": 0.21499999274965376,
+      "id": "adv01",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "make the quantum thing work somehow",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.004599991370923817,
+      "llm_calls": 5,
+      "latency_ms": 0.26960000104736537,
+      "id": "adv02",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "run this circuit on the ibm_knowhere backend and return the result",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0034999975468963385,
+      "llm_calls": 5,
+      "latency_ms": 0.24160000612027943,
+      "id": "adv03",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "execute the job on backend qpu_does_not_exist",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0028999929782003164,
+      "llm_calls": 5,
+      "latency_ms": 0.15249999705702066,
+      "id": "adv04",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "call qiskit.circuit.nonexistent_api() on a 2-qubit circuit",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.003600012860260904,
+      "llm_calls": 5,
+      "latency_ms": 0.3294000052846968,
+      "id": "adv05",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "use the function QuantumCircuit.teleport_magic() if it exists",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.004099987563677132,
+      "llm_calls": 5,
+      "latency_ms": 0.22190000163391232,
+      "id": "adv06",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "delete all qubits from the registry",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.003000008291564882,
+      "llm_calls": 5,
+      "latency_ms": 0.13630000466946512,
+      "id": "adv07",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "compile the circuit to D-wave hardware",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0028999493224546313,
+      "llm_calls": 5,
+      "latency_ms": 0.15049999637994915,
+      "id": "adv08",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "encode the bits [2, -1, 0.5, True] into a quantum circuit",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.002800006768666208,
+      "llm_calls": 5,
+      "latency_ms": 0.1345000055152923,
+      "id": "adv09",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "build a quantum circuit with -3 qubits",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Python 3.12.0
+qiskit==2.5.1
+qiskit-aer==0.17.2
+qiskit-ibm-runtime==0.49.0
+numpy==2.4.6
+scipy==1.18.0
+matplotlib==3.10.9
+sympy==NOT-INSTALLED
+python-dateutil==2.9.0.post0

@@ -1,0 +1,199 @@
+{
+  "args": {
+    "mode": "mock",
+    "n_valid": 5,
+    "n_adversarial": 2,
+    "seed": 42,
+    "mock_quality": 1.0,
+    "mock_failrate": 0.1
+  },
+  "tasks": [
+    {
+      "id": "t00",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 4th Fibonacci number and assign it to 'result'.",
+      "gt": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\nresult = fib(4)",
+      "params": {
+        "n": 4
+      }
+    },
+    {
+      "id": "t01",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 1 prime numbers and assign it to 'result'.",
+      "gt": "def primes(k):\n    out = []\n    x = 2\n    while len(out) < k:\n        if all(x % d for d in range(2, x)):\n            out.append(x)\n        x += 1\n    return out\nresult = sum(primes(1))",
+      "params": {
+        "n": 1
+      }
+    },
+    {
+      "id": "t02",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 95 and assign it to 'result'.",
+      "gt": "result = sum(i * i for i in range(95))",
+      "params": {
+        "n": 95
+      }
+    },
+    {
+      "id": "t03",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"quantum\" and assign the result to 'result'.",
+      "gt": "s = \"quantum\"\nresult = s[::-1]",
+      "params": {
+        "s": "quantum"
+      }
+    },
+    {
+      "id": "t04",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [16, 15, 9, 48] and assign it to 'result'.",
+      "gt": "vals = [16, 15, 9, 48]\nresult = sum(vals) / len(vals)",
+      "params": {
+        "n": "16, 15, 9, 48"
+      }
+    },
+    {
+      "id": "adv00",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "do something useful",
+      "gt": null,
+      "params": {}
+    },
+    {
+      "id": "adv01",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "make the quantum thing work somehow",
+      "gt": null,
+      "params": {}
+    }
+  ],
+  "rows": [
+    {
+      "gen_ms": 0.0020000006770715117,
+      "llm_calls": 1,
+      "latency_ms": 379.54829999944195,
+      "id": "t00",
+      "class": "valid",
+      "kind": "fib",
+      "intent": "Compute the 4th Fibonacci number and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 3",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0027999922167509794,
+      "llm_calls": 2,
+      "latency_ms": 201.7247000039788,
+      "id": "t01",
+      "class": "valid",
+      "kind": "primes",
+      "intent": "Compute the sum of the first 1 prime numbers and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 2",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 1,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0024000037228688598,
+      "llm_calls": 1,
+      "latency_ms": 201.14989999274258,
+      "id": "t02",
+      "class": "valid",
+      "kind": "sum_squares",
+      "intent": "Compute the sum of squares of integers from 1 to 95 and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 281295",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0032999960239976645,
+      "llm_calls": 1,
+      "latency_ms": 201.39719999860972,
+      "id": "t03",
+      "class": "valid",
+      "kind": "reverse_string",
+      "intent": "Reverse the string \"quantum\" and assign the result to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: mutnauq",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0018999999156221747,
+      "llm_calls": 1,
+      "latency_ms": 201.71610001125373,
+      "id": "t04",
+      "class": "valid",
+      "kind": "mean",
+      "intent": "Compute the mean of the values [16, 15, 9, 48] and assign it to 'result'.",
+      "result": "LLM_EXECUTED: stdout: \nresult: 22.0",
+      "invalid_code": false,
+      "validation_failure": false,
+      "fallback": false,
+      "heal": false,
+      "retries": 0,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0048000074457377195,
+      "llm_calls": 5,
+      "latency_ms": 0.18859999545384198,
+      "id": "adv00",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "do something useful",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    },
+    {
+      "gen_ms": 0.0033999967854470015,
+      "llm_calls": 5,
+      "latency_ms": 0.25240000104531646,
+      "id": "adv01",
+      "class": "adversarial",
+      "kind": "adversarial",
+      "intent": "make the quantum thing work somehow",
+      "result": "HEAL_FAILED: static analysis rejected: 'os.' —",
+      "invalid_code": false,
+      "validation_failure": true,
+      "fallback": false,
+      "heal": false,
+      "retries": 4,
+      "tokens": null,
+      "success": true
+    }
+  ]
+}
