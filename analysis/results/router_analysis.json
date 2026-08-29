@@ -1,101 +1,101 @@
 {
   "cells": [
     {
-      "q": 98,
+      "q": 8,
       "rank": 1,
       "percentile": 0.0,
-      "readout_total": 0.00439453125,
-      "max_dev": 0.0203,
+      "readout_total": 0.00390625,
+      "max_dev": 0.03,
       "pass_rate": 1.0,
-      "affine_a": 0.989,
-      "affine_b": 0.0047,
-      "job_id": "da5c21eaa69c739kmk4g"
+      "affine_a": 0.9857,
+      "affine_b": 0.0014,
+      "job_id": "da9eoo1qtnsc73d1gqlg"
     },
     {
-      "q": 20,
+      "q": 109,
       "rank": 40,
       "percentile": 25.2,
-      "readout_total": 0.01513671875,
-      "max_dev": 0.0383,
-      "pass_rate": 1.0,
-      "affine_a": 0.9811,
-      "affine_b": -0.0013,
-      "job_id": "da5c2es3jnrc73ah4dn0"
+      "readout_total": 0.01708984375,
+      "max_dev": 0.0812,
+      "pass_rate": 0.737,
+      "affine_a": 0.9328,
+      "affine_b": 0.0427,
+      "job_id": "da9epace74ec73ajmepg"
     },
     {
       "q": 105,
       "rank": 79,
       "percentile": 50.3,
-      "readout_total": 0.02392578125,
-      "max_dev": 0.0496,
+      "readout_total": 0.03125,
+      "max_dev": 0.0434,
       "pass_rate": 1.0,
-      "affine_a": 0.9841,
-      "affine_b": 0.0194,
-      "job_id": "da5c2seaa69c739kmksg"
+      "affine_a": 0.9831,
+      "affine_b": 0.0184,
+      "job_id": "da9ere4e74ec73ajmgng"
     },
     {
-      "q": 31,
+      "q": 53,
       "rank": 118,
       "percentile": 75.5,
-      "readout_total": 0.049072265625,
-      "max_dev": 0.0516,
-      "pass_rate": 0.947,
-      "affine_a": 0.9773,
-      "affine_b": 0.0218,
-      "job_id": "da5c39jotlns739bofp0"
-    },
-    {
-      "q": 119,
-      "rank": 149,
-      "percentile": 95.5,
-      "readout_total": 0.320068359375,
-      "max_dev": 0.1968,
-      "pass_rate": 0.316,
-      "affine_a": 0.8716,
-      "affine_b": 0.0597,
-      "job_id": "da5c3n43jnrc73ah4eu0"
+      "readout_total": 0.07177734375,
+      "max_dev": 0.0464,
+      "pass_rate": 1.0,
+      "affine_a": 0.982,
+      "affine_b": 0.0212,
+      "job_id": "da9epspqtnsc73d1grog"
     },
     {
       "q": 37,
-      "rank": 153,
-      "percentile": 98.1,
-      "readout_total": 0.82177734375,
-      "max_dev": 0.3043,
-      "pass_rate": 0.211,
-      "affine_a": 0.7712,
-      "affine_b": 0.1734,
-      "job_id": "da5c44e1vhnc73flthu0"
+      "rank": 128,
+      "percentile": 81.9,
+      "readout_total": 0.09912109375,
+      "max_dev": 0.1462,
+      "pass_rate": 0.474,
+      "affine_a": 0.8873,
+      "affine_b": 0.0809,
+      "job_id": "da9erv9qtnsc73d1gtp0"
+    },
+    {
+      "q": 27,
+      "rank": 149,
+      "percentile": 95.5,
+      "readout_total": 0.34619140625,
+      "max_dev": 0.0956,
+      "pass_rate": 0.684,
+      "affine_a": 0.9169,
+      "affine_b": 0.0486,
+      "job_id": "da9eqe1qtnsc73d1gsag"
     }
   ],
   "verdicts": {
     "H3.2_score_validity": {
       "pass": true,
-      "detail": "top-1 q98 max_dev=0.0203 vs bottom q37 0.3043"
+      "detail": "top-1 q8 max_dev=0.03 vs bottom q27 0.0956"
     },
     "H3.1_upper_half_ge_90pct": {
-      "pass": true,
+      "pass": false,
       "detail": [
-        "q98:100%",
-        "q20:100%"
+        "q8:100%",
+        "q109:74%"
       ]
     },
     "H3.3_overhead_ms": {
       "pass": true,
       "overhead": {
-        "selector_argmin_ms": 0.0364,
+        "selector_argmin_ms": 0.0246,
         "transpile_pinned_ms_median": 1.9,
-        "transpile_free_ms_median": 1.8,
-        "aware_layout_3q_ms": 0.294,
+        "transpile_free_ms_median": 1.9,
+        "aware_layout_3q_ms": 2.411,
         "aware_layout_3q_choice": [
-          98,
-          91,
-          90
+          8,
+          7,
+          6
         ]
       }
     },
     "spearman_C_vs_maxdev": {
-      "rho": 1.0,
-      "p_exact": 0.0028
+      "rho": 0.771,
+      "p_exact": 0.1028
     }
   }
 }

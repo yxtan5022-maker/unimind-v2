@@ -1,15 +1,15 @@
 {
-  "arm": "full",
-  "orch_tag": "S3X",
-  "orch_ms": 42.2,
-  "transpile_ms_median": 5.8,
-  "n_pubs": 18,
+  "arm": "ablated",
+  "orch_tag": "S1",
+  "orch_ms": 6.4,
+  "transpile_ms_median": 5.0,
+  "n_pubs": 17,
   "rows": [
     {
       "id": "t00",
       "class": "valid",
       "kind": "fib",
-      "latency_ms": 0.16909999976633117,
+      "latency_ms": 0.11919999997189734,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 3",
       "success": true,
@@ -19,7 +19,7 @@
       "id": "t01",
       "class": "valid",
       "kind": "primes",
-      "latency_ms": 0.16039999991335208,
+      "latency_ms": 0.11760000052163377,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 2",
       "success": true,
@@ -29,7 +29,7 @@
       "id": "t02",
       "class": "valid",
       "kind": "sum_squares",
-      "latency_ms": 0.06789999952161452,
+      "latency_ms": 0.04579999949783087,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 281295",
       "success": true,
@@ -39,7 +39,7 @@
       "id": "t03",
       "class": "valid",
       "kind": "reverse_string",
-      "latency_ms": 0.04069999977218686,
+      "latency_ms": 0.028299999939918052,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: mutnauq",
       "success": true,
@@ -49,7 +49,7 @@
       "id": "t04",
       "class": "valid",
       "kind": "mean",
-      "latency_ms": 0.04979999994247919,
+      "latency_ms": 0.03220000053261174,
       "llm_calls": 2,
       "raw": "LLM_EXECUTED: stdout: \nresult: 22.0",
       "success": true,
@@ -59,7 +59,7 @@
       "id": "t05",
       "class": "valid",
       "kind": "bell",
-      "latency_ms": 0.2916000003096997,
+      "latency_ms": 0.2813000000969623,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
       "success": true,
@@ -69,7 +69,7 @@
       "id": "t06",
       "class": "valid",
       "kind": "ghz",
-      "latency_ms": 0.2350999993723235,
+      "latency_ms": 0.44630000047618523,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: ghz circuit: 3 qubits",
       "success": true,
@@ -79,7 +79,7 @@
       "id": "t07",
       "class": "valid",
       "kind": "angle",
-      "latency_ms": 0.4849999995713006,
+      "latency_ms": 0.5942999996477738,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
       "success": true,
@@ -89,7 +89,7 @@
       "id": "t08",
       "class": "valid",
       "kind": "palindrome",
-      "latency_ms": 0.05870000040886225,
+      "latency_ms": 0.1021999996737577,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: False",
       "success": true,
@@ -99,7 +99,7 @@
       "id": "t09",
       "class": "valid",
       "kind": "fib",
-      "latency_ms": 0.07370000002993038,
+      "latency_ms": 0.15190000067377696,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 21",
       "success": true,
@@ -109,17 +109,17 @@
       "id": "t10",
       "class": "valid",
       "kind": "primes",
-      "latency_ms": 32.059299999673385,
-      "llm_calls": 2,
-      "raw": "HEALED: stdout: \nresult: 100",
-      "success": true,
-      "path": "healed"
+      "latency_ms": 0.4015000004073954,
+      "llm_calls": 1,
+      "raw": "EXEC_FAILED: module 'socket' is not in the import whitelist",
+      "success": false,
+      "path": "failed_other"
     },
     {
       "id": "t11",
       "class": "valid",
       "kind": "sum_squares",
-      "latency_ms": 0.09829999999055872,
+      "latency_ms": 0.06780000057915458,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 155155",
       "success": true,
@@ -129,8 +129,8 @@
       "id": "t12",
       "class": "valid",
       "kind": "reverse_string",
-      "latency_ms": 0.05700000019714935,
-      "llm_calls": 2,
+      "latency_ms": 0.032500000088475645,
+      "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: olleh",
       "success": true,
       "path": "first_pass"
@@ -139,8 +139,8 @@
       "id": "t13",
       "class": "valid",
       "kind": "mean",
-      "latency_ms": 0.06469999971159268,
-      "llm_calls": 1,
+      "latency_ms": 0.037400000110210385,
+      "llm_calls": 2,
       "raw": "LLM_EXECUTED: stdout: \nresult: 34.25",
       "success": true,
       "path": "first_pass"
@@ -149,7 +149,7 @@
       "id": "t14",
       "class": "valid",
       "kind": "bell",
-      "latency_ms": 0.4169000003457768,
+      "latency_ms": 0.14390000069397502,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
       "success": true,
@@ -159,7 +159,7 @@
       "id": "t15",
       "class": "valid",
       "kind": "ghz",
-      "latency_ms": 0.2554000002419343,
+      "latency_ms": 0.1233000002685003,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: ghz circuit: 3 qubits",
       "success": true,
@@ -169,7 +169,7 @@
       "id": "t16",
       "class": "valid",
       "kind": "angle",
-      "latency_ms": 0.6085000004532048,
+      "latency_ms": 0.2071999997497187,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
       "success": true,
@@ -179,7 +179,7 @@
       "id": "t17",
       "class": "valid",
       "kind": "palindrome",
-      "latency_ms": 0.11180000001331791,
+      "latency_ms": 0.033799999982875306,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: False",
       "success": true,
@@ -189,27 +189,27 @@
       "id": "t18",
       "class": "valid",
       "kind": "fib",
-      "latency_ms": 0.6123999992269091,
-      "llm_calls": 2,
-      "raw": "HEALED: stdout: \nresult: 89",
+      "latency_ms": 0.05729999975301325,
+      "llm_calls": 1,
+      "raw": "LLM_EXECUTED: stdout: \nresult: 89",
       "success": true,
-      "path": "healed"
+      "path": "first_pass"
     },
     {
       "id": "t19",
       "class": "valid",
       "kind": "primes",
-      "latency_ms": 0.7340000001931912,
-      "llm_calls": 2,
-      "raw": "HEALED: stdout: \nresult: 28",
-      "success": true,
-      "path": "healed"
+      "latency_ms": 0.16210000012506498,
+      "llm_calls": 1,
+      "raw": "EXEC_FAILED: module 'socket' is not in the import whitelist",
+      "success": false,
+      "path": "failed_other"
     },
     {
       "id": "t20",
       "class": "valid",
       "kind": "sum_squares",
-      "latency_ms": 0.1712000002953573,
+      "latency_ms": 0.047900000026857015,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 2470",
       "success": true,
@@ -219,18 +219,18 @@
       "id": "t21",
       "class": "valid",
       "kind": "reverse_string",
-      "latency_ms": 0.08400000024266774,
-      "llm_calls": 2,
-      "raw": "LLM_EXECUTED: stdout: \nresult: dniminu",
-      "success": true,
-      "path": "first_pass"
+      "latency_ms": 0.13039999976172112,
+      "llm_calls": 1,
+      "raw": "EXEC_FAILED: '[' was never closed (<string>, line 1)",
+      "success": false,
+      "path": "failed_other"
     },
     {
       "id": "t22",
       "class": "valid",
       "kind": "mean",
-      "latency_ms": 0.07689999983995222,
-      "llm_calls": 2,
+      "latency_ms": 0.03709999964485178,
+      "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 21.0",
       "success": true,
       "path": "first_pass"
@@ -239,7 +239,7 @@
       "id": "t23",
       "class": "valid",
       "kind": "bell",
-      "latency_ms": 0.282599999991362,
+      "latency_ms": 0.11360000007698545,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
       "success": true,
@@ -249,8 +249,8 @@
       "id": "t24",
       "class": "valid",
       "kind": "ghz",
-      "latency_ms": 0.25010000081238104,
-      "llm_calls": 1,
+      "latency_ms": 0.10990000009769574,
+      "llm_calls": 2,
       "raw": "LLM_EXECUTED: stdout: \nresult: ghz circuit: 3 qubits",
       "success": true,
       "path": "first_pass"
@@ -259,8 +259,8 @@
       "id": "t25",
       "class": "valid",
       "kind": "angle",
-      "latency_ms": 0.40979999994306127,
-      "llm_calls": 1,
+      "latency_ms": 0.1874999998108251,
+      "llm_calls": 2,
       "raw": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
       "success": true,
       "path": "first_pass"
@@ -269,7 +269,7 @@
       "id": "t26",
       "class": "valid",
       "kind": "palindrome",
-      "latency_ms": 0.06970000049477676,
+      "latency_ms": 0.032699999792384915,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: False",
       "success": true,
@@ -279,7 +279,7 @@
       "id": "t27",
       "class": "valid",
       "kind": "fib",
-      "latency_ms": 0.12089999927411554,
+      "latency_ms": 0.05449999935080996,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 1",
       "success": true,
@@ -289,7 +289,7 @@
       "id": "t28",
       "class": "valid",
       "kind": "primes",
-      "latency_ms": 0.16350000078091398,
+      "latency_ms": 0.1081000000340282,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 28",
       "success": true,
@@ -299,7 +299,7 @@
       "id": "t29",
       "class": "valid",
       "kind": "sum_squares",
-      "latency_ms": 0.05929999952059006,
+      "latency_ms": 0.04619999981514411,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 238965",
       "success": true,
@@ -309,17 +309,17 @@
       "id": "t30",
       "class": "valid",
       "kind": "reverse_string",
-      "latency_ms": 0.42940000003000023,
-      "llm_calls": 2,
-      "raw": "HEALED: stdout: \nresult: dniminu",
+      "latency_ms": 0.025800000003073364,
+      "llm_calls": 1,
+      "raw": "LLM_EXECUTED: stdout: \nresult: dniminu",
       "success": true,
-      "path": "healed"
+      "path": "first_pass"
     },
     {
       "id": "t31",
       "class": "valid",
       "kind": "mean",
-      "latency_ms": 0.05309999960445566,
+      "latency_ms": 0.02949999998236308,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 35.5",
       "success": true,
@@ -329,27 +329,27 @@
       "id": "t32",
       "class": "valid",
       "kind": "bell",
-      "latency_ms": 0.3747000000657863,
-      "llm_calls": 3,
-      "raw": "HEALED: stdout: \nresult: bell circuit: 2 qubits",
+      "latency_ms": 0.10170000041398453,
+      "llm_calls": 1,
+      "raw": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
       "success": true,
-      "path": "healed"
+      "path": "first_pass"
     },
     {
       "id": "t33",
       "class": "valid",
       "kind": "ghz",
-      "latency_ms": 0.14959999953134684,
+      "latency_ms": 0.1407999998264131,
       "llm_calls": 1,
-      "raw": "LLM_EXECUTED: stdout: \nresult: ghz circuit: 3 qubits",
-      "success": true,
-      "path": "first_pass"
+      "raw": "EXEC_FAILED: module 'socket' is not in the import whitelist",
+      "success": false,
+      "path": "failed_other"
     },
     {
       "id": "t34",
       "class": "valid",
       "kind": "angle",
-      "latency_ms": 0.24249999933090294,
+      "latency_ms": 0.1959000001079403,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
       "success": true,
@@ -359,28 +359,28 @@
       "id": "t35",
       "class": "valid",
       "kind": "palindrome",
-      "latency_ms": 0.2060999995592283,
-      "llm_calls": 2,
-      "raw": "HEALED: stdout: \nresult: False",
+      "latency_ms": 0.03170000036334386,
+      "llm_calls": 1,
+      "raw": "LLM_EXECUTED: stdout: \nresult: False",
       "success": true,
-      "path": "healed"
+      "path": "first_pass"
     },
     {
       "id": "t36",
       "class": "valid",
       "kind": "fib",
-      "latency_ms": 0.07609999920532573,
-      "llm_calls": 1,
-      "raw": "LLM_EXECUTED: stdout: \nresult: 233",
-      "success": true,
-      "path": "first_pass"
+      "latency_ms": 0.13140000010025688,
+      "llm_calls": 2,
+      "raw": "EXEC_FAILED: '[' was never closed (<string>, line 1)",
+      "success": false,
+      "path": "failed_other"
     },
     {
       "id": "t37",
       "class": "valid",
       "kind": "primes",
-      "latency_ms": 0.130899999930989,
-      "llm_calls": 2,
+      "latency_ms": 0.10279999969498022,
+      "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 10",
       "success": true,
       "path": "first_pass"
@@ -389,17 +389,17 @@
       "id": "t38",
       "class": "valid",
       "kind": "sum_squares",
-      "latency_ms": 0.26650000017980346,
-      "llm_calls": 2,
-      "raw": "HEALED: stdout: \nresult: 140",
+      "latency_ms": 0.03889999970851932,
+      "llm_calls": 1,
+      "raw": "LLM_EXECUTED: stdout: \nresult: 140",
       "success": true,
-      "path": "healed"
+      "path": "first_pass"
     },
     {
       "id": "t39",
       "class": "valid",
       "kind": "reverse_string",
-      "latency_ms": 0.030199999855540227,
+      "latency_ms": 0.024500000108673703,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: olleh",
       "success": true,
@@ -409,17 +409,17 @@
       "id": "t40",
       "class": "valid",
       "kind": "mean",
-      "latency_ms": 0.03399999968678458,
+      "latency_ms": 0.08849999994708924,
       "llm_calls": 1,
-      "raw": "LLM_EXECUTED: stdout: \nresult: 12.5",
-      "success": true,
-      "path": "first_pass"
+      "raw": "EXEC_FAILED: unterminated string literal (detected at line 1) (<string>, line 1)",
+      "success": false,
+      "path": "failed_other"
     },
     {
       "id": "t41",
       "class": "valid",
       "kind": "bell",
-      "latency_ms": 0.17410000054951524,
+      "latency_ms": 0.12819999938074034,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
       "success": true,
@@ -429,7 +429,7 @@
       "id": "t42",
       "class": "valid",
       "kind": "ghz",
-      "latency_ms": 0.1371000007566181,
+      "latency_ms": 0.14080000073590782,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: ghz circuit: 3 qubits",
       "success": true,
@@ -439,8 +439,8 @@
       "id": "t43",
       "class": "valid",
       "kind": "angle",
-      "latency_ms": 0.19890000021405285,
-      "llm_calls": 1,
+      "latency_ms": 0.218999999560765,
+      "llm_calls": 2,
       "raw": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
       "success": true,
       "path": "first_pass"
@@ -449,17 +449,17 @@
       "id": "t44",
       "class": "valid",
       "kind": "palindrome",
-      "latency_ms": 0.031799999305803794,
+      "latency_ms": 0.1443999999537482,
       "llm_calls": 1,
-      "raw": "LLM_EXECUTED: stdout: \nresult: False",
-      "success": true,
-      "path": "first_pass"
+      "raw": "EXEC_FAILED: future feature not_a_feature is not defined (<string>, line 1)",
+      "success": false,
+      "path": "failed_other"
     },
     {
       "id": "t45",
       "class": "valid",
       "kind": "fib",
-      "latency_ms": 0.054600000112259295,
+      "latency_ms": 0.06579999990208307,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 2",
       "success": true,
@@ -469,7 +469,7 @@
       "id": "t46",
       "class": "valid",
       "kind": "primes",
-      "latency_ms": 0.08580000030633528,
+      "latency_ms": 0.08940000043367036,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 2",
       "success": true,
@@ -479,7 +479,7 @@
       "id": "t47",
       "class": "valid",
       "kind": "sum_squares",
-      "latency_ms": 0.03980000019510044,
+      "latency_ms": 0.0396999994336511,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 137825",
       "success": true,
@@ -489,7 +489,7 @@
       "id": "t48",
       "class": "valid",
       "kind": "reverse_string",
-      "latency_ms": 0.02299999960087007,
+      "latency_ms": 0.024200000552809797,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: olleh",
       "success": true,
@@ -499,7 +499,7 @@
       "id": "t49",
       "class": "valid",
       "kind": "mean",
-      "latency_ms": 0.029400000130408444,
+      "latency_ms": 0.03150000065943459,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: 11.5",
       "success": true,
@@ -509,7 +509,7 @@
       "id": "t50",
       "class": "valid",
       "kind": "bell",
-      "latency_ms": 0.1053000005413196,
+      "latency_ms": 0.12630000037461286,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: bell circuit: 2 qubits",
       "success": true,
@@ -519,17 +519,17 @@
       "id": "t51",
       "class": "valid",
       "kind": "ghz",
-      "latency_ms": 0.5812999997942825,
-      "llm_calls": 3,
-      "raw": "HEALED: stdout: \nresult: ghz circuit: 3 qubits",
+      "latency_ms": 0.11649999942164868,
+      "llm_calls": 1,
+      "raw": "LLM_EXECUTED: stdout: \nresult: ghz circuit: 3 qubits",
       "success": true,
-      "path": "healed"
+      "path": "first_pass"
     },
     {
       "id": "t52",
       "class": "valid",
       "kind": "angle",
-      "latency_ms": 0.20119999953749357,
+      "latency_ms": 0.19119999979011482,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: angle-encoded 6 qubits",
       "success": true,
@@ -539,7 +539,7 @@
       "id": "t53",
       "class": "valid",
       "kind": "palindrome",
-      "latency_ms": 0.03259999994043028,
+      "latency_ms": 0.03589999960240675,
       "llm_calls": 1,
       "raw": "LLM_EXECUTED: stdout: \nresult: True",
       "success": true,
@@ -555,8 +555,8 @@
         "kind": "bell"
       },
       "placed_qubits": [
-        8,
-        7
+        0,
+        1
       ],
       "n_qubits": 2
     },
@@ -568,9 +568,9 @@
         "kind": "ghz"
       },
       "placed_qubits": [
-        8,
-        7,
-        6
+        0,
+        1,
+        2
       ],
       "n_qubits": 3
     },
@@ -590,12 +590,12 @@
         ]
       },
       "placed_qubits": [
-        8,
-        7,
-        6,
-        5,
+        0,
+        1,
+        2,
+        3,
         4,
-        3
+        5
       ],
       "n_qubits": 6
     },
@@ -607,8 +607,8 @@
         "kind": "bell"
       },
       "placed_qubits": [
-        8,
-        7
+        0,
+        1
       ],
       "n_qubits": 2
     },
@@ -620,9 +620,9 @@
         "kind": "ghz"
       },
       "placed_qubits": [
-        8,
-        7,
-        6
+        0,
+        1,
+        2
       ],
       "n_qubits": 3
     },
@@ -642,12 +642,12 @@
         ]
       },
       "placed_qubits": [
-        8,
-        7,
-        6,
-        5,
+        0,
+        1,
+        2,
+        3,
         4,
-        3
+        5
       ],
       "n_qubits": 6
     },
@@ -659,8 +659,8 @@
         "kind": "bell"
       },
       "placed_qubits": [
-        8,
-        7
+        0,
+        1
       ],
       "n_qubits": 2
     },
@@ -672,9 +672,9 @@
         "kind": "ghz"
       },
       "placed_qubits": [
-        8,
-        7,
-        6
+        0,
+        1,
+        2
       ],
       "n_qubits": 3
     },
@@ -694,41 +694,27 @@
         ]
       },
       "placed_qubits": [
-        8,
-        7,
-        6,
-        5,
+        0,
+        1,
+        2,
+        3,
         4,
-        3
+        5
       ],
       "n_qubits": 6
     },
     {
       "task": "t32",
       "kind": "bell",
-      "orch_path": "healed",
+      "orch_path": "first_pass",
       "spec": {
         "kind": "bell"
       },
       "placed_qubits": [
-        8,
-        7
+        0,
+        1
       ],
       "n_qubits": 2
-    },
-    {
-      "task": "t33",
-      "kind": "ghz",
-      "orch_path": "first_pass",
-      "spec": {
-        "kind": "ghz"
-      },
-      "placed_qubits": [
-        8,
-        7,
-        6
-      ],
-      "n_qubits": 3
     },
     {
       "task": "t34",
@@ -746,12 +732,12 @@
         ]
       },
       "placed_qubits": [
-        8,
-        7,
-        6,
-        5,
+        0,
+        1,
+        2,
+        3,
         4,
-        3
+        5
       ],
       "n_qubits": 6
     },
@@ -763,8 +749,8 @@
         "kind": "bell"
       },
       "placed_qubits": [
-        8,
-        7
+        0,
+        1
       ],
       "n_qubits": 2
     },
@@ -776,9 +762,9 @@
         "kind": "ghz"
       },
       "placed_qubits": [
-        8,
-        7,
-        6
+        0,
+        1,
+        2
       ],
       "n_qubits": 3
     },
@@ -798,12 +784,12 @@
         ]
       },
       "placed_qubits": [
-        8,
-        7,
-        6,
-        5,
+        0,
+        1,
+        2,
+        3,
         4,
-        3
+        5
       ],
       "n_qubits": 6
     },
@@ -815,22 +801,22 @@
         "kind": "bell"
       },
       "placed_qubits": [
-        8,
-        7
+        0,
+        1
       ],
       "n_qubits": 2
     },
     {
       "task": "t51",
       "kind": "ghz",
-      "orch_path": "healed",
+      "orch_path": "first_pass",
       "spec": {
         "kind": "ghz"
       },
       "placed_qubits": [
-        8,
-        7,
-        6
+        0,
+        1,
+        2
       ],
       "n_qubits": 3
     },
@@ -850,17 +836,416 @@
         ]
       },
       "placed_qubits": [
-        8,
-        7,
-        6,
-        5,
+        0,
+        1,
+        2,
+        3,
         4,
-        3
+        5
       ],
       "n_qubits": 6
     }
   ],
-  "job_id": "da9etepqtnsc73d1gv4g",
+  "job_id": "da9eslpqtnsc73d1gudg",
   "shots": 4096,
-  "submitted_at": "2026-08-29T22:37:46"
+  "submitted_at": "2026-08-29T22:36:06",
+  "hardware": [
+    {
+      "task": "t05",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        0,
+        1
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9805,
+      "parity_dev": 0.0195,
+      "hw_pass": null
+    },
+    {
+      "task": "t06",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9612,
+      "parity_dev": 0.0388,
+      "hw_pass": null
+    },
+    {
+      "task": "t07",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0119,
+        0.0127,
+        0.0001,
+        0.0253,
+        0.0239,
+        0.0059
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    },
+    {
+      "task": "t14",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        0,
+        1
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9763,
+      "parity_dev": 0.0237,
+      "hw_pass": null
+    },
+    {
+      "task": "t15",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.968,
+      "parity_dev": 0.032,
+      "hw_pass": null
+    },
+    {
+      "task": "t16",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0007,
+        0.0034,
+        0.0002,
+        0.0174,
+        0.0103,
+        0.0246
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    },
+    {
+      "task": "t23",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        0,
+        1
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9778,
+      "parity_dev": 0.0222,
+      "hw_pass": null
+    },
+    {
+      "task": "t24",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9658,
+      "parity_dev": 0.0342,
+      "hw_pass": null
+    },
+    {
+      "task": "t25",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0179,
+        0.0312,
+        0.015,
+        0.0036,
+        0.0176,
+        0.0256
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    },
+    {
+      "task": "t32",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        0,
+        1
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9773,
+      "parity_dev": 0.0227,
+      "hw_pass": null
+    },
+    {
+      "task": "t34",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0155,
+        0.0322,
+        0.012,
+        0.0079,
+        0.0117,
+        0.0174
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    },
+    {
+      "task": "t41",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        0,
+        1
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9788,
+      "parity_dev": 0.0212,
+      "hw_pass": null
+    },
+    {
+      "task": "t42",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9648,
+      "parity_dev": 0.0352,
+      "hw_pass": null
+    },
+    {
+      "task": "t43",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0106,
+        0.0122,
+        0.0188,
+        0.0422,
+        0.0054,
+        0.0321
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    },
+    {
+      "task": "t50",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        0,
+        1
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9822,
+      "parity_dev": 0.0178,
+      "hw_pass": null
+    },
+    {
+      "task": "t51",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9695,
+      "parity_dev": 0.0305,
+      "hw_pass": null
+    },
+    {
+      "task": "t52",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0033,
+        0.02,
+        0.0196,
+        0.0424,
+        0.0215,
+        0.0055
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    }
+  ]
 }

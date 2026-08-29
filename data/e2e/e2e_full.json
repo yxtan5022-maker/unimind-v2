@@ -862,5 +862,421 @@
   ],
   "job_id": "da9etepqtnsc73d1gv4g",
   "shots": 4096,
-  "submitted_at": "2026-08-29T22:37:46"
+  "submitted_at": "2026-08-29T22:37:46",
+  "hardware": [
+    {
+      "task": "t05",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        8,
+        7
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9873,
+      "parity_dev": 0.0127,
+      "hw_pass": null
+    },
+    {
+      "task": "t06",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9741,
+      "parity_dev": 0.0259,
+      "hw_pass": null
+    },
+    {
+      "task": "t07",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0153,
+        0.0293,
+        0.018,
+        0.0045,
+        0.0322,
+        0.0215
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    },
+    {
+      "task": "t14",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        8,
+        7
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9849,
+      "parity_dev": 0.0151,
+      "hw_pass": null
+    },
+    {
+      "task": "t15",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9819,
+      "parity_dev": 0.0181,
+      "hw_pass": null
+    },
+    {
+      "task": "t16",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0041,
+        0.0371,
+        0.0584,
+        0.0257,
+        0.0181,
+        0.0011
+      ],
+      "weights_ok": 5,
+      "n_weights": 6,
+      "hw_pass": false
+    },
+    {
+      "task": "t23",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        8,
+        7
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9817,
+      "parity_dev": 0.0183,
+      "hw_pass": null
+    },
+    {
+      "task": "t24",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9802,
+      "parity_dev": 0.0198,
+      "hw_pass": null
+    },
+    {
+      "task": "t25",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0184,
+        0.0073,
+        0.0458,
+        0.0002,
+        0.0161,
+        0.0221
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    },
+    {
+      "task": "t32",
+      "kind": "bell",
+      "orch_path": "healed",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        8,
+        7
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9844,
+      "parity_dev": 0.0156,
+      "hw_pass": null
+    },
+    {
+      "task": "t33",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9785,
+      "parity_dev": 0.0215,
+      "hw_pass": null
+    },
+    {
+      "task": "t34",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0169,
+        0.0425,
+        0.0257,
+        0.0089,
+        0.0098,
+        0.0174
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    },
+    {
+      "task": "t41",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        8,
+        7
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9841,
+      "parity_dev": 0.0159,
+      "hw_pass": null
+    },
+    {
+      "task": "t42",
+      "kind": "ghz",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9758,
+      "parity_dev": 0.0242,
+      "hw_pass": null
+    },
+    {
+      "task": "t43",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0081,
+        0.0669,
+        0.0145,
+        0.0022,
+        0.001,
+        0.008
+      ],
+      "weights_ok": 5,
+      "n_weights": 6,
+      "hw_pass": false
+    },
+    {
+      "task": "t50",
+      "kind": "bell",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "bell"
+      },
+      "placed_qubits": [
+        8,
+        7
+      ],
+      "n_qubits": 2,
+      "parity_same": 0.9846,
+      "parity_dev": 0.0154,
+      "hw_pass": null
+    },
+    {
+      "task": "t51",
+      "kind": "ghz",
+      "orch_path": "healed",
+      "spec": {
+        "kind": "ghz"
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6
+      ],
+      "n_qubits": 3,
+      "parity_same": 0.9753,
+      "parity_dev": 0.0247,
+      "hw_pass": null
+    },
+    {
+      "task": "t52",
+      "kind": "angle",
+      "orch_path": "first_pass",
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0085,
+        0.0225,
+        0.0152,
+        0.0165,
+        0.0063,
+        0.0374
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true
+    }
+  ]
 }

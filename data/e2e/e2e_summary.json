@@ -1,0 +1,24 @@
+{
+  "P_E2E_full_pct": 74.1,
+  "P_E2E_full_ci": [
+    61.1,
+    83.9
+  ],
+  "P_E2E_ablated_pct": 66.7,
+  "P_E2E_ablated_ci": [
+    53.4,
+    77.8
+  ],
+  "angle_weights_ok": 34,
+  "angle_weights_total": 36,
+  "job_full": "da9etepqtnsc73d1gv4g",
+  "job_ablated": "da9eslpqtnsc73d1gudg",
+  "orch_paths_full": {
+    "first_pass": 46,
+    "healed": 8
+  },
+  "orch_paths_ablated": {
+    "first_pass": 47,
+    "failed_other": 7
+  }
+}

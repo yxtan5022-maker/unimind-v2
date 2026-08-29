@@ -105,7 +105,8 @@ SUCCESS_PATHS = {"first_pass", "healed", "fallback_ok"}
 # job submitted in a previous session whose pending file was lost
 # (shell timeout while blocked on quota); metadata is deterministically
 # reproducible from the same snapshot + seeds + transpiler seed
-KNOWN_JOB_IDS = {"full": "da5c8kuaa69c739kmr40"}
+# v2.2: cleared for new instance unimind 3.0 (old full job not visible via new account)
+KNOWN_JOB_IDS = {}
 
 
 # ------------------------------------------------------------------ build
@@ -240,7 +241,7 @@ def stage_collect() -> int:
                 n = len(bits)
                 devs = []
                 for i in range(n):
-                    p1 = sum(c for c, k in counts.items()
+                    p1 = sum(c for k, c in counts.items()
                              if len(k.replace(" ", "")) == n
                              and k.replace(" ", "")[::-1][i] == "1") / total
                     w = window_mean(bits, i)
@@ -251,8 +252,8 @@ def stage_collect() -> int:
                               "hw_pass": all(d <= TOL for d in devs)})
             else:
                 ks = [k.replace(" ", "") for k in counts]
-                same = sum(c for c, k in zip(counts.values(), ks)
-                           if len(set(k)) == 1) / total
+                same = sum(c for k, c in counts.items()
+                           if len(set(k.replace(" ", ""))) == 1) / total
                 entry.update({"parity_same": round(same, 4),
                               "parity_dev": round(abs(same - 1.0), 4),
                               "hw_pass": None})

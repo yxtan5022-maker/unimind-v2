@@ -1,0 +1,67 @@
+{
+  "measurements": {
+    "qiskit_bell": {
+      "success": true,
+      "latency_ms": 11.0,
+      "00": 521,
+      "11": 503
+    },
+    "qiskit_angle_pure_ry": {
+      "success": true,
+      "latency_ms": 6.14,
+      "ry": 10,
+      "x": 0
+    },
+    "pennylane_bell": {
+      "success": true,
+      "latency_ms": 5.33
+    },
+    "pennylane_angle": {
+      "success": true,
+      "latency_ms": 3.9,
+      "expval": [
+        -0.333,
+        -0.5,
+        -0.2
+      ]
+    },
+    "unimind_bell_intent": {
+      "success": true,
+      "latency_ms": 360.74,
+      "result_snippet": "RULE_BASED_FALLBACK: stdout: \nresult: Bell state circuit prepared (rule-based fallback)"
+    }
+  },
+  "capability_matrix": {
+    "Qiskit-native": {
+      "Hardware discovery": "manual (backend.properties() call, no abstraction)",
+      "Backend selection": "manual (user picks AerSimulator / ibm_* )",
+      "Calibration-aware routing": "no (requires user code, no C(q))",
+      "Failure recovery": "no (exception propagates)",
+      "Fallback": "no",
+      "Intent-level orchestration": "no (Python code)",
+      "Safety validation": "no (full privilege)",
+      "Human intervention": "required for every task"
+    },
+    "PennyLane": {
+      "Hardware discovery": "device registry (qml.devices), no IBM calibration",
+      "Backend selection": "device string (default.qubit / lightning.qubit)",
+      "Calibration-aware routing": "no",
+      "Failure recovery": "no",
+      "Fallback": "no",
+      "Intent-level orchestration": "no (Python code)",
+      "Safety validation": "no (full privilege)",
+      "Human intervention": "required"
+    },
+    "UniMind": {
+      "Hardware discovery": "auto (C++ topology + IBM calibration snapshot)",
+      "Backend selection": "auto (classical / qiskit / cudaq + C(q) ranking)",
+      "Calibration-aware routing": "yes (C(q)=p01+p10, rho=0.943 virtual, 1.000 real single-day)",
+      "Failure recovery": "yes (healer + retry budget, 4/5 classes sub-ms)",
+      "Fallback": "yes (deterministic rule template, 2/9\u2192100% with S3X)",
+      "Intent-level orchestration": "yes (LLM untrusted planner + validation)",
+      "Safety validation": "yes (constrained generation + static analysis + sandbox, 20/21 blocked)",
+      "Human intervention": "only on R<Rmin (confidence-aware)"
+    }
+  },
+  "note": "v2.2 pure Ry (0 X), PennyLane 0.45.1, Qiskit 2.5.1, Aer 0.17.2"
+}
