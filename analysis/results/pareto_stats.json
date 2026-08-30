@@ -1,0 +1,30 @@
+{
+  "total_records": 150,
+  "new_records": 100,
+  "pareto_count": 76,
+  "pareto_rate": 0.5067,
+  "by_sampling": {
+    "dirichlet": {
+      "total": 101,
+      "pareto": 74,
+      "pareto_rate": 0.7326732673267327,
+      "avg_d_err": 0.007038418785547749
+    },
+    "uniform": {
+      "total": 49,
+      "pareto": 2,
+      "pareto_rate": 0.04081632653061224,
+      "avg_d_err": 0.0058466661127638654
+    }
+  },
+  "pareto_frontier_size": 4,
+  "frontier_iters": [
+    57,
+    64,
+    90,
+    117
+  ],
+  "best_avg_d_err": -0.003429630408611121,
+  "best_iter": 2,
+  "best_sampling": "dirichlet"
+}

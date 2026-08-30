@@ -1,0 +1,100 @@
+{
+  "iter": 2,
+  "ts": "2026-08-30T09:13:49",
+  "weights": {
+    "alpha": 0.22411373375877414,
+    "beta": 0.07781648308999166,
+    "gamma": 0.031618351598627734,
+    "delta": 0.5896689257490466,
+    "lambda_": 0.0767825058035598
+  },
+  "n_seed": 3,
+  "results": {
+    "4": {
+      "SWAP": 3,
+      "depth": 39,
+      "est_2q_error": 0.048060452013056885,
+      "base_SWAP": 3,
+      "D_total": 39,
+      "D_crit": 27,
+      "base_depth": 39
+    },
+    "6": {
+      "SWAP": 8,
+      "depth": 77,
+      "est_2q_error": 0.06340287834419173,
+      "base_SWAP": 8,
+      "D_total": 77,
+      "D_crit": 54,
+      "base_depth": 77
+    },
+    "8": {
+      "SWAP": 20,
+      "depth": 121,
+      "est_2q_error": 0.12885987892053008,
+      "base_SWAP": 20,
+      "D_total": 121,
+      "D_crit": 85,
+      "base_depth": 121
+    },
+    "10": {
+      "SWAP": 20,
+      "depth": 113,
+      "est_2q_error": 0.1727529505079092,
+      "base_SWAP": 20,
+      "D_total": 113,
+      "D_crit": 79,
+      "base_depth": 113
+    },
+    "16": {
+      "SWAP": 50,
+      "depth": 206,
+      "est_2q_error": 0.3207766881712565,
+      "base_SWAP": 50,
+      "D_total": 206,
+      "D_crit": 144,
+      "base_depth": 206
+    }
+  },
+  "deltas": {
+    "4": {
+      "d_SWAP": 0,
+      "d_depth": -3,
+      "d_err": 0.029614452013056885,
+      "d_D_total": -3,
+      "d_D_crit": -2
+    },
+    "6": {
+      "d_SWAP": 0,
+      "d_depth": 0,
+      "d_err": -0.001840121655808269,
+      "d_D_total": 0,
+      "d_D_crit": 0
+    },
+    "8": {
+      "d_SWAP": 0,
+      "d_depth": 0,
+      "d_err": -0.0041511210794699105,
+      "d_D_total": 0,
+      "d_D_crit": 0
+    },
+    "10": {
+      "d_SWAP": 0,
+      "d_depth": 0,
+      "d_err": -0.008538049492090805,
+      "d_D_total": 0,
+      "d_D_crit": 0
+    },
+    "16": {
+      "d_SWAP": 0,
+      "d_depth": 0,
+      "d_err": -0.032233311828743505,
+      "d_D_total": 0,
+      "d_D_crit": 0
+    }
+  },
+  "pareto": true,
+  "sampling": "dirichlet",
+  "avg_d_crit": -0.4,
+  "avg_d_err": -0.003429630408611121
+}

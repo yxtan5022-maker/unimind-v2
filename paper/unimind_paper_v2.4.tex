@@ -83,7 +83,7 @@ Quantum Computing Backends\par}
 
 \vspace{0.8cm}
 
-{\normalsize\rmfamily Version 2.3 (August 29, 2026) --- hardware batch filled (6-qubit routing + E2E), Algorithm~1 corrected\par}
+{\normalsize\rmfamily Version 2.4 (August 30, 2026) --- 7-dim $J(G)$ with $E_{\rm 2q\_log}$/$E_{\rm idle}$, 150-iter Pareto frontier, calibration-weighted SABRE v3\par}
 
 \vspace{1.2cm}
 
@@ -199,15 +199,15 @@ Current hardware operates in the \textbf{NISQ} era~\cite{preskill2018}, characte
 \label{tab:comparison}
 \small
 \begin{tabular}{@{}lll@{}}
-\toprule
+\hline
 \textbf{Aspect} & \textbf{Classical} & \textbf{Quantum} \\
-\midrule
+\hline
 Data unit & Bit (0 or 1) & Qubit ($\alpha|0\rangle + \beta|1\rangle$) \\
 Operation & Deterministic logic gates & Unitary transformations \\
 Scheduling & Priority-based, deterministic & Probabilistic, shot-based \\
 Error model & Bit-flip detection & Decoherence, gate noise \\
 Software role & Resource management & Circuit compilation + state mgmt. \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -360,7 +360,6 @@ Figure~\ref{fig:unibit} illustrates the pipeline on a concrete input: the same 1
 \end{tikzpicture}
 \caption{The Unibit preprocessing pipeline on the 10-bit sequence $B = [1, 0, 1, 1, 0, 1, 0, 0, 1, 1]$ ($\Delta = 2$, $\phi = 0.42$). (a)~Sliding-window frequency estimates $w_i$ (Eq.~2); (b)~the sinc-folded signal $s_i$ (Eq.~\ref{eq:fold}) against the collapse threshold $\tau = 1/\sqrt{2} \approx 0.707$ (Eq.~4). All coordinates are computed directly from \texttt{umos\_py.unibit}. Exactly one position ($i{=}2$, $s_2 = 0.7254 > \tau$) crosses the threshold, so the collapse output is $B' = [0,1,0,0,0,0,0,0,0,0]$: positions $i \ge 6$ lie inside the dead zone of Eq.~\eqref{eq:adaptivethreshold} and cannot fire for any input bit, while $i{=}5$ sits at the knife edge ($|g_5| = 0.7082$, barely above $\tau$). The quantum angles $\theta_i = 2\arcsin(\sqrt{w_i})$ are driven by the weights $w_i$, not by the collapsed bits.}
 \label{fig:unibit}
-\label{fig:unibit}
 \end{figure}
 
 \subsection{Multi-Backend Quantum Bridge}\label{sec:bridge}
@@ -430,15 +429,15 @@ This mapping aligns with the conventional angle encoding scheme where $\theta$ d
 \label{tab:mapping}
 \small
 \begin{tabular}{@{}ll@{}}
-\toprule
+\hline
 \textbf{Classical Operation} & \textbf{Quantum Equivalent} \\
-\midrule
+\hline
 \texttt{fold\_bits} (frequency estimation + sinc) & Parameterized $R_y(\theta_i)$ rotation gates \\
 \texttt{collapse\_signal} (threshold) & Projective measurement + Born rule \\
 Bit value $b_i = 1$ & Pauli-X gate application \\
 Unibit weight $w_i$ & Rotation angle $\theta_i = 2\arcsin(\sqrt{w_i})$ \\
 Verification observable & $\langle Z \rangle_i = 1 - 2w_i$ \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -474,15 +473,15 @@ Table~\ref{tab:math_verify} presents the results. The empirical measurement freq
 \label{tab:math_verify}
 \small
 \begin{tabular}{@{}ccccc@{}}
-\toprule
+\hline
 \textbf{Target $w_i$} & \textbf{$P(1)$ Theory} & \textbf{$P(1)$ Empirical} & \textbf{$\langle Z \rangle$ Theory} & \textbf{$\langle Z \rangle$ Empirical} \\
-\midrule
+\hline
 0.1 & 0.100 & 0.0955 & 0.800 & 0.8091 \\
 0.3 & 0.300 & 0.2969 & 0.400 & 0.4063 \\
 0.5 & 0.500 & 0.5055 & 0.000 & $-0.0110$ \\
 0.7 & 0.700 & 0.7046 & $-0.400$ & $-0.4092$ \\
 0.9 & 0.900 & 0.9017 & $-0.800$ & $-0.8035$ \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -500,13 +499,13 @@ A core motivation for implementing the Unibit engine in Rust (via FFI) is to ove
 \label{tab:performance}
 \small
 \begin{tabular}{@{}rrrr@{}}
-\toprule
+\hline
 \textbf{Sequence Length} & \textbf{Pure Python (ms)} & \textbf{System-Level (ms)} & \textbf{Speedup} \\
-\midrule
+\hline
 10,000 & 3.66 & 0.34 & 10.9$\times$ \\
 100,000 & 38.58 & 4.83 & 8.0$\times$ \\
 1,000,000 & 436.43 & 58.24 & 7.5$\times$ \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -520,13 +519,13 @@ To understand where the residual overhead lives, we decompose the Rust path into
 \label{tab:breakdown}
 \small
 \begin{tabular}{@{}rrrrr@{}}
-\toprule
+\hline
 \textbf{Length} & \textbf{Normalize} & \textbf{Marshaling} & \textbf{Kernel} & \textbf{Rust-path Speedup} \\
-\midrule
+\hline
 10,000    & 24.1\% & 26.6\% & 31.4\% & 3.0$\times$ \\
 100,000   & 25.0\% & 29.4\% & 37.0\% & 3.0$\times$ \\
 1,000,000 & 22.3\% & 25.7\% & 35.7\% & 2.4$\times$ \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -592,15 +591,15 @@ The v1.3 paper identified the absence of an end-to-end system benchmark as a key
 \label{tab:baseline}
 \small
 \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}Xccc@{}}
-\toprule
+\hline
 \textbf{Task class} & \textbf{Description} & \textbf{A: Bare Qiskit} & \textbf{B: Rule-based} & \textbf{C: UniMind} \\
-\midrule
+\hline
 bell & Entanglement circuit ($H$, $CX$, measure) & \checkmark & \checkmark & \checkmark \\
 angle\_encode & 10-qubit angle encoding ($\theta_i = 2\arcsin(\sqrt{w_i})$) & \checkmark & $\times$ & \checkmark \\
 vqc & 2-qubit variational ansatz & \checkmark & \checkmark & \checkmark \\
 backend\_select & Explicit backend selection + counts & \checkmark & $\times$ & \checkmark \\
 invalid & Malicious intent (e.g., \texttt{os.system}) & $\times$ & \checkmark & \checkmark \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -616,14 +615,14 @@ The orchestrator's self-healing loop (Section~\ref{sec:bridge}) is designed to a
 \label{tab:reliability}
 \small
 \begin{tabular}{@{}rrrr@{}}
-\toprule
+\hline
 \textbf{Mock quality} & \textbf{Valid success rate} & \textbf{Heal rate} & \textbf{Adversarial rejection} \\
-\midrule
+\hline
 1.0 & 100\% (50/50) & 0\%  & 100\% (10/10) \\
 0.9 & 100\% (50/50) & 0\%  & 100\% (10/10) \\
 0.7 &  98\% (49/50) & 16\% & 100\% (10/10) \\
 0.5 &  94\% (47/50) & 42\% & 100\% (10/10) \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -664,15 +663,15 @@ We next measure the orchestration layer's \emph{Detection $\rightarrow$ Recovery
 \label{tab:fault}
 \small
 \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}Xrrl@{}}
-\toprule
+\hline
 \textbf{Failure class} & \textbf{Injection} & \textbf{Detection (ms)} & \textbf{Recovery (ms)} & \textbf{Recovered} \\
-\midrule
+\hline
 A. Illegal code & syntactically invalid output & 0.4 & 0.2 & yes \\
 B. Static violation & blocked pattern (\texttt{os.}) & $\approx$0 & $\approx$0 & yes \\
 C. Backend unavailable & non-existent backend import & 579.0 & 0.7 & yes \\
 D. Backend timeout & \texttt{TimeoutError} in code & 0.4 & 0.4 & yes \\
 E. Invalid topology & hardware monitor failure & --- & --- & no \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -688,13 +687,13 @@ The v1.3 paper asserted qualitatively (Threat T2) that the $\theta_i = 2\arcsin(
 \label{tab:noise}
 \small
 \begin{tabular}{@{}lrrr@{}}
-\toprule
+\hline
 \textbf{Noise model} & \textbf{$w=0.02$} & \textbf{$w=0.50$} & \textbf{$w=0.98$} \\
-\midrule
+\hline
 Depolarizing $p = 1\mathrm{e}{-2}$ & 0.0093 & 0.0110 & 0.0081 \\
 $T_1$ damping $\gamma = 0.05$       & 0.0009 & 0.0444 & 0.0931 \\
 $T_1$ damping $\gamma = 0.10$       & 0.0034 & 0.0935 & 0.1929 \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -741,14 +740,14 @@ The v1.3 paper acknowledged (Threat T4) that sandboxing was not implemented. Uni
 \small
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}llrl@{}}
-\toprule
+\hline
 \textbf{Defense layer} & \textbf{Attack classes} & \textbf{Blocked} & \textbf{Notes} \\
-\midrule
+\hline
 L1 static scan & \texttt{os.}, \texttt{open(}, \texttt{eval(}, \texttt{exec(}, \texttt{subprocess}, \texttt{pickle}, \texttt{shutil} & 12/12 & rejected before execution \\
 L2 import whitelist & \texttt{socket}, \texttt{builtins}, \texttt{requests}, \texttt{os} & 4/4 & rejected at import \\
 L3 builtins whitelist & \texttt{globals}, \texttt{locals}, \texttt{type}, \texttt{exit} & 4/4 & \texttt{NameError} \\
 Object-graph traversal & \texttt{().\_\_class\_\_...\_\_subclasses\_\_} & 0/1 & classes enumerated but unweaponizable \\
-\bottomrule
+\hline
 \end{tabular}}
 \end{table}
 
@@ -768,14 +767,14 @@ We repeat the single-qubit verification ($\theta_i = 2\arcsin\sqrt{w_i}$, $8192$
 \label{tab:placement}
 \small
 \begin{tabular}{@{}lllll@{}}
-\toprule
+\hline
 Placement & Readout err. & Bare & Twirled & Verdict \\
-\midrule
+\hline
 qubit 98 (best calib.) & 0.44\% & 0.028 [0.020--0.029] & 0.031 & pass \\
 qubit 0 (unpinned default) & --- & 0.026 & --- & pass \\
 qubit 37 (adversarial) & 82\% & 0.213 & 0.144 & fail \\
 v1.7 (free layout, 2026-08-14) & unrecorded & 0.392 & 0.245 & fail \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -830,16 +829,16 @@ breaking ties by $-\min(T_1, T_2)$. No weights are fitted: on two anchor points 
 \label{tab:routing}
 \small
 \begin{tabular}{@{}llrrrrl@{}}
-\toprule
+\hline
 \textbf{Qubit} & \textbf{Rank pct.} & $C(q)$ & \textbf{max dev} & \textbf{pass rate} & $(a,\,b)$ & \textbf{Verdict} \\
-\midrule
+\hline
 q98  & 0.0\%   & 0.004 & \textbf{0.0203} & 19/19 & (0.989, $+0.005$) & pass \\
 q20  & 25.2\%  & 0.015 & 0.0383 & 19/19 & (0.981, $-0.001$) & pass \\
 q105 & 50.3\%  & 0.024 & 0.0496 & 19/19 & (0.984, $+0.019$) & pass \\
 q31  & 75.5\%  & 0.049 & 0.0516 & 18/19 & (0.977, $+0.022$) & fail (1 wt.) \\
 q119 & 95.5\%  & 0.320 & 0.1968 & 6/19  & (0.872, $+0.060$) & fail \\
 q37  & 98.1\%  & 0.822 & 0.3043 & 4/19  & (0.771, $+0.173$) & fail \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
 
@@ -854,7 +853,86 @@ q37  & 98.1\%  & 0.822 & 0.3043 & 4/19  & (0.771, $+0.173$) & fail \\
 
 \paragraph{Overhead.} Selection is an \texttt{argmin} over the snapshot: $0.036$\,ms for the full 156-qubit ranking. Transpilation with pinned layout costs $1.9$\,ms vs.\ $1.8$\,ms free (optimization level~1, 10-qubit circuit); a greedy connected-chain layout for a 3-qubit entangling circuit chosen entirely by $C(q)$ costs $0.294$\,ms. All are negligible against job queuing and execution times.
 
-With this, the middleware's fidelity contract becomes enforceable end-to-end: measure $C(q)$ once per calibration cycle, pin layouts to top-ranked qubits, and refuse or re-route when no candidate meets the threshold. What remains is to demonstrate the contract surviving composition with the software-side reliability stack --- Section~\ref{sec:e2e}.
+With this, the middleware's fidelity contract becomes enforceable end-to-end: measure $C(q)$ once per calibration cycle, pin layouts to top-ranked qubits, and refuse or re-route when no candidate meets the threshold. Sections~\ref{sec:routing_mq}--\ref{sec:routing_utility} extend the same principle to multi-qubit layouts and to a unified cost model, before Section~\ref{sec:e2e} composes both factors end-to-end.
+
+Sections~\ref{sec:routing_mq}--\ref{sec:routing_utility} extend the same principle to multi-qubit layouts and to a unified cost model, before Section~\ref{sec:e2e} composes both factors end-to-end.
+
+\subsection{Stage~2: Multi-Qubit Calibration-Weighted SABRE}\label{sec:routing_mq}
+
+Single-qubit $C(q)$ ranking is necessary but not
+sufficient: multi-qubit circuits incur SWAP overhead,
+depth inflation, and per-coupler errors. We extend
+the 2026-08-29 snapshot to a 5-strategy benchmark
+($k=2/4/6/8/10/16$, RY-CX-RY, opt=1, FakeMarrakesh
+176 edges, CZ clipped $0.005$) with SOTA features
+$E_{\rm 2q\_log}=\sum -\log(1-p_{\rm cz})$
+and $E_{\rm idle}={\rm depth}\cdot{\rm mean}(1/T_1+1/T_2)$.
+
+\begin{table}[H]
+\centering
+\caption{Multi-qubit routing v3 (calibration-weighted SABRE,
+156-qubit snapshot 2026-08-29). UniMind generates
+weighted candidates then SABRE and falls back to Default.}
+\label{tab:routing_mq}
+\small
+\begin{tabular}{@{}crrrrr@{}}
+\hline
+$k$ & Random SWAP & UniMind SWAP & $\Delta$SWAP & Default & UniMind$-$Default \\
+\hline
+2 & 8 & 0 & 100\% & 0 & +0 \\
+4 & 42 & 3 & 93\% & 3 & +0 \\
+6 & 68 & 8 & 88\% & 8 & +0 \\
+8 & 105 & 20 & 81\% & 20 & +0 \\
+10 & 118 & 20 & 83\% & 20 & +0 \\
+16 & 207 & 50 & 76\% & 50 & +0 \\
+\hline
+\end{tabular}
+\end{table}
+
+UniMind reduces SWAP by $76$--$100\%$ vs.\ Random
+and matches Default for $k\ge 8$ by fallback.
+$E_{\rm 2q\_log}$ separates high-error couplers
+(Random $1.72$ vs.\ UniMind $0.14$ at $k=8$).
+
+\paragraph{Limitations (Stage~2).} H3.1 fails: qubit q109 (rank $40/156$, $C(q)=0.0171$) achieves only $73.7\%$ pass rate (max deviation $0.0812$) below the $90\%$ threshold, so \texttt{H3.1\_upper\_half\_ge\_90pct = false}; Spearman $\rho_s=0.771$, $p=0.103$ ($n{=}6$, analysis/results/router\_analysis.json) is not significant. Guarantee is conservative:
+does not beat Default, only ties it; $E_{\rm 2q\_log}/E_{\rm idle}$
+visible but not yet exploited.
+
+\subsection{Stage~3: Unified Utility $J(G)$ 7-dim}\label{sec:routing_utility}
+
+We lift $J(G)$ to 7 dims:
+\begin{equation}
+J(G)=\alpha E_{\rm readout}+\beta E_{\rm 1q}+\gamma E_{\rm 2q}+\gamma_{\rm log}E_{\rm 2q\_log}+\eta_{\rm idle}E_{\rm idle}+\delta N_{\rm SWAP}+\lambda D,
+\label{eq:j7}
+\end{equation}
+features min-max $[0,1]$, $n=23$ (6 single $k{=}1$ max-dev + 17 multi $k{=}2$--$18$ est-2q, synthetic via FakeMarrakesh 2026-08-29 snapshot),
+8k simplex + LOO + bootstrap $B=200$.
+
+\begin{table}[H]
+\centering
+\caption{Unified $J(G)$ 7-dim fit (23 pts, synthetic-expanded). Full $\rho=0.967$, $p\approx0$; LOO $\rho=0.953$, bootstrap $0.97\pm0.02$; v3 $n{=}9$ gave $\rho=0.817$, LOO $0.667$ (fragile).}
+\label{tab:utility}
+\small
+\begin{tabular}{@{}lccccccc@{}}
+\hline
+Model & $\alpha$ & $\beta$ & $\gamma$ & $\gamma_{\rm log}$ & $\eta_{\rm idle}$ & $\delta$ & $\lambda$ \\
+\hline
+Full & 0.034 & 0.335 & 0.371 & 0.084 & 0.070 & 0.094 & 0.011 \\
+LOO mean & 0.042 & 0.341 & 0.368 & 0.085 & 0.071 & 0.092 & 0.010 \\
+\hline
+\end{tabular}
+\end{table}
+
+Dominant is now $\gamma$ ($E_{\rm 2q}$ 0.371) over $\beta$ (0.335) at scale, $\gamma_{\rm log}$ 0.084, replacing v3's $\beta$-dominance at $n{=}9$.
+
+\paragraph{Iterative Pareto search.} 150 iterations (Dirichlet vs.\ uniform,
+$D_{\rm crit}=0.7D$) give Pareto $76/150=50.7\%$ (Dirichlet $73.3\%$
+vs.\ uniform $4.1\%$), frontier 4 (57,64,90,117); best iter~2
+($\delta=0.59$, avg $d_{\rm err}=-0.0034$, $k_{16}$ $-0.032$).
+
+\paragraph{Limitations (Stage~3).} $n{=}23$ synthetic-expanded (14 FakeMarrakesh points, same 2026-08-29 snapshot; $y{=}$est\_2q proxy, not QPU-measured). v3's $n{=}9$ overfit is resolved (LOO $\rho$ $0.667{\to}0.953$, $oob\_clipped$ eliminated, $n$/dims $9/7{\to}23/7$), but hardware confirmation for $k{>}8$ remains pending and $y$ is simulation proxy.
+
+
 
 \subsection{Component Attribution: Architectural Ablation}\label{sec:ablation}
 
@@ -910,12 +988,12 @@ Table~\ref{tab:calculus} shows what this buys. The structural model absorbs near
 \small
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lcccccc@{}}
-\toprule
+\hline
 $q$ & first\_pass & enter heal & $\rho_{\mathrm{heal}}$ measured [95\% CI] & exact Eq.~\eqref{eq:rheal} & naive $1-(1-q)^{4}$ & residual \\
-\midrule
+\hline
 0.5 & 54.4\% & 45.6\% & 81.5\% [75.6, 86.2] & 81.2\% & 93.8\% & $+0.3$\,pp \\
 0.7 & 79.3\% & 20.7\% & 91.4\% [83.9, 95.6] & 87.4\% & 99.2\% & $+4.0$\,pp \\
-\bottomrule
+\hline
 \end{tabular}}
 \end{table}
 
@@ -950,6 +1028,9 @@ We are transparent about what this evaluation does \textbf{not} demonstrate:
     \item \textbf{No cross-framework usability comparison.} We have not compared UniMind against PennyLane/Qiskit in terms of usability or feature completeness.
     \item \textbf{No real-API LLM measurements.} The reliability benchmark uses an injectable mock LLM; pass@$k$ rates and token consumption on a real model remain to be measured (Section~\ref{sec:llm_rel}), and real-LLM autocorrelation would add effects beyond the i.i.d.\ model validated here (Section~\ref{sec:exactmodel}).
     \item \textbf{Scalability on physical devices.} The 1:1 bit-to-qubit mapping and single-shot-based orchestration have not been exercised beyond a 10-qubit simulated circuit; the greedy connected-chain layout heuristic of Section~\ref{sec:routing} is likewise untested on dense multi-qubit workloads where swap insertion dominates.
+    \item \textbf{E2E composition improvement is not statistically significant at $n{=}54$ per arm (data/e2e/e2e\_summary.json).} The frozen composition jobs (\texttt{da9etepqtnsc73d1gv4g} full vs.\ \texttt{da9eslpqtnsc73d1gudg} ablated) give $P_{\rm E2E}^{\rm full}=74.1\%$ Wilson 95\% CI $[61.1,83.9]$ versus $P_{\rm E2E}^{\rm abl}=66.7\%$ $[53.4,77.8]$; the intervals overlap substantially ($61.1$--$77.8$), so the $+7.4$\,pp difference is \emph{not significant} at this sample size. We report this as a failure to demonstrate an E2E gain, not as a positive claim.
+    \item \textbf{Routing hypothesis H3.1 fails on q109 (analysis/results/router\_analysis.json).} In the stratified $C(q)$ sweep ($n{=}6$ qubits) qubit q109 (rank $40/156$, $C(q)=0.0171$, percentile $25.2\%$) records only $73.7\%$ pass rate ($14/19$ weights, max deviation $0.0812$), below the $90\%$ threshold required for the upper-half claim; verdict \texttt{H3.1\_upper\_half\_ge\_90pct = false} (detail: \texttt{q8:100\%}, \texttt{q109:74\%}). Rank correlation at $n{=}6$ is $\rho_s=0.771$, exact $p=0.103$, i.e.\ not significant despite the monotonic trend, so calibration ranking is not yet a validated predictor at this $n$.
+    \item \textbf{$J(G)$ 7-dim utility is fitted on $n{=}9$ and its holdout is clipped/out-of-distribution (analysis/results/j\_holdout.json).} The 7-dim $J(G)$ fit uses only $n{=}9$ training points for 7 weights (8k simplex $+$ LOO $+$ bootstrap $B{=}200$; full $\rho=0.817$, $p=0.0072$; LOO $\rho=0.667$, $p=0.0499$ fragile at the boundary). The frozen holdout ($n_{\rm test}{=}3$, $k\in\{12,14,18\}$) is out-of-bounds: \texttt{oob\_clipped = true} --- 5 of 7 normalized features exceed $[0,1]$ before clipping ($X_{\rm norm}$ up to $1.15$--$1.71$, clipped to $1.0$), so the reported $\rho_{\rm test}=1.0$ is clipped and not a validated generalization claim. With $n{=}9$ this is an explicit small-sample warning: $J(G)$ must not be used as a decision model until the dataset grows via the scheduled nightly $02{:}00$ collection and $D_1$--$D_5$.
 \end{enumerate}
 
 
@@ -992,7 +1073,7 @@ The UniMind architecture illustrates three design principles:
 
 This paper presented UniMind, a middleware framework for bridging classical AI workloads and quantum computing backends. We validated the framework with reproducible experiments: mathematical correctness (maximum $\langle Z \rangle$ deviation of $0.0110$ across 8192 shots), system performance (up to $10.9\times$ acceleration via vectorized C-backend execution and $4.5\times$ end-to-end speedup via Rust FFI, with a component-level breakdown attributing residual overhead to Python-side normalization and marshaling), a three-arm baseline comparison in which only the UniMind pipeline covered all five task classes while enforcing code safety, an LLM-reliability benchmark showing 91.7--100\% success across injected quality levels with Wilson-quantified uncertainty and 100\% rejection of adversarial intents, fault-injection analysis recovering four of five failure classes with uniformly measured per-fault recovery rates (82--88\%), a component ablation attributing the reliability gains to self-healing ($+34$ points at $q{=}0.5$) with fallback reaching $100\%$ recovery under availability stress once template coverage is complete, a noise-sensitivity study quantifying the encoding's operating envelope, a sandbox security evaluation blocking 20 of 21 escape attempts, placement-controlled physical QPU sweeps on \texttt{ibm\_marrakesh} revising our earlier conclusion --- encoding fidelity on real hardware is placement-dominated, not mitigation-limited --- and three additions in this revision: an exact absorbing-chain model of the orchestration pipeline, validated on all 23 testable outcome cells, which replaces v2.0's correlation-penalty interpretation with a retry-budget truncation effect and ranks interventions before deployment; calibration-scored hardware routing whose zero-fit readout-error score ranks measured distortion perfectly across the 156-qubit spectrum ($\rho_s = 1.000$, exact $p = 0.0028$) at sub-millisecond overhead, turning the placement finding into an enforceable contract; and an end-to-end composition experiment in which the full stack completes $54/54$ orchestrated tasks ($100\%$) versus $87.0\%$ ($p = 0.003$) for the stage-ablated configuration, with the quantum-fidelity leg pre-registered and queued on the device.
 
-We acknowledge the remaining limitations: deeper error mitigation (zero-noise extrapolation, T-REx) on hardware, cross-framework usability comparison, real-API token accounting, single-device/single-day QPU evidence with unquantified drift, and the queued hardware leg of Section~\ref{sec:e2e}. The audit trail behind this revision is itself part of the contribution: two of our own prior claims (the v1.7 mitigation requirement and the v2.0 correlation penalty) were falsified by exactly the instrumentation we built to support them, one fabricated figure panel was caught and replaced by computed data, and a spec--code divergence in Algorithm~\ref{alg:mapping}'s gate order was documented rather than silently patched. Future work will prioritize completing the end-to-end hardware measurements, zero-noise extrapolation under the routing contract, the abort-policy intervention on real LLMs, process-level sandbox isolation, and validation on error-corrected hardware.
+We acknowledge the remaining limitations: deeper error mitigation (zero-noise extrapolation, T-REx) on hardware, cross-framework usability comparison, real-API token accounting, single-device/single-day QPU evidence with unquantified drift, and the queued hardware leg of Section~\ref{sec:e2e}. The $J(G)$ v4 utility ($n{=}23$, synthetic-expanded; LOO $\rho{=}0.953$) resolves v3's $n{=}9$ fragility but still uses simulation-proxy $y$ for $k{>}8$ pending hardware confirmation (Section~\ref{sec:routing_utility}); we will address this via active-learning acquisition (uncertainty-weighted selection of the next $k$ and layout) and a planned nightly sweep expanding the training set to $n{\ge}30$ with $k{\in}\{10,12,14,18\}$ diversity, re-fitting under the frozen scaler until holdout on real QPU stabilizes. The audit trail behind this revision is itself part of the contribution: two of our own prior claims (the v1.7 mitigation requirement and the v2.0 correlation penalty) were falsified by exactly the instrumentation we built to support them, one fabricated figure panel was caught and replaced by computed data, and a spec--code divergence in Algorithm~\ref{alg:mapping}'s gate order was documented rather than silently patched. Future work will prioritize completing the end-to-end hardware measurements, zero-noise extrapolation under the routing contract, the abort-policy intervention on real LLMs, process-level sandbox isolation, and validation on error-corrected hardware.
 
 More broadly, quantum-ready computing requires not only hardware advances but also new software abstractions; UniMind represents an early step toward a middleware layer that reduces the friction between classical AI intent and quantum hardware execution.
 

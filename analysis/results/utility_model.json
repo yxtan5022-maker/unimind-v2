@@ -1,0 +1,85 @@
+{
+  "J_definition": "J(G) = alpha*E_readout + beta*E_1q + gamma*E_2q + delta*N_SWAP + lambda_*D",
+  "U_definition": "U(P) = P_success - lambda1*L - lambda2*C - lambda3*E",
+  "parameters": {
+    "alpha": 0.0,
+    "beta": 1.0,
+    "gamma": 0.0,
+    "delta": 0.0,
+    "lambda_": 1.0
+  },
+  "spearman": {
+    "rho": 0.7714,
+    "p_value": 0.1028
+  },
+  "stratified_qubits": [
+    {
+      "q": 8,
+      "readout_total": 0.00390625,
+      "sx_error": 0.00030469501849661175,
+      "T1_us": 176.62288728793794,
+      "T2_us": 86.81909451385351,
+      "J_G": 2.000305,
+      "max_dev": 0.03,
+      "rank_J": 1,
+      "rank_dev": 1
+    },
+    {
+      "q": 109,
+      "readout_total": 0.01708984375,
+      "sx_error": 0.00033164128016287167,
+      "T1_us": 154.9577605520196,
+      "T2_us": 95.06864357288319,
+      "J_G": 2.000332,
+      "max_dev": 0.0812,
+      "rank_J": 2,
+      "rank_dev": 4
+    },
+    {
+      "q": 53,
+      "readout_total": 0.07177734375,
+      "sx_error": 0.0003403814199450448,
+      "T1_us": 304.8956636048569,
+      "T2_us": 174.22140151117512,
+      "J_G": 2.00034,
+      "max_dev": 0.0464,
+      "rank_J": 3,
+      "rank_dev": 3
+    },
+    {
+      "q": 105,
+      "readout_total": 0.03125,
+      "sx_error": 0.0004485379325601366,
+      "T1_us": 98.43498425783595,
+      "T2_us": 63.939509852385626,
+      "J_G": 2.000449,
+      "max_dev": 0.0434,
+      "rank_J": 4,
+      "rank_dev": 2
+    },
+    {
+      "q": 27,
+      "readout_total": 0.34619140625,
+      "sx_error": 0.0005962409810060886,
+      "T1_us": 103.95843375435416,
+      "T2_us": 112.52287770046783,
+      "J_G": 2.000596,
+      "max_dev": 0.0956,
+      "rank_J": 5,
+      "rank_dev": 5
+    },
+    {
+      "q": 37,
+      "readout_total": 0.09912109375,
+      "sx_error": 0.0012938019861596418,
+      "T1_us": 178.9222590844784,
+      "T2_us": 20.537287189481,
+      "J_G": 2.001294,
+      "max_dev": 0.1462,
+      "rank_J": 6,
+      "rank_dev": 6
+    }
+  ],
+  "grid_search_space": "alpha+beta=1, gamma=0, delta=0, lambda_=1 (single-qubit)",
+  "notes": "Single-qubit prototype: E_2q=0, N_SWAP=0, D=2 (constant). Only alpha and beta affect ranking. gamma, delta will matter for multi-qubit routing (RQ6)."
+}

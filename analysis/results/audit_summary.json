@@ -1,0 +1,65 @@
+{
+  "leaf": "Leaf-3: J(G) and routing honest analysis",
+  "date": "2026-08-30",
+  "audit_by": "leaf-3-subagent",
+  "utility_model_v3": {
+    "file": "analysis/results/utility_model_v3.json",
+    "n_points": 9,
+    "dims": 7,
+    "weight_keys": ["alpha", "beta", "gamma", "gamma_log", "eta_idle", "delta", "lambda_"],
+    "weights_sum_raw": 1.0,
+    "weights_sum_rounded": 1.0,
+    "recomputed_rho": 0.8166666666666665,
+    "recomputed_p": 0.0072247852463588015,
+    "reported_rho": 0.8167,
+    "reported_p": 0.0072,
+    "match": true,
+    "recomputed_loo_rho": 0.6666666666666666,
+    "reported_loo_rho": 0.6667,
+    "loo_match": true,
+    "X_norm_verified": true,
+    "J_verified": true,
+    "raw_feature_matrix_match": true,
+    "mins": {"E_readout": 0.00390625, "E_1q": 0.00026783820200460153, "E_2q": 0.0, "E_2q_log": 0.0, "E_idle": 0.018039266921306415, "N_SWAP": 0.0, "D": 2.0},
+    "maxs": {"E_readout": 0.34619140625, "E_1q": 0.0012938019861596418, "E_2q": 0.133011, "E_2q_log": 0.140279, "E_idle": 2.430084, "N_SWAP": 20.0, "D": 121.0},
+    "finding": "rho 0.8167 p 0.0072 correct, but n=9 on 7 dims is overfit; LOO rho drops to 0.667, weight bootstrap p5=0 p95>=0.2 for all dims, LOO weights swing 3-10x. Treat J(G) as rank heuristic, not validated decision model."
+  },
+  "j_holdout": {
+    "file": "analysis/results/j_holdout.json",
+    "train_n": 9,
+    "test_k": [12, 14, 18],
+    "oob_clipped": true,
+    "points_extrapolation": [
+      {"k": 12, "n_dims_gt1": 2, "dims_gt1": ["E_idle=1.147", "D=1.160"], "J": 0.3776095199561128, "J_clipped": 0.3645064899026502},
+      {"k": 14, "n_dims_gt1": 4, "dims_gt1": ["E_2q=1.068", "E_2q_log=1.063", "E_idle=1.337", "D=1.294"], "J": 0.42699003246264045, "J_clipped": 0.382270174803563},
+      {"k": 18, "n_dims_gt1": 5, "dims_gt1": ["E_2q=1.625", "E_2q_log=1.689", "E_idle=1.712", "N_SWAP=1.2", "D=1.697"], "J": 0.6435761938499514, "J_clipped": 0.4203859139859512}
+    ],
+    "rho_reported": 1.0,
+    "rho_clipped": 1.0,
+    "n_test": 3,
+    "finding": "All 3 test points have X_norm>1 before clipping (2/4/5 dims, up to 1.71). J clipped delta up to 35% (k=18 0.644->0.420). rho=1.0 is trivial for n=3 monotone (always +-1). This is extrapolation failure, not generalization; do not report as validation."
+  },
+  "multi_qubit_routing_v2": {
+    "json": "analysis/results/multi_qubit_routing_v2.json",
+    "md": "analysis/results/multi_qubit_routing_v2.md",
+    "checked_k": [2, 4, 6, 8, 10, 16],
+    "spot_checks": [
+      {"k": 4, "strategy": "Random", "json": "42/132/128", "md": "42/132/128", "match": true},
+      {"k": 4, "strategy": "Default", "json": "3/15/42", "md": "3/15/42", "match": true},
+      {"k": 8, "strategy": "UniMind", "json": "20/88/121", "md": "20/88/121", "match": true},
+      {"k": 16, "strategy": "Random", "json": "207/661/394", "md": "207/661/394", "match": true},
+      {"k": 16, "strategy": "Default", "json": "50/190/206", "md": "50/190/206", "match": true}
+    ],
+    "all_30_cells_match": true,
+    "violations": [],
+    "guarantee": "UniMind SWAP/depth never worse than Default (swap_vs_default 0 or -3 at k=4)"
+  },
+  "make_figures": {
+    "exists": true,
+    "path": "analysis/make_figures.py",
+    "ran": true,
+    "exit_code": 0,
+    "output": "figures -> paper/figures",
+    "note": "No data changed by this leaf; figures already current. No fig_router_v2 or J(G) ablation figure exists in make_figures.py."
+  }
+}

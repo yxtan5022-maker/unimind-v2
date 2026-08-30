@@ -117,3 +117,30 @@ v2.0-freeze tag.
 - **Script**: `analysis/test_unibit_math.py` (13/13 pass) → `unibit_math.json`; corrected figure data `unibit_fig_data.json`
 - **Findings**: (1) collapse ≡ position-adaptive threshold T_i=τ/g_i, structural dead zone beyond sinc root x*=1.3918 (~56% of tail positions cannot pass at default τ); (2) repo multi-bit fold applies X-then-Ry for b_i=1 → P(1)=1−w_i, diverging from the paper's stated identity (pure-Ry branch verified exact); (3) fig:unibit panel (b) coordinates are fabricated (negative tail impossible under Eq.(3); real s_1=0.7254>τ ⇒ collapse[1]=1, not all-zero). Panel (a) correct.
 - **Docs**: `docs/unibit_math.md` (three v2.1 corrections proposed)
+
+## A-03 | J(G) 7-dim utility — synthetic expansion to n=23 (FakeMarrakesh)
+- **Date**: 2026-08-30
+- **Commit**: be846a4 + synthetic expansion (`analysis/multi_qubit_routing.py` + `analysis/utility_model.py` v4)
+- **Hardware**: laptop (FakeMarrakesh 176 edges + `calib_full_e08.json` 2026-08-29 snapshot; no IBM quota)
+- **Backend**: `FakeMarrakesh` + `calib_full_e08.json` (156q, ibm_marrakesh); analytic proxy only
+- **Parameters**: 7-dim J(G) = alpha*E_readout + beta*E_1q + gamma*E_2q + gamma_log*E_2q_log + eta_idle*E_idle + delta*N_SWAP + lambda_*D; min-max scaler fitted on full n=23; dataset n=23 = 6 single (k=1 max_dev) + 17 multi (k=2-18 est_2q, contiguous via FakeMarrakesh calibration-weighted SABRE); fitting: 8k Dirichlet simplex + LOO + bootstrap B=200 (seed 42)
+- **Seeds**: Dirichlet 42; bootstrap 0..199
+- **Raw data**: `analysis/results/utility_model_v4.json` (full+LOO+scaling, n=23), `analysis/results/utility_model_v3.json` (v3 n=9 for audit), `analysis/results/j_holdout.json` (v3 OOB, now superseded by v4 scaler), `analysis/results/calib_full_e08.json`, `analysis/results/multi_qubit_routing_v2.json`
+- **Processed**: `analysis/results/utility_model_v4.json` (full_rho 0.9674 p~0, LOO 0.953, weights alpha 0.034 beta 0.335 gamma 0.371 gamma_log 0.084 eta_idle 0.070 delta 0.094 lambda 0.011)
+- **Figure/Table**: paper Tab. tab:utility (v4 Full vs LOO mean), S5.9 Stage-3 Limitations
+- **Conclusion**: v3 n=9 overfit resolved (LOO 0.667->0.953, oob_clipped eliminated, n/dims 9/7->23/7, gamma(E_2q) now dominates 0.371>beta 0.335). v4 still synthetic-proxy y=est_2q for k>8; hardware confirmation pending. Frozen scaler now covers k<=18 without clipping; future k>18 will extrapolate.
+
+---
+
+## E-10 | Synthetic expanded routing — multi-qubit calibration-weighted SABRE (FakeMarrakesh, n=23 feed)
+- **Date**: 2026-08-30
+- **Commit**: be846a4 + expansion (`analysis/multi_qubit_routing.py` v2)
+- **Hardware**: laptop, no IBM quota (synthetic transpile)
+- **Backend**: `FakeMarrakesh` + `calib_full_e08.json` 2026-08-29; qiskit.transpile opt_level=1 SABRE
+- **Parameters**: k in {2,3,5,7,9-18} continuous (14 new points) + existing {1,4,6,8} = n=23 contiguous; circuits RY(0.7)xk + entangling CX + RY(0.3)xk; strategies: Random(7 trials median)/Default(no layout)/Greedy/Calib-only/UniMind calibration-weighted SABRE (w(q)=1/(readout+3*sx), w_e=1/cz_err, connected subgraph candidates -> SABRE re-opt -> best-of vs Default, guaranteeing k>=8 not worse than Default); metrics: SWAP=(cz_after-orig_cx)//3, D, est_2q=1-exp(-(cz_count*avg_cz+sum sx)), E_2q_log=sum -log(1-cz), E_idle=depth*mean(1/T1+1/T2)
+- **Seeds**: 42
+- **Raw data**: `analysis/results/utility_model_v4.json` (merged n=23 matrix), `analysis/results/multi_qubit_routing_v2.json`, `data/qpu_sweep_virtual/` if materialized, `analysis/results/calib_full_e08.json`
+- **Processed**: n=23 matrix feeds Tab. tab:utility; oob_any=False under v4 scaler (v3 had 36 clipped values up to 1.71x)
+- **Figure/Table**: paper Tab. tab:routing_mq, Fig. fig_router, S5.8 Stage-2 Limitations
+- **Conclusion**: UniMind ties Default for k>=8 by explicit fallback (delta +0), beats Random 76-100%. v4 scaler eliminates clipping for k<=18. Limitation: synthetic proxy only; physical validation pending quota + cross-day drift. Next: nightly 02:00 D1-D5 snapshots to reach n>=30 and holdout on real QPU.
+
