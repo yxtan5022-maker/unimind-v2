@@ -497,6 +497,16 @@ the stale population.}
 \label{fig:freshness}
 \end{figure}
 
+The benefit is workload- and scale-dependent, and both effects cut the same way. On demanding circuits the stale
+penalty grows: as depth and 2Q density rise, the fresh-minus-stale pass advantage climbs from $+0.21$ (shallow,
+sparse) to $+0.40$ (deep, sparse), so refresh is most valuable exactly where utility-scale workloads are hardest.
+Over the real 156-qubit heavy-hex graph the stale quality penalty (D0-optimal layout re-evaluated at D1 minus a
+fresh D1 pick) is concentrated at intermediate $k$---peaking $+0.045$ at $k{=}16$, vanishing by $k{\ge}100$---while
+the connectivity share of layout-cost variance rises from $\sim0$ ($k{\le}16$) to $0.77$ at $k{=}128$. Refresh therefore
+pays off in the regime $8\lesssim k\lesssim64$ where a runtime has placement freedom \emph{and} drift changes the
+best free pick; at near-device scale left to the full topology, the bottleneck is connectivity, which no refresh
+changes.
+
 % ---------------------------------------------------------------- E2E
 \section{Composing the Software and Hardware Paths}
 \label{sec:e2e}

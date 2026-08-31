@@ -903,6 +903,61 @@ same conclusion as \S\ref{sec:margin} stated in operating terms---refresh when a
 top margin, not on a fixed clock---and it is what makes the choice of $\tau_J{=}0.5,\tau_C{=}0.005$ rational
 rather than ad hoc.
 
+\subsection{Where refresh helps: workload and device scale}
+\label{sec:scope}
+\paragraph{Workload generalization.}
+The refresh \emph{advantage} is not fixed; it grows with how many gates execute on the pinned qubits. Modeling a
+job's failure as proportional to the gates on its stored-best qubit (each 2Q gate carrying roughly twice a 1Q
+gate's error) and anchoring fresh best $C{=}0.0066$ and one-day-stale $0.014$ (Table~\ref{tab:stale}):
+the fresh-minus-stale pass advantage climbs from $+0.21$ (shallow, sparse) to $+0.32$ (shallow, dense) and
+$+0.40$ (deep, sparse) before both saturate as circuits get so demanding that even a fresh pin fails
+(Table~\ref{tab:scope}, lower block). The read is exactly the opposite of counter-intuitive: the adaptive-refresh
+gain is largest on the deep, 2Q-heavy workloads that utility-scale execution actually cares about---refresh is not
+a small-circuit optimization.
+
+\paragraph{Device and layout scale.} The refresh benefit is also $k$- and topology-dependent (Table~\ref{tab:scope},
+upper block). Searching the real 156-qubit heavy-hex graph for connected $k$-layouts under the D0 and D1
+snapshots shows the stale quality penalty (a D0-optimal layout re-evaluated at D1 minus a fresh D1 pick) is
+concentrated at \emph{intermediate} $k$: zero to a few points at $k{\le}8$, peaking at $k{=}16$ ($+0.045$) and
+$k{=}32$ ($+0.026$), then shrinking to zero by $k{\ge}100$. At large $k$ the layout is forced to include the full
+device, so its mean readout approaches the global average regardless of freshness---qubit quality stops being the
+lever. The same $k$-sweep shows the share of layout-cost variance explained by connectivity (induced 2Q/boundary
+cost) rising monotonically: $\sim0$ at $k{\le}16$, $0.11$ at $k{=}64$, $0.35$ at $k{=}100$, $0.77$ at
+$k{=}128$---the crossover where connectivity dominates qubit quality sits near the device's physical scale. Thus
+refresh is most valuable in the operating regime $8 \lesssim k \lesssim 64$ where a runtime both has placement
+freedom \emph{and} drift alters which free pick is best; for near-device-scale $k$ the bottleneck is connectivity,
+which refresh cannot change.
+
+\begin{table}[t]
+\caption{Where the refresh benefit lives. Upper: stale quality penalty $=$ (D0-optimal layout cost at D1) $-$ (fresh
+D1 pick cost) over the real heavy-hex map, plus the connectivity share of layout-cost variance. Lower: workload
+pass-rate of a fresh vs.\ a one-day-stale pin as circuit depth and 2Q density grow ($\mathrm{fresh}\ C{=}0.0066$,
+$\mathrm{stale}\ C{=}0.014$).}
+\label{tab:scope}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+$k$ & stale penalty & conn.\ share\\
+\midrule
+4 & $+0.002$ & $0.00$\\
+16 & $+0.045$ & $0.00$\\
+32 & $+0.026$ & $0.02$\\
+64 & $+0.006$ & $0.11$\\
+100 & $0.000$ & $0.35$\\
+128 & $0.000$ & $0.77$\\
+\midrule
+workload & pass fresh & pass stale\\
+\midrule
+shallow, sparse & $0.82$ & $0.61$\\
+shallow, dense & $0.71$ & $0.39$\\
+deep, sparse & $0.45$ & $0.05$\\
+deep, dense & $0.13$ & $0.05$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 % ---------------------------------------------------------------- E2E
 \section{Composing the Software and Hardware Paths}
 \label{sec:e2e}

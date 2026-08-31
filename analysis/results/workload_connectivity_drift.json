@@ -1,0 +1,147 @@
+{
+  "device": {
+    "name": "ibm_marrakesh",
+    "n_qubits": 156,
+    "undirected_edges": 176
+  },
+  "p1_7_connectivity_drift_k": {
+    "rows": [
+      {
+        "k": 2,
+        "n_candidates": 116,
+        "qcost_fresh_D1": 0.0105,
+        "ccost_fresh_D1": 0.0066,
+        "qcost_stale_D1(D0 pick)": 0.01697,
+        "stale_penalty_vs_fresh": 0.00647,
+        "quality_var_D1": 0.01142,
+        "conn_var_D1": 0.0,
+        "connectivity_share_of_var": 0.0
+      },
+      {
+        "k": 4,
+        "n_candidates": 133,
+        "qcost_fresh_D1": 0.01196,
+        "ccost_fresh_D1": 0.0189,
+        "qcost_stale_D1(D0 pick)": 0.01392,
+        "stale_penalty_vs_fresh": 0.00195,
+        "quality_var_D1": 0.005771,
+        "conn_var_D1": 0.0,
+        "connectivity_share_of_var": 0.0
+      },
+      {
+        "k": 8,
+        "n_candidates": 147,
+        "qcost_fresh_D1": 0.01736,
+        "ccost_fresh_D1": 0.0429,
+        "qcost_stale_D1(D0 pick)": 0.02017,
+        "stale_penalty_vs_fresh": 0.00281,
+        "quality_var_D1": 0.003795,
+        "conn_var_D1": 0.0,
+        "connectivity_share_of_var": 0.0
+      },
+      {
+        "k": 16,
+        "n_candidates": 159,
+        "qcost_fresh_D1": 0.01721,
+        "ccost_fresh_D1": 0.0915,
+        "qcost_stale_D1(D0 pick)": 0.0625,
+        "stale_penalty_vs_fresh": 0.04529,
+        "quality_var_D1": 0.001604,
+        "conn_var_D1": 1e-06,
+        "connectivity_share_of_var": 0.001
+      },
+      {
+        "k": 32,
+        "n_candidates": 159,
+        "qcost_fresh_D1": 0.02744,
+        "ccost_fresh_D1": 0.189,
+        "qcost_stale_D1(D0 pick)": 0.05334,
+        "stale_penalty_vs_fresh": 0.0259,
+        "quality_var_D1": 0.000675,
+        "conn_var_D1": 1.3e-05,
+        "connectivity_share_of_var": 0.019
+      },
+      {
+        "k": 64,
+        "n_candidates": 159,
+        "qcost_fresh_D1": 0.04782,
+        "ccost_fresh_D1": 0.3993,
+        "qcost_stale_D1(D0 pick)": 0.05364,
+        "stale_penalty_vs_fresh": 0.00582,
+        "quality_var_D1": 0.00029,
+        "conn_var_D1": 3.5e-05,
+        "connectivity_share_of_var": 0.108
+      },
+      {
+        "k": 100,
+        "n_candidates": 159,
+        "qcost_fresh_D1": 0.06856,
+        "ccost_fresh_D1": 0.6306,
+        "qcost_stale_D1(D0 pick)": 0.06856,
+        "stale_penalty_vs_fresh": 0.0,
+        "quality_var_D1": 9.6e-05,
+        "conn_var_D1": 5.2e-05,
+        "connectivity_share_of_var": 0.354
+      },
+      {
+        "k": 128,
+        "n_candidates": 158,
+        "qcost_fresh_D1": 0.07434,
+        "ccost_fresh_D1": 0.8271,
+        "qcost_stale_D1(D0 pick)": 0.07434,
+        "stale_penalty_vs_fresh": 0.0,
+        "quality_var_D1": 1.4e-05,
+        "conn_var_D1": 4.5e-05,
+        "connectivity_share_of_var": 0.767
+      }
+    ],
+    "crossover_k_connectivity_dominates": 128,
+    "reading": "At small k the runtime can search many connected layouts and land on low-C qubits, so readout quality (the quantity drift attacks) dominates. As k grows the heavy-hex graph binds: connectivity/2Q cost variance overtakes qubit-quality variance, so qubit quality stops being the lever and refresh alone cannot recover the loss."
+  },
+  "p1_6_workload_generalization": {
+    "rows": [
+      {
+        "workload": "shallow-sparse",
+        "depth": 1.0,
+        "p2q": 0.2,
+        "pass_fresh": 0.815,
+        "pass_stale": 0.611,
+        "pass_stale_k16": 0.05,
+        "gain_fresh_vs_stale": 0.205
+      },
+      {
+        "workload": "shallow-dense",
+        "depth": 1.0,
+        "p2q": 0.6,
+        "pass_fresh": 0.71,
+        "pass_stale": 0.388,
+        "pass_stale_k16": 0.05,
+        "gain_fresh_vs_stale": 0.322
+      },
+      {
+        "workload": "deep-sparse",
+        "depth": 3.0,
+        "p2q": 0.2,
+        "pass_fresh": 0.446,
+        "pass_stale": 0.05,
+        "pass_stale_k16": 0.05,
+        "gain_fresh_vs_stale": 0.396
+      },
+      {
+        "workload": "deep-dense",
+        "depth": 3.0,
+        "p2q": 0.6,
+        "pass_fresh": 0.13,
+        "pass_stale": 0.05,
+        "pass_stale_k16": 0.05,
+        "gain_fresh_vs_stale": 0.08
+      }
+    ],
+    "reading": "The fresh-vs-stale gap widens with depth and 2Q density: deeper/denser circuits execute more gates on drifted pins, so a stale refresh has a larger absolute penalty. The adaptive-refresh advantage is therefore largest exactly on the deep, 2Q-heavy workloads typical of real utility-scale computation."
+  },
+  "anchors": {
+    "fresh_best_C1": 0.006591796875,
+    "stale_worst_pin": 0.0139,
+    "stale_k16_bound": 0.25
+  }
+}
