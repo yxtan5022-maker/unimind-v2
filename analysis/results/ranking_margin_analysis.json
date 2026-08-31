@@ -1,0 +1,129 @@
+{
+  "top12_table": [
+    {
+      "rank": 1,
+      "q": 8,
+      "Mk_D0": 0.00195,
+      "C_D0": 0.00391,
+      "C_D1": 0.00952,
+      "dC": 0.00562,
+      "rank_D1": 6
+    },
+    {
+      "rank": 2,
+      "q": 120,
+      "Mk_D0": 0.00146,
+      "C_D0": 0.00586,
+      "C_D1": 0.01147,
+      "dC": 0.00562,
+      "rank_D1": 19
+    },
+    {
+      "rank": 3,
+      "q": 153,
+      "Mk_D0": 0.00049,
+      "C_D0": 0.00732,
+      "C_D1": 0.01392,
+      "dC": 0.00659,
+      "rank_D1": 32
+    },
+    {
+      "rank": 4,
+      "q": 4,
+      "Mk_D0": 0.00049,
+      "C_D0": 0.00781,
+      "C_D1": 0.01733,
+      "dC": 0.00952,
+      "rank_D1": 52
+    },
+    {
+      "rank": 5,
+      "q": 7,
+      "Mk_D0": 0.0,
+      "C_D0": 0.0083,
+      "C_D1": 0.02441,
+      "dC": 0.01611,
+      "rank_D1": 78
+    },
+    {
+      "rank": 6,
+      "q": 139,
+      "Mk_D0": 0.0,
+      "C_D0": 0.0083,
+      "C_D1": 0.0144,
+      "dC": 0.0061,
+      "rank_D1": 38
+    },
+    {
+      "rank": 7,
+      "q": 154,
+      "Mk_D0": 0.00049,
+      "C_D0": 0.0083,
+      "C_D1": 0.00708,
+      "dC": -0.00122,
+      "rank_D1": 3
+    },
+    {
+      "rank": 8,
+      "q": 6,
+      "Mk_D0": 0.00049,
+      "C_D0": 0.00879,
+      "C_D1": 0.00732,
+      "dC": -0.00146,
+      "rank_D1": 4
+    },
+    {
+      "rank": 9,
+      "q": 54,
+      "Mk_D0": 0.0,
+      "C_D0": 0.00928,
+      "C_D1": 0.01025,
+      "dC": 0.00098,
+      "rank_D1": 9
+    },
+    {
+      "rank": 10,
+      "q": 140,
+      "Mk_D0": 0.00049,
+      "C_D0": 0.00928,
+      "C_D1": 0.03442,
+      "dC": 0.02515,
+      "rank_D1": 94
+    },
+    {
+      "rank": 11,
+      "q": 15,
+      "Mk_D0": 0.0,
+      "C_D0": 0.00977,
+      "C_D1": 0.01392,
+      "dC": 0.00415,
+      "rank_D1": 30
+    },
+    {
+      "rank": 12,
+      "q": 19,
+      "Mk_D0": 0.0,
+      "C_D0": 0.00977,
+      "C_D1": 0.00659,
+      "dC": -0.00317,
+      "rank_D1": 1
+    }
+  ],
+  "margin_turnover_corr": {
+    "top50_D0_D1_rho": -0.425,
+    "p": 0.2576,
+    "top50_D0_D2_rho": -0.425,
+    "all156_D0_D1_rho": -0.091
+  },
+  "top3_gap_survival": {
+    "D0->D1": {
+      "min_gap": 0.00146,
+      "top1_rank_D1": 6
+    },
+    "D1->D2": {
+      "min_gap": 0.0,
+      "top1_rank_D2": 1
+    }
+  },
+  "interpretation": "Small margin M_k near the top means a small dC can reorder the ranking. D0->D1 top-3 margins are tiny (order 1e-4..1e-3) relative to drift (median |dC|=0.0127), so the best-qubit turnover (q8 rank1->6) is predicted. D1->D2 top margins are large (order 1e-4 with near-zero drift), so the ranking is stable. Margin is the mechanism linking drift to turnover."
+}

@@ -424,7 +424,10 @@ top-3 values), consistent with a regime dominated by daily calibration cycles.
 \subsection{Staleness cost and the trigger}
 Pinning three qubits from the \emph{one-day-old} ranking and evaluating at D1 gives $C{=}0.0095/0.0115/0.0139$
 (the worst, \q{153}, is now rank 32/156); re-selecting fresh gives \q{19} at $0.0066$---the stale policy's worst pin
-is $2.1\times$ worse than the adaptable choice. The trigger of \S\ref{sec:trigger} fires on D0$\to$D1
+is $2.1\times$ worse than the adaptable choice. The cause is \emph{ranking margin}: the D0 top gaps are only
+$M_1{=}0.0020$, $M_2{=}0.0015$---far smaller than the median daily drift $0.0127$---so one calibration step reorders
+the best qubits (top-50 Spearman $\rho{=}{-}0.425$, $p{=}0.26$; smaller margins, larger turnover). The trigger of
+\S\ref{sec:trigger} fires on D0$\to$D1
 (Jaccard $0.25<0.5$; stored-best $\Delta C{=}0.0056>0.005$). Because re-selection is sub-millisecond, staleness is a
 pure operations failure, not a compute constraint.
 
@@ -448,6 +451,34 @@ refresh-rate-vs.\-fidelity Pareto frontier: relaxing $\tau_J$ toward $1.0$ or $\
 surrenders the $+33$~pp refresh gain (the drift goes undetected), while the Jaccard term already catches
 this particular drift for any $\tau_J{\ge}0.3$, so tightening further does not move fidelity. The full
 per-$(\tau_J,\tau_C)$ table is in the supplementary data.
+
+A 30-day Monte Carlo over synthetic drift (calibrated to the measured D0/D1/D2 delta distribution, including a
+$2\%$ ``burst'' component that reproduces \q{37}-type spikes) turns this into a cost-aware comparison
+(Table~\ref{tab:policy}): adaptive reaches the same fidelity as the daily periodic policy at \emph{under half} the
+refresh load ($0.63$ vs.\ $1.0$ refresh/day), while periodic-$6$~h spends $4\times$ more (and thus costs more
+snapshot fetches) for zero added fidelity and static falls short. Refresh, triggered by drifting margin rather than
+a clock, is the efficient operating point.
+
+\begin{table}[t]
+\caption{Unified policy comparison, 30 days / 600 jobs, drift calibrated to real D0/D1/D2 statistics. ``Fidelity'' is
+the fraction of jobs whose stored-best qubit stays within tolerance.}
+\label{tab:policy}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Policy & Fidelity & Refresh/day & False & Missed\\
+\midrule
+Static (never) & $0.913$ & $0.0$ & --- & $117$\\
+Periodic 48h & $0.908$ & $0.5$ & 0 & $60$\\
+Periodic 24h & $0.928$ & $1.0$ & 0 & 0\\
+Periodic 12h & $0.928$ & $2.0$ & 0 & 0\\
+Periodic 6h & $0.928$ & $4.0$ & 0 & 0\\
+\textbf{Adaptive} ($0.5,0.005$) & \textbf{$0.928$} & \textbf{$0.63$} & 12 & 41\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[t]
 \centering

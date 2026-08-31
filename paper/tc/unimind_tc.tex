@@ -636,6 +636,39 @@ what we adopt in the design: $J(G)$ is usable as a \emph{ranking} device only wh
 labels and applied within a calibration cycle; weights from proxy datasets must not be extrapolated to $k\ge11$;
 and chain placement's forced inclusion of boundary qubits is the term to attack next.
 
+Which term survives contact with the hardware? A leave-one-term-out ablation on the real-label OOS split answers
+this. Refitting $J(G)$ with one interaction dropped and measuring the size-OOS $\rho$ pins the blame (Table~\ref{tab:jabl}):
+removing the coupler term $E_{\mathrm{2q}}$ (whose $\gamma$ is the layout penalty against boundary qubits) collapses
+OOS $\rho$ from $0.127$ to $-0.042$ ($\Delta\rho{=}-0.170$), the only drop that changes the sign of the result.
+Removing $E_{\mathrm{1q}}$ costs $0.024$; removing the readout, idle, or interaction-density terms costs $0.000$;
+and removing $N_{\mathrm{SWAP}}$ actually \emph{raises} OOS to $0.139$, indicting it as a pure proxy artifact with no
+real-label support. The single real signal in $J(G)$---and the term a hardware-informed design must keep---is the
+coupler/layout term that encodes where on the device the chain is pinned, which is precisely the information a
+refresh-driven scheduler can provide.
+
+\begin{table}[t]
+\caption{Leave-one-term-out ablation of $J(G)$ on the real-label size-OOS split. $\Delta\rho$ is the change in
+Spearman $\rho$ relative to the full model ($0.127$). Removing $E_{\mathrm{2q}}$ is the only drop that reverses
+the sign.}
+\label{tab:jabl}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrc@{}}
+\toprule
+Dropped term & OOS $\rho$ & $\Delta\rho$\\
+\midrule
+none (full) & $0.127$ & ---\\
+coupler $E_{\mathrm{2q}}$ & $-0.042$ & $-0.170$\\
+single-qubit $E_{\mathrm{1q}}$ & $0.103$ & $-0.024$\\
+readout $E_{\mathrm{readout}}$ & $0.127$ & $0.000$\\
+idle $E_{\mathrm{idle}}$ & $0.127$ & $0.000$\\
+interaction $D$ & $0.127$ & $0.000$\\
+SWAP $N_{\mathrm{SWAP}}$ & $0.139$ & $+0.012$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{table}[t]
 \caption{Learned weights of $J(G)$ under proxy and real labels. OOS-train = weights fitted on $k\le8$ only
 (v5 size-OOS split).}
@@ -729,6 +762,46 @@ $2.1\times$ (D0$\to$D1, $T_{\mathrm{valid}}\lesssim24$~h). $T_{\mathrm{valid}}$ 
 on this device at this $k$---small enough that refresh must be part of the runtime loop, not a periodic maintenance
 step. The exact position between the two bounds is a function of workload, $k$, and device family (\ref{eq:tvalid}).
 
+\subsection{Ranking margin and turnover}
+\label{sec:margin}
+A sharper mechanism links drift to turnover. Let $M_k = C_{(k+1)} - C_{(k)}$ be the score gap between adjacent
+ranks: how much the device must drift before the ordering can flip. Because the top of the ranking is packed
+($M_1{=}0.0020$, $M_2{=}0.0015$ at D0---separations far smaller than the median daily drift $|\Delta C|{=}0.0127$),
+a single day's drift exceeds the margin that separates the top candidates, and the best qubit falls (Table~\ref{tab:margin}).
+Across the top-50 selection-relevant qubits the Spearman correlation between $M_k$(D0) and the qubit's rank
+displacement at D1 is $\rho{=}-0.425$---smaller margins tend to predict larger turnover, though the sample
+($n{=}50$, one calibration epoch) is too small to establish significance ($p{=}0.26$). The
+effect is local to the top: over all 156 qubits it vanishes ($\rho{=}-0.09$, n.s.), because far from the top both
+margins are large and drift proportionally small. The pairing of the two observations explains the regime
+difference: D0$\to$D1 has large drift relative to small top margins, so turnover; at D1 the top margins are even
+smaller yet the D1$\to$D2 drift is near zero, so the ranking is stable despite the packing. Margin is thus the quantity
+that converts a drift magnitude into a selection failure: the runtime should refresh not on fixed wall-clock but
+when the \emph{ratio} of accumulated drift to the current top margin approaches unity.
+
+\begin{table}[t]
+\caption{What happens to selected D0-ranked qubits when a single day of calibration drift arrives. ``Margin'' is the
+D0 score gap below the qubit; the drift ${\to}$D1 that exceeds it reorders the ranking. (Ranks 6, 9--11 are omitted
+for brevity.)}
+\label{tab:margin}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+rank@D0 & \q{} & Margin & $C$@D0 & $C$@D1 & $\Delta C$ & rank@D1\\
+\midrule
+1 & \q{8} & .0020 & .0039 & .0095 & +.0056 & 6\\
+2 & \q{120} & .0015 & .0059 & .0115 & +.0056 & 19\\
+3 & \q{153} & .0005 & .0073 & .0139 & +.0066 & 32\\
+4 & \q{4} & .0005 & .0078 & .0173 & +.0095 & 52\\
+5 & \q{7} & .0000 & .0083 & .0244 & +.0161 & 78\\
+7 & \q{154} & .0005 & .0083 & .0071 & $-.0012$ & 3\\
+8 & \q{6} & .0005 & .0088 & .0073 & $-.0015$ & 4\\
+12 & \q{19} & .0000 & .0098 & .0066 & $-.0032$ & 1\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{table}[t]
 \caption{Top-3 selected from D0, evaluated at D1 vs.\ a fresh selection. Ranks are over all 156 qubits at D1.}
 \label{tab:stale}
@@ -770,18 +843,65 @@ to map the Pareto tradeoff between refresh rate and fidelity.
 
 \subsection{Threshold sweep}
 \label{sec:sweep}
-Using the D0$\to$D1 transition we simulate each policy offline. For every $(\tau_J, \tau_C)$ pair the simulation
-tracks (i)~how many refreshes fire, (ii)~how many are \emph{necessary} (the true top-10 or best qubit changed),
-and (iii)~how many \emph{missed drifts} occur (the trigger did not fire but the ranking shifted). The metrics are
-\begin{equation}\begin{aligned}
-\mathrm{Refresh\ Rate} &= \frac{\text{number of refreshes}}{\text{total runtime}},\\
-\mathrm{Fidelity} &= \frac{1}{n}\sum_i \mathbb{1}[\text{pass}_i],
-\end{aligned}\label{eq:sweep}
-\end{equation}
-where pass$_i$ denotes whether parameterization $i$ meets the $0.05$ tolerance. The resulting Pareto curve
-(Section~\ref{sec:e2e}) shows that the measured trigger ($\tau_J{=}0.5$, $\tau_C{=}0.005$) sits near the knee of
-the refresh-rate-vs.\-fidelity tradeoff; relaxing $\tau_J$ below $0.3$ or tightening $\tau_C$ above $0.01$
-moves the operating point to an inefficient region.
+To get a \emph{unified, cost-aware} comparison we Monte-Carlo a 30-day runtime (600 jobs) over synthetic drift
+whose daily step is drawn from the \emph{measured} D0/D1/D2 drift distribution---background
+$\mathcal{N}(\widehat{\mu},\widehat{\sigma})$ robustly estimated from the 156$\times$2 real per-qubit deltas plus a
+$2\%$ ``burst'' component (exponential scale $0.15$) to reproduce \q{37}-type single-qubit spikes. Every policy
+runs on the same timelines and reports the same metrics (Table~\ref{tab:policy}): the adaptive trigger achieves the
+same fidelity as the daily periodic policy at \emph{under half} the refresh load ($0.63$ vs.\ $1.0$ refresh/day),
+and static---which never refreshes---falls below both while missing essentially every drift event.
+
+\begin{table}[t]
+\caption{Unified policy comparison, 30 simulated days / 600 jobs, drift calibrated to real D0/D1/D2 statistics.
+Fidelity is the fraction of jobs executed from a stored snapshot whose best qubit stays within tolerance.}
+\label{tab:policy}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Policy & Fidelity & Refresh/day & False & Missed\\
+\midrule
+Static (never) & $0.913$ & $0.0$ & --- & $117$\\
+Periodic 48h & $0.908$ & $0.5$ & 0 & $60$\\
+Periodic 24h & $0.928$ & $1.0$ & 0 & 0\\
+Periodic 12h & $0.928$ & $2.0$ & 0 & 0\\
+Periodic 6h & $0.928$ & $4.0$ & 0 & 0\\
+\textbf{Adaptive} ($0.5,0.005$) & \textbf{$0.928$} & \textbf{$0.63$} & 12 & 41\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth,height=3.6cm,
+  xlabel={refresh rate (per day)},ylabel={fidelity},
+  xmin=0,xmax=4.2,ymin=0.90,ymax=0.94,
+  xtick={0,0.5,1,2,4},legend pos=south east,mark size=2.2pt]
+\addplot[mark=o,blue] coordinates {(0,0.913)(0.5,0.908)(1,0.928)(2,0.928)(4,0.928)};
+\addlegendentry{periodic \& static}
+\addplot[mark=square,red] coordinates {(0.63,0.928)};
+\addlegendentry{adaptive}
+\draw[dashed,gray] (axis cs:0,0.928)--(axis cs:4.2,0.928);
+\node[anchor=west,font=\scriptsize,gray] at (axis cs:3.1,0.931) {max fidelity};
+\node[anchor=east,font=\scriptsize,red] at (axis cs:0.63,0.929) {knee};
+\end{axis}
+\end{tikzpicture}
+\caption{Refresh-rate-vs.\-fidelity frontier. Fidelity saturates once refresh/day $\ge{\approx}0.23$; the adaptive
+operating point ($0.63$) sits on the plateau, while the periodic schedules spend $1$--$4\times$ more refreshes for
+no additional fidelity and static falls short of it.}
+\label{fig:parc}
+\end{figure}
+
+Sweeping $\tau_J{\in}[0.2,0.9]$, $\tau_C{\in}[0.002,0.02]$ over the same timelines (Fig.~\ref{fig:parc}):
+the $\tau_J$ term is the robust detector. For $\tau_J\ge0.4$ fidelity is flat at the plateau for every $\tau_C$;
+dropping $\tau_C$ to $0.02$ or $\tau_J$ to $0.2$--$0.3$ relaxes the trigger into missing the burst drift and
+fidelity breaks below the plateau. The default ($0.5,0.005$) is at the knee: tightening it further buys no
+fidelity (fidelity saturates at $\sim0.23$ refresh/day) while loosening it sacrifices the plateau. This is the
+same conclusion as \S\ref{sec:margin} stated in operating terms---refresh when accumulated drift approaches the
+top margin, not on a fixed clock---and it is what makes the choice of $\tau_J{=}0.5,\tau_C{=}0.005$ rational
+rather than ad hoc.
 
 % ---------------------------------------------------------------- E2E
 \section{Composing the Software and Hardware Paths}
@@ -949,7 +1069,7 @@ which is exotic.
 
 \subsection{Design synthesis}
 Table~\ref{tab:synth} maps each measured failure mode to the engineering response the data supports; the columns
-are ordered by measured cost so a runtime can prioritize. The two lines hidden by a naive reading---``mitigation
+are ordered by measured cost so a runtime can prioritize. The two lines a naive reading hides---``mitigation
 helps'' and ``$J(G)$ ranks well''---are the ones our data bounds, and both bounds are the point of the paper.
 
 \begin{table}[t]

@@ -1,0 +1,109 @@
+{
+  "baseline_oos_rho": 0.1273,
+  "ablation": {
+    "full": {
+      "removed_features": "(none)",
+      "n_features": 7,
+      "missing_weights": [],
+      "full_rho": 0.6433,
+      "oos_rho": 0.1273,
+      "delta_oos_vs_full_model": 0.0,
+      "survives": "clean drop (model independent)"
+    },
+    "no_C_readout": {
+      "removed_features": "E_readout",
+      "n_features": 6,
+      "missing_weights": [
+        "alpha"
+      ],
+      "full_rho": 0.6393,
+      "oos_rho": 0.1273,
+      "delta_oos_vs_full_model": 0.0,
+      "survives": "clean drop (model independent)"
+    },
+    "no_E1q": {
+      "removed_features": "E_1q",
+      "n_features": 6,
+      "missing_weights": [
+        "beta"
+      ],
+      "full_rho": 0.5188,
+      "oos_rho": 0.103,
+      "delta_oos_vs_full_model": -0.0242,
+      "survives": "clean drop (model independent)"
+    },
+    "no_E2q": {
+      "removed_features": "E_2q, E_2q_log",
+      "n_features": 5,
+      "missing_weights": [
+        "gamma",
+        "gamma_log"
+      ],
+      "full_rho": 0.6601,
+      "oos_rho": -0.0424,
+      "delta_oos_vs_full_model": -0.1697,
+      "survives": "REAL signal (removal degrades)"
+    },
+    "no_Eidle": {
+      "removed_features": "E_idle",
+      "n_features": 6,
+      "missing_weights": [
+        "eta_idle"
+      ],
+      "full_rho": 0.6512,
+      "oos_rho": 0.1273,
+      "delta_oos_vs_full_model": 0.0,
+      "survives": "clean drop (model independent)"
+    },
+    "no_N_SWAP": {
+      "removed_features": "N_SWAP",
+      "n_features": 6,
+      "missing_weights": [
+        "delta"
+      ],
+      "full_rho": 0.6374,
+      "oos_rho": 0.1394,
+      "delta_oos_vs_full_model": 0.0121,
+      "survives": "clean drop (model independent)"
+    },
+    "no_depth": {
+      "removed_features": "D",
+      "n_features": 6,
+      "missing_weights": [
+        "lambda_"
+      ],
+      "full_rho": 0.6433,
+      "oos_rho": 0.1273,
+      "delta_oos_vs_full_model": 0.0,
+      "survives": "clean drop (model independent)"
+    }
+  },
+  "v5_full_weights": {
+    "E_readout": 0.2286,
+    "E_1q": 0.4152,
+    "E_2q": 0.0207,
+    "E_2q_log": 0.0794,
+    "E_idle": 0.0267,
+    "N_SWAP": 0.1961,
+    "D": 0.0332
+  },
+  "features": [
+    "E_readout",
+    "E_1q",
+    "E_2q",
+    "E_2q_log",
+    "E_idle",
+    "N_SWAP",
+    "D"
+  ],
+  "weight_keys": [
+    "alpha",
+    "beta",
+    "gamma",
+    "gamma_log",
+    "eta_idle",
+    "delta",
+    "lambda_"
+  ],
+  "answer": "Under real refresh-pinned labels, removing the readout/noise terms that the proxy also used changes OOS little, while the terms that distinguished the proxy (E_2q layout penalty gamma) are the ones whose removal from the real fit reveals the collapse. Quoted per-ablation OOS deltas quantify which terms carry real post-signature value on hardware."
+}
