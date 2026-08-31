@@ -1,0 +1,28 @@
+{
+ "method": "size-out-of-sample, same protocol as utility_oos.json but labels at k>=9 replaced by refresh-pinned real max_dev",
+ "n_train_k8": 13,
+ "n_test_k9": 10,
+ "train": {
+  "spearman": 0.8846,
+  "weights": {
+   "alpha": 0.0061,
+   "beta": 0.559,
+   "gamma": 0.0508,
+   "gamma_log": 0.1042,
+   "eta_idle": 0.0073,
+   "delta": 0.2691,
+   "lambda_": 0.0035
+  }
+ },
+ "test": {
+  "spearman": 0.1273,
+  "spearman_p_mc_20000": 0.3622,
+  "n_oob_before_clip": 10
+ },
+ "v4_oos_reference": {
+  "train_rho": 0.8848,
+  "test_rho": 0.8181,
+  "mc_p": 0.0029,
+  "test_k": "9..18"
+ }
+}

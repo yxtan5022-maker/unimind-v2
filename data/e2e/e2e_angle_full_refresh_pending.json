@@ -1,0 +1,674 @@
+{
+  "arm": "full",
+  "suite_seed": 20260831,
+  "n": 30,
+  "nbits": 6,
+  "snapshot": "calib_2026-08-31.json",
+  "snapshot_fetched_at": "2026-08-31T09:22:38",
+  "snapshot_last_update": "2026-08-31 07:46:18+08:00",
+  "pub_meta": [
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    }
+  ],
+  "job_id": "daadeocjbipc73ffq83g",
+  "shots": 4096,
+  "submitted_at": "2026-08-31T09:22:41"
+}

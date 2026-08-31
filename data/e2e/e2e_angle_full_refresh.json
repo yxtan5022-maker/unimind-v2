@@ -1,0 +1,1696 @@
+{
+  "arm": "full",
+  "suite_seed": 20260831,
+  "n": 30,
+  "nbits": 6,
+  "snapshot": "calib_2026-08-31.json",
+  "snapshot_fetched_at": "2026-08-31T09:22:38",
+  "snapshot_last_update": "2026-08-31 07:46:18+08:00",
+  "pub_meta": [
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6
+    }
+  ],
+  "job_id": "daadeocjbipc73ffq83g",
+  "shots": 4096,
+  "submitted_at": "2026-08-31T09:22:41",
+  "hardware": [
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.026,
+        0.0312,
+        0.0041,
+        0.0231,
+        0.0254,
+        0.0177
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0312
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0208,
+        0.0088,
+        0.0433,
+        0.0363,
+        0.0029,
+        0.0026
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0433
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0247,
+        0.0293,
+        0.0066,
+        0.0267,
+        0.0054,
+        0.0291
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0293
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0034,
+        0.0039,
+        0.0253,
+        0.0272,
+        0.0186,
+        0.0374
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0374
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0145,
+        0.0098,
+        0.018,
+        0.0235,
+        0.0015,
+        0.0342
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0342
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0174,
+        0.0063,
+        0.0053,
+        0.0089,
+        0.0146,
+        0.0464
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0464
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0218,
+        0.0381,
+        0.033,
+        0.0158,
+        0.0078,
+        0.0218
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0381
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0119,
+        0.0298,
+        0.0145,
+        0.0212,
+        0.0508,
+        0.0085
+      ],
+      "weights_ok": 5,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0508
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0052,
+        0.0073,
+        0.0033,
+        0.0056,
+        0.0068,
+        0.0436
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0436
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0067,
+        0.0034,
+        0.0237,
+        0.0517,
+        0.0117,
+        0.0571
+      ],
+      "weights_ok": 4,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0571
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0094,
+        0.04,
+        0.0189,
+        0.0419,
+        0.0112,
+        0.0444
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0444
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0093,
+        0.0234,
+        0.0069,
+        0.023,
+        0.0181,
+        0.0109
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0234
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0231,
+        0.0161,
+        0.0145,
+        0.0393,
+        0.0044,
+        0.0422
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0422
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0024,
+        0.0288,
+        0.0224,
+        0.0398,
+        0.0127,
+        0.0588
+      ],
+      "weights_ok": 5,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0588
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0034,
+        0.0073,
+        0.0062,
+        0.0217,
+        0.0083,
+        0.041
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.041
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0142,
+        0.0229,
+        0.0132,
+        0.0215,
+        0.0137,
+        0.0405
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0405
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0164,
+        0.0366,
+        0.0056,
+        0.0026,
+        0.0015,
+        0.0589
+      ],
+      "weights_ok": 5,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0589
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0135,
+        0.0049,
+        0.0364,
+        0.0148,
+        0.0078,
+        0.0207
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0364
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0125,
+        0.0273,
+        0.011,
+        0.0286,
+        0.0063,
+        0.0404
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0404
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0487,
+        0.0093,
+        0.0053,
+        0.0333,
+        0.02,
+        0.0343
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0487
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0155,
+        0.002,
+        0.032,
+        0.0647,
+        0.0083,
+        0.0545
+      ],
+      "weights_ok": 4,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0647
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0143,
+        0.0195,
+        0.0114,
+        0.0627,
+        0.0054,
+        0.0037
+      ],
+      "weights_ok": 5,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0627
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0443,
+        0.0112,
+        0.0262,
+        0.0389,
+        0.0249,
+        0.0384
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0443
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0285,
+        0.0122,
+        0.0158,
+        0.0339,
+        0.0342,
+        0.0265
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0342
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0163,
+        0.0039,
+        0.0355,
+        0.0536,
+        0.022,
+        0.0532
+      ],
+      "weights_ok": 4,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0536
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0103,
+        0.001,
+        0.0164,
+        0.032,
+        0.022,
+        0.0381
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0381
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.007,
+        0.0312,
+        0.011,
+        0.0515,
+        0.0171,
+        0.0016
+      ],
+      "weights_ok": 5,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0515
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0008,
+        0.0269,
+        0.0012,
+        0.0336,
+        0.0293,
+        0.0433
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0433
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0132,
+        0.0171,
+        0.0178,
+        0.0192,
+        0.0293,
+        0.0584
+      ],
+      "weights_ok": 5,
+      "n_weights": 6,
+      "hw_pass": false,
+      "max_dev": 0.0584
+    },
+    {
+      "spec": {
+        "kind": "angle",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "placed_qubits": [
+        19,
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "n_qubits": 6,
+      "per_bit_dev": [
+        0.0125,
+        0.0059,
+        0.0189,
+        0.0266,
+        0.0156,
+        0.0299
+      ],
+      "weights_ok": 6,
+      "n_weights": 6,
+      "hw_pass": true,
+      "max_dev": 0.0299
+    }
+  ]
+}

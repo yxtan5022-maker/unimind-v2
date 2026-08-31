@@ -25,7 +25,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "unimind-dev"))
-from e2e_chain import SHOTS, TOL, window_mean, rotation_angle, greedy_connected, coupling_edges  # noqa: E402
+from e2e_chain import SHOTS, TOL, window_mean, rotation_angle, coupling_edges  # noqa: E402
+from e2e_angle_batch import chain_grow  # noqa: E402
 from hw_router import rank_rows  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -43,10 +44,24 @@ def pattern(k: int, seed: int):
 
 
 def stage_submit():
-    snap = json.loads(FROZEN.read_text())
+    from qiskit_ibm_runtime import QiskitRuntimeService
+    service = QiskitRuntimeService()
+    backend = service.backend(BACKEND)
+
+    if args.refresh:
+        from hw_router import fetch_table
+        snap = fetch_table(backend)
+        snap_path = DATA.parent / "drift" / "calib_2026-08-31.json"
+        snap_path.parent.mkdir(parents=True, exist_ok=True)
+        snap_path.write_text(json.dumps(snap, indent=2))
+        print("refreshed snapshot -> {}".format(snap_path))
+    else:
+        snap = json.loads(FROZEN.read_text())
+        snap_path = FROZEN
     ranked = rank_rows(snap["qubits"])
     DATA.mkdir(parents=True, exist_ok=True)
-    dest = DATA / "j_real_pending.json"
+    tag = "j_real" if not args.refresh else "j_real_refresh"
+    dest = DATA / "{}_pending.json".format(tag)
     if dest.exists():
         j = json.loads(dest.read_text())
         if j.get("job_id") and not args.force:
@@ -55,9 +70,7 @@ def stage_submit():
 
     from qiskit import QuantumCircuit
     from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
-    from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2
-    service = QiskitRuntimeService()
-    backend = service.backend(BACKEND)
+    from qiskit_ibm_runtime import SamplerV2
     edges = coupling_edges(backend)
 
     specs, qcs, pub_meta = [], [], []
@@ -71,7 +84,7 @@ def stage_submit():
             for i, b in enumerate(bits):
                 qc.ry(rotation_angle(window_mean(bits, i)), i)
             qc.measure(range(n), range(n))
-            chain = greedy_connected(ranked[0]["q"], n, ranked, edges)
+            chain = chain_grow(ranked[0]["q"], n, ranked, edges)
             pm = generate_preset_pass_manager(
                 backend=backend, optimization_level=1, seed_transpiler=42,
                 initial_layout=[r["q"] for r in chain])
@@ -86,7 +99,10 @@ def stage_submit():
     sampler = SamplerV2(mode=backend)
     job = sampler.run([(qc, None, SHOTS) for qc in qcs])
     pending = {"suite": "k in " + str(list(KS)) + " x " + str(PATTERNS_PER_K),
-               "snapshot": FROZEN.name, "job_id": job.job_id(), "shots": SHOTS,
+               "snapshot": snap_path.name,
+               "snapshot_fetched_at": snap.get("fetched_at"),
+               "snapshot_last_update": snap.get("last_update_date"),
+               "job_id": job.job_id(), "shots": SHOTS,
                "specs": specs, "pub_meta": pub_meta,
                "submitted_at": time.strftime("%Y-%m-%dT%H:%M:%S")}
     dest.write_text(json.dumps(pending, indent=2))
@@ -97,8 +113,8 @@ def stage_submit():
 def stage_collect():
     from qiskit_ibm_runtime import QiskitRuntimeService
     service = QiskitRuntimeService()
-    pend_p = DATA / "j_real_pending.json"
-    final_p = DATA / "j_real.json"
+    pend_p = DATA / "j_real{}_pending.json".format("_refresh" if args.refresh else "")
+    final_p = DATA / "j_real{}.json".format("_refresh" if args.refresh else "")
     if final_p.exists() and not args.force:
         print("already collected")
         return 0
@@ -138,6 +154,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", choices=["submit", "collect"], required=True)
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--refresh", action="store_true",
+                    help="fetch a fresh calibration snapshot for pins (default: frozen 08-29)")
     args = ap.parse_args()
     return {"submit": stage_submit, "collect": stage_collect}[args.stage]()
 
