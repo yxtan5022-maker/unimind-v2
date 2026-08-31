@@ -1,0 +1,88 @@
+{
+  "pass_rates": {
+    "frozen_full": {
+      "pass": 11,
+      "total": 30,
+      "rate": 0.3667,
+      "ci_95": [
+        0.2187,
+        0.5449
+      ]
+    },
+    "frozen_ablated": {
+      "pass": 12,
+      "total": 30,
+      "rate": 0.4,
+      "ci_95": [
+        0.2459,
+        0.5768
+      ]
+    },
+    "refresh_full": {
+      "pass": 21,
+      "total": 30,
+      "rate": 0.7,
+      "ci_95": [
+        0.5212,
+        0.8334
+      ]
+    },
+    "refresh_ablated": {
+      "pass": 23,
+      "total": 30,
+      "rate": 0.7667,
+      "ci_95": [
+        0.5907,
+        0.8821
+      ]
+    }
+  },
+  "pairwise_comparisons": {
+    "Refresh effect (full arm)": {
+      "delta": -0.3333,
+      "ci_95": [
+        -0.5713,
+        -0.0954
+      ],
+      "p_fisher": 0.0191
+    },
+    "Refresh effect (ablated arm)": {
+      "delta": -0.3667,
+      "ci_95": [
+        -0.5983,
+        -0.1351
+      ],
+      "p_fisher": 0.0082
+    },
+    "Pinned vs free (refresh)": {
+      "delta": -0.0667,
+      "ci_95": [
+        -0.2898,
+        0.1565
+      ],
+      "p_fisher": 0.771
+    },
+    "Pinned vs free (frozen)": {
+      "delta": -0.0333,
+      "ci_95": [
+        -0.2792,
+        0.2126
+      ],
+      "p_fisher": 1.0
+    }
+  },
+  "power_analysis": {
+    "refresh_full_vs_ablated": {
+      "observed_delta": 0.0667,
+      "min_detectable_80power": 0.3199,
+      "detectable": false,
+      "n_per_arm": 30
+    },
+    "frozen_full_vs_ablated": {
+      "observed_delta": 0.0333,
+      "min_detectable_80power": 0.3517,
+      "detectable": false,
+      "n_per_arm": 30
+    }
+  }
+}

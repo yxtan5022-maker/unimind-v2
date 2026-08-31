@@ -1,0 +1,66 @@
+{
+  "v4_full_rho": 0.9674,
+  "v5_full_rho": 0.6433,
+  "v4_loo_rho": 0.9526,
+  "v5_loo_rho": 0.5099,
+  "v4_oos_rho": 0.8182,
+  "v5_oos_rho": 0.1273,
+  "v5_oos_p": 0.3622,
+  "param_weights": {
+    "v4": {
+      "alpha": 0.0341,
+      "beta": 0.3345,
+      "gamma": 0.3708,
+      "gamma_log": 0.0845,
+      "eta_idle": 0.0704,
+      "delta": 0.0946,
+      "lambda_": 0.0111
+    },
+    "v5": {
+      "alpha": 0.2286,
+      "beta": 0.4152,
+      "gamma": 0.0207,
+      "gamma_log": 0.0794,
+      "eta_idle": 0.0267,
+      "delta": 0.1961,
+      "lambda_": 0.0332
+    },
+    "largest_moves": {
+      "gamma": {
+        "delta": 0.3501,
+        "v4": 0.3708,
+        "v5": 0.0207
+      },
+      "alpha": {
+        "delta": 0.1945,
+        "v4": 0.0341,
+        "v5": 0.2286
+      },
+      "delta": {
+        "delta": 0.1015,
+        "v4": 0.0946,
+        "v5": 0.1961
+      },
+      "beta": {
+        "delta": 0.0807,
+        "v4": 0.3345,
+        "v5": 0.4152
+      },
+      "eta_idle": {
+        "delta": 0.0437,
+        "v4": 0.0704,
+        "v5": 0.0267
+      }
+    }
+  },
+  "real_label_size_effect": {
+    "9": 0.0599,
+    "10": 0.0442,
+    "11": 0.0615,
+    "12": 0.0399,
+    "14": 0.0569,
+    "16": 0.0625,
+    "18": 0.0682
+  },
+  "key_finding": "The proxy utility J(G) over-penalizes large layouts (k>=9). Under a refresh-pinned device this penalty is fictional, collapsing OOS Spearman from 0.818 to 0.127 (p=0.36). J(G) encodes a STALE-device error model that the adaptive refresh policy removes."
+}
