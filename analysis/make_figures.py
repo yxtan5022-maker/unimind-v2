@@ -180,9 +180,39 @@ def fig_taxonomy():
     plt.close(fig)
 
 
+def fig_router():
+    d = json.loads((RES / "router_analysis.json").read_text())
+    cells = d["cells"]
+    xs_pct = [c["percentile"] for c in cells]
+    xs_c = [c["readout_total"] for c in cells]
+    ys = [c["max_dev"] for c in cells]
+    names = [str(c["q"]) for c in cells]
+    rho = d["verdicts"]["spearman_C_vs_maxdev"]["rho"]
+    p = d["verdicts"]["spearman_C_vs_maxdev"]["p_exact"]
+    fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.8))
+    for ax, x, xlab in ((axes[0], xs_pct, "rank percentile of $C(q)$"),
+                        (axes[1], xs_c, "readout error $C(q)$")):
+        ax.plot(x, ys, "o-", ms=4, lw=1.2, color="#08519c")
+        for xx, yy, n in zip(x, ys, names):
+            ax.annotate("q" + n, (xx, yy), textcoords="offset points",
+                        xytext=(5, 5), fontsize=7)
+        ax.axhline(0.05, color="k", ls=":", lw=1)
+        ax.text(0.55, 0.05 * 1.15, "tolerance 0.05", fontsize=7)
+        ax.set_xlabel(xlab)
+        ax.set_ylim(0, 0.20)
+    axes[0].set_ylabel("max deviation over $w$")
+    axes[0].set_title("(a) deviation vs. rank")
+    axes[1].set_title("(b) deviation vs. $C(q)$  (Spearman $\\rho_s=%.3f$, $p=%.3f$)" % (rho, p))
+    fig.tight_layout()
+    fig.savefig(OUT / "fig_router.pdf")
+    fig.savefig(OUT / "fig_router.png", dpi=300)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     fig_sweep_2x2()
     fig_noise_vs_qpu()
     fig_ablation()
     fig_taxonomy()
+    fig_router()
     print("figures ->", OUT)
