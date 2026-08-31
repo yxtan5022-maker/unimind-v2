@@ -722,6 +722,13 @@ worst pin is $2.1\times$ worse than the adaptable choice (Table~\ref{tab:stale})
 fire D1$\to$D2 (top-3 unchanged), matching the regime hypothesis. Because re-selection is sub-millisecond,
 staleness is a pure operations failure, not a compute constraint.
 
+These two measurements bound $T_{\mathrm{valid}}$ (Definition~\ref{def:tvalid}) from both sides. For the $k{=}6$ chain
+and tolerance $\epsilon{=}0.05$, the selected pins remain within tolerance on \emph{this device} at $t{+}10$~h
+(D1$\to$D2 top-3 unchanged, $T_{\mathrm{valid}}\gtrsim10$~h) but the cost of a one-day-old ranking already reaches
+$2.1\times$ (D0$\to$D1, $T_{\mathrm{valid}}\lesssim24$~h). $T_{\mathrm{valid}}$ is therefore \emph{hours}, not days,
+on this device at this $k$---small enough that refresh must be part of the runtime loop, not a periodic maintenance
+step. The exact position between the two bounds is a function of workload, $k$, and device family (\ref{eq:tvalid}).
+
 \begin{table}[t]
 \caption{Top-3 selected from D0, evaluated at D1 vs.\ a fresh selection. Ranks are over all 156 qubits at D1.}
 \label{tab:stale}
@@ -1057,7 +1064,10 @@ analysis scripts listed below.
 data/drift/calib\_2026-\{08\-29,08\-30,08\-31\}.json\\
 data/e2e/e2e\_angle\_\{full,ab\-lated\}*.json\\
 data/jgpu/j\_real*.json\\
-analysis/*.py + analysis/results/*.json
+analysis/*.py + analysis/results/*.json\\[2pt]
+analysis/results/refresh\_policy\_an\-a\-lysis.json\\
+analysis/results/power\_an\-a\-lysis.json\\
+analysis/results/jg\_fail\-ure\_an\-a\-lysis.json\\
 \end{quote}
 QPU job IDs appear in the file headers:
 \texttt{daadeocjbipc73ffq83g} (refresh-full E2E), \texttt{daadeosjbipc73ffq840} (refresh-ablated E2E), and
