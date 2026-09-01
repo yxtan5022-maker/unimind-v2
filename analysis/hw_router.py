@@ -55,7 +55,7 @@ def fetch_table(backend):
                      "T1_us": _prop(props, qi, "T1"),
                      "T2_us": _prop(props, qi, "T2"),
                      "sx_error": sx})
-    return {"backend": BACKEND,
+    return {"backend": backend.name,
             "last_update_date": str(props.last_update_date),
             "fetched_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
             "qubits": rows}
