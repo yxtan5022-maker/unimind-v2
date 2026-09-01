@@ -8,4 +8,4 @@
 - Windows schtasks registered: `UniMind_Fetch_Fez` (every 5 min),
   `UniMind_Fetch_Others` (marrakesh+kingston, every 15 min) — both Ready.
 - Added `analysis/schedule_tasks.bat` + `analysis/schedule_tasks_cron.sh` for re-provisioning.
-- Committed as [commit].
+- Committed as [commit].- Committed Task 2: device_identity.py -> notes/device_identity.md (marrakesh operational 156q; fez sibling 156q heavy-hex, 352 edges).
