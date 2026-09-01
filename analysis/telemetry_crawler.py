@@ -55,8 +55,14 @@ def get_service():
         if _service is None:
             import warnings
             warnings.filterwarnings("ignore")
+            # silence qiskit-runtime's chatter so nothing is written to stderr
+            import logging
+            logging.disable(logging.CRITICAL)
             from qiskit_ibm_runtime import QiskitRuntimeService
-            _service = QiskitRuntimeService()
+            # explicit instance removes the "instance not set" WARNING that
+            # otherwise leaks to stderr and breaks Powershell 5.1 2>&1 capture
+            _service = QiskitRuntimeService(
+                channel="ibm_quantum_platform", instance="unimind 3.0")
         return _service
 
 
