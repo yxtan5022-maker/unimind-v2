@@ -9,3 +9,4 @@
   `UniMind_Fetch_Others` (marrakesh+kingston, every 15 min) — both Ready.
 - Added `analysis/schedule_tasks.bat` + `analysis/schedule_tasks_cron.sh` for re-provisioning.
 - Committed as [commit].- Committed Task 2: device_identity.py -> notes/device_identity.md (marrakesh operational 156q; fez sibling 156q heavy-hex, 352 edges).
+- Committed Task 3: analyze_replication.py -> notes/replication.md (A 08-31 19:56:33 vs B 09-01 08:24:34; J10=0.111, dC_sameq=+0.0010, trigger firing=TRUE via Jaccard<0.5).
