@@ -1,9 +1,31 @@
 #!/usr/bin/env bash
 # REPRODUCE v2.5 — one-click local reproducibility (no IBM quota, v4 synthetic-expanded)
 # Usage: bash REPRODUCE_v2.5.sh (also kept as REPRODUCE_v2.2.sh compat)
+# Portability: override with UNIMIND_ROOT and UNIMIND_PYTHON.
 set -e
-PY="C:/Users/SCSM11/AppData/Local/Programs/Python/Python312/python.exe"
-ROOT="C:/Users/SCSM11/Desktop/unimind-v2"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -n "$UNIMIND_ROOT" ]; then
+  ROOT="$UNIMIND_ROOT"
+elif [ -d "C:/Users/SCSM11/Desktop/unimind-v2/analysis" ]; then
+  ROOT="C:/Users/SCSM11/Desktop/unimind-v2"
+elif [ -d "$SCRIPT_DIR/analysis" ]; then
+  ROOT="$SCRIPT_DIR"
+else
+  echo "REPRODUCE_v2.5.sh must be run from inside the repo, or set UNIMIND_ROOT." >&2; exit 1
+fi
+
+if [ -n "$UNIMIND_PYTHON" ]; then
+  PY="$UNIMIND_PYTHON"
+elif [ -x "C:/Users/SCSM11/AppData/Local/Programs/Python/Python312/python.exe" ]; then
+  PY="C:/Users/SCSM11/AppData/Local/Programs/Python/Python312/python.exe"
+elif command -v python >/dev/null 2>&1; then
+  PY="python"
+else
+  echo "python not found; set UNIMIND_PYTHON." >&2; exit 1
+fi
+
+echo "ROOT=$ROOT  PY=$PY"
 echo "== UniMind v2.5 Reproducibility (v4 n=23 synthetic-expanded) =="
 echo "[1/6] Regression Algorithm 1 pure Ry (w grid) ..."
 $PY -m pytest "$ROOT/tests/test_unibit_correctness_v2_2.py" -q
