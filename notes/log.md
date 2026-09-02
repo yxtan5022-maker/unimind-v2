@@ -20,3 +20,21 @@
 - Edit (d) pinned-vs-free wording: abstract (TC full/compact6) + E2E sentence now honest — 70.0 vs 76.7 p=0.56, Wilson [52.1,83.3]/[59.1,88.2] overlap, MDE~26pp, TOST(delta=15pp) not conclusive -> claim indistinguishability, never equivalence ("never equivalence" added).
 - All three compile clean with pdflatex: TC full 12pp, compact6 7pp, v2.6 41pp; no undefined refs/citations, no LaTeX errors. (a)(c) English text self-drafted, flagged for user review.
 - Committed as 9c151f4.
+
+### 2026-09-02 | Task 6: Reproducible public package
+- Portability rewrite of `REPRODUCE_TC.sh` / `REPRODUCE_TC.ps1` / `REPRODUCE_v2.5.sh`: path discovery
+  via SCRIPT_DIR auto-detect, UNIMIND_ROOT/UNIMIND_PYTHON env overrides, python fallback chain,
+  Windows-style paths kept default for git-bash; `REPRODUCE_v2.2.sh` replaced by one-line
+  delegation to REPRODUCE_v2.5.sh (was a drifted hardcoded copy).
+- Fixes found by running the scripts: ps1 compile step crashed on pdflatex stderr under
+  `$ErrorActionPreference=Stop` (now via `cmd /c`); TC.sh step 7 used a stale key
+  (`median_alpha` -> `bare_pinned.median.alpha`); transient PDF write-locks on Windows (Defender/
+  previewers) handled by `compile_with_retry` in both ps1 and sh.
+- Verified locally: REPRODUCE_TC.ps1 9/9 PASSED (TC 12pp, compact6 7pp, 0 overfull);
+  REPRODUCE_TC.sh 9/9 PASSED; REPRODUCE_v2.5.sh 6/6 PASSED.
+- Added `data/telemetry/`: 5 earliest ibm_fez snapshots (copies) underpinning notes/replication.md
+  A/B (08-31 19:56:33 vs 09-01 08:24:34), with provenance README.
+- Added root `README.md`: paper table, tracked core claims, reproduce instructions, dependencies,
+  data layout, QPU job IDs, lead scripts, verification.
+- Secret scan clean: no hardcoded tokens (only `IBM_QUANTUM_TOKEN` env reads in unimind-dev).
+- Committed as 311826d.
