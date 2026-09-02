@@ -54,6 +54,7 @@ Quantum token exported as `IBM_QUANTUM_TOKEN` (read from env only, never stored 
 | `data/e2e/e2e_angle_{full,ablated}*.json` | E2E placements batches (frozen + refresh) |
 | `data/jgpu/j_real*.json` | real J(G) labels, k=9–18 |
 | `analysis/results/*.json` | all processed analysis outputs |
+| `paper2/results/per_epoch_turnover.json` | fez per-epoch turnover analysis (paper 2) |
 
 ## Key QPU job IDs
 
@@ -83,6 +84,12 @@ Full registry (incl. E-05/E-08 sweep cells) in `EXPERIMENTS.md`.
 | `analysis/reliability_model.py` | results/reliability_model.json |
 | `analysis/hw_batch_analysis.py` | deterministic batch summaries |
 | `analysis/fetch_once.py` | single-run telemetry fetcher (Task-1 scheduler) |
+
+## Paper 2 (per-epoch telemetry)
+
+`paper2/per_epoch_turnover.py` collapses the ibm_fez 5-min telemetry stream into epochs
+(distinct calibration versions) and reports adjacent-epoch top-3 overlap, top-10 Jaccard,
+and the ΔC distribution. Run `python paper2/per_epoch_turnover.py`.
 
 ## Verification
 
