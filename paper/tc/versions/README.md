@@ -10,7 +10,8 @@ The current in-progress working copy lives at `paper/tc/unimind_tc.{tex,pdf}` (a
 | v2      | 9e12bf1 | 11 / 6                | Phase 16 — T_valid empirics tied to formal def; refresh-policy + threshold-sweep subsections; reproducibility trace |
 | v3      | 4f27571 | 11 / 6                | hyperref bookmark warning fix (texorpdfstring for J(G) section title) |
 | v4      | 5d71952 | 12 / 7                | TC Strong P0 — unified Static/Periodic/Adaptive sim, ranking-margin mechanism, J(G) feature ablation, threshold knee |
-| v5      | 25951fb | 12 / 7                | TC Strong P1 — workload generalization + connectivity×drift×k (current) |
-| v6      |         | 12 / 7                | TC Strong P2 — honesty pass: device-identity footnote (b), calibration-cadence threat (a), Huo & Wei related work + bibitem (c), pinned-vs-free indistinguishability wording (d) |
+| v5      | 25951fb | 12 / 7                | TC Strong P1 — workload generalization + connectivity×drift×k |
+| v6      | working | 11 / 6                | TC submittable — measurement-study framing, separable App.D, hourly margins, 144-threshold Pareto, Fisher+MDE, ablation+variance, tightened 11p |
+| v7      | working | 12 / 6                | TC submit-ready QA — unify 1.94-2.1x across 24-34h D0->D1/D2, fix worst 0.0209/0.0063=3.3x misread, fix margins phrasing, 3 small edits aligned |
 
 Append a new `vN` on each deliverable milestone; never overwrite an existing one.

@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+type: software
+title: "UniMind: Calibration-Aware Scheduling and Placement for Quantum-Accelerated AI Middleware"
+authors:
+  - family-names: Tan
+    given-names: Y. X.
+    orcid: https://orcid.org/0000-0000-0000-0000
+    affiliation: "Independent Researcher"
+    email: yxtan5022@gmail.com
+version: v7.0-data-release
+date-released: 2026-09-02
+license: MIT
+repository-code: https://github.com/yxtan5022-maker/unimind-v2
+keywords:
+  - quantum computing middleware
+  - calibration-aware scheduling
+  - qubit placement
+  - calibration drift
+  - reliability composition
+  - quantum-cloud runtime
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.XXXXXXX
+    description: "Zenodo archive of code, calibration snapshots, QPU job logs and analysis scripts (to be updated after Zenodo reserve)"
+references:
+  - type: article
+    title: "UniMind: Calibration-Aware Scheduling and Placement for Quantum-Accelerated AI Middleware"
+    authors:
+      - family-names: Tan
+        given-names: Y. X.
+    journal: "IEEE Transactions on Computers (submitted, measurement study)"
+    year: 2026
+    notes: "v7 TC submit-ready (11p full / 6p compact). Every number traceable to QPU job ID or calibration JSON in data/."

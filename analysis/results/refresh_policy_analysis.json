@@ -8,11 +8,11 @@
       "jaccard_10": 0.25
     },
     "D0->D2": {
-      "spearman": 0.5794,
+      "spearman": 0.5719,
       "p_value": 0.0,
       "jaccard_3": 0.0,
       "jaccard_5": 0.0,
-      "jaccard_10": 0.25
+      "jaccard_10": 0.1111
     },
     "D1->D0": {
       "spearman": 0.5794,
@@ -22,25 +22,25 @@
       "jaccard_10": 0.25
     },
     "D1->D2": {
-      "spearman": 1.0,
+      "spearman": 0.7313,
       "p_value": 0.0,
-      "jaccard_3": 1.0,
-      "jaccard_5": 1.0,
-      "jaccard_10": 1.0
+      "jaccard_3": 0.0,
+      "jaccard_5": 0.1111,
+      "jaccard_10": 0.1765
     },
     "D2->D0": {
-      "spearman": 0.5794,
+      "spearman": 0.5719,
       "p_value": 0.0,
       "jaccard_3": 0.0,
       "jaccard_5": 0.0,
-      "jaccard_10": 0.25
+      "jaccard_10": 0.1111
     },
     "D2->D1": {
-      "spearman": 1.0,
+      "spearman": 0.7313,
       "p_value": 0.0,
-      "jaccard_3": 1.0,
-      "jaccard_5": 1.0,
-      "jaccard_10": 1.0
+      "jaccard_3": 0.0,
+      "jaccard_5": 0.1111,
+      "jaccard_10": 0.1765
     }
   },
   "staleness_cost": {
@@ -60,18 +60,18 @@
       ]
     },
     "D0_pin_on_D2": {
-      "stale_mean_C": 0.0152,
-      "fresh_mean_C": 0.0078,
-      "ratio": 1.9427,
+      "stale_mean_C": 0.0153,
+      "fresh_mean_C": 0.0076,
+      "ratio": 2.0,
       "stale_top3_C": [
-        0.009521484375,
-        0.011474609375,
-        0.013916015625
+        0.02099609375,
+        0.01513671875,
+        0.009765625
       ],
       "fresh_top3_C": [
-        0.006591796875,
-        0.007080078125,
-        0.007080078125
+        0.00634765625,
+        0.0068359375,
+        0.00732421875
       ]
     },
     "D1_pin_on_D0": {
@@ -90,28 +90,28 @@
       ]
     },
     "D1_pin_on_D2": {
-      "stale_mean_C": 0.0078,
-      "fresh_mean_C": 0.0078,
-      "ratio": 1.0,
+      "stale_mean_C": 0.013,
+      "fresh_mean_C": 0.0076,
+      "ratio": 1.7021,
       "stale_top3_C": [
-        0.006591796875,
-        0.007080078125,
-        0.007080078125
+        0.0126953125,
+        0.009765625,
+        0.01611328125
       ],
       "fresh_top3_C": [
-        0.006591796875,
-        0.007080078125,
-        0.007080078125
+        0.00634765625,
+        0.0068359375,
+        0.00732421875
       ]
     },
     "D2_pin_on_D0": {
-      "stale_mean_C": 0.0096,
+      "stale_mean_C": 0.0339,
       "fresh_mean_C": 0.0069,
-      "ratio": 1.3882,
+      "ratio": 4.9059,
       "stale_top3_C": [
-        0.009765625,
-        0.01025390625,
-        0.00830078125
+        0.01318359375,
+        0.00830078125,
+        0.0166015625
       ],
       "fresh_top3_C": [
         0.00390625,
@@ -120,13 +120,13 @@
       ]
     },
     "D2_pin_on_D1": {
-      "stale_mean_C": 0.0078,
+      "stale_mean_C": 0.0124,
       "fresh_mean_C": 0.0078,
-      "ratio": 1.0,
+      "ratio": 1.5885,
       "stale_top3_C": [
-        0.006591796875,
-        0.007080078125,
-        0.007080078125
+        0.010986328125,
+        0.014404296875,
+        0.00927734375
       ],
       "fresh_top3_C": [
         0.006591796875,
@@ -1495,14 +1495,14 @@
       "ratio": 1.94
     },
     "D0_to_D2_34h": {
-      "stale_mean_C": 0.0152,
-      "fresh_mean_C": 0.0078,
-      "ratio": 1.94
+      "stale_mean_C": 0.0153,
+      "fresh_mean_C": 0.0076,
+      "ratio": 2.0
     },
     "D1_to_D2_10h": {
-      "stale_mean_C": 0.0078,
-      "fresh_mean_C": 0.0078,
-      "ratio": 1.0
+      "stale_mean_C": 0.013,
+      "fresh_mean_C": 0.0076,
+      "ratio": 1.7
     },
     "note": "T_valid lower bound: ratio > 2x at 24h suggests T_valid < 24h for k=6 placement"
   },
