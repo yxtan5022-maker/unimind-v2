@@ -38,3 +38,15 @@
   data layout, QPU job IDs, lead scripts, verification.
 - Secret scan clean: no hardcoded tokens (only `IBM_QUANTUM_TOKEN` env reads in unimind-dev).
 - Committed as 311826d.
+
+### 2026-09-02 | Task 7: paper2 per-epoch turnover analysis
+- New `paper2/per_epoch_turnover.py` (paper1/ never touched): collapses the 81 ibm_fez 5-min
+  telemetry snapshots into 26 epochs by distinct `last_update_date` (calibration version); a
+  QA check confirms intra-epoch repeated pulls are calibration-static (max |dC|=0).
+- Adjacent-epoch metrics: top-3 overlap, top-3/top-10 Jaccard, best-qubit rank@next epoch,
+  ΔC summary (median / p95 / max |ΔC|, %>0.005). Output `paper2/results/per_epoch_turnover.json`.
+- Result: turnover is episodic, not gradual - 22/25 adjacent epochs are fully stable
+  (top-3 overlap 3/3, best qubit survives), 3/25 fully turn over (J30, J10=0.111, best qubit
+  displaced to ranks 18-54); median J10=1.0, mean J3=0.88/mean J10=0.893; max |ΔC|=0.9709.
+  Supports the "reuse breaks at day scale, stable intra-day" narrative.
+- Committed as 12b58e8.
