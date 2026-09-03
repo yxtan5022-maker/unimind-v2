@@ -1,15 +1,15 @@
-{
+﻿{
   "title": "UniMind: Calibration-Aware Scheduling and Placement for Quantum-Accelerated AI Middleware — Code, Calibration Snapshots, QPU Job Logs and Analysis Scripts",
-  "description": "Measurement study on a 156-qubit superconducting device (ibm_marrakesh) plus 34 hourly calibration snapshots (marrakesh/kingston/fez). Includes D0-D2 daily snapshots, hourly telemetry (2026-09-01 to 09-02), E2E angle batches (frozen+refresh, n=30/arm), J(G) real-label suite (k=9-18), all analysis scripts and processed results (drift_analysis, refresh_policy_analysis with 144 threshold combos, power_analysis with Wilson/Fisher/MDE, jg_feature_ablation, workload_connectivity_drift, ranking_margin_analysis). Every table is traceable to a QPU job ID (daadeocjbipc73ffq83g, daadeosjbipc73ffq840, daadgmmrbfbs73cijmbg) or calibration JSON. Code is MIT, data is CC-BY-4.0.",
+  "description": "Measurement study on a 156-qubit superconducting device (ibm_marrakesh) plus 337 hourly calibration snapshots (71 epochs, marrakesh 111 + kingston 109 + fez 117; 337 total / 328 in Kaplan-Meier, 3 backends, calibration-only). Includes D0-D3 daily snapshots (2026-08-29 to 09-01, D0-D2 QPU-anchored, D3 calibration-only, 6 inter-day pairs), hourly telemetry (2026-08-31 to 09-02), E2E angle batches (frozen+refresh, n=30/arm, job IDs daadeocjbipc73ffq83g / daadeosjbipc73ffq840), J(G) real-label suite (k=9-18, daadgmmrbfbs73cijmbg), all analysis scripts and processed results (drift_analysis, refresh_policy_analysis with 144 threshold combos, power_analysis with Wilson/Fisher/MDE, jg_feature_ablation, workload_connectivity_drift, ranking_margin_analysis, survival_analysis.json with S(t)=1.0 to 15h, 0/71 triggers). Every table is traceable to a QPU job ID or calibration JSON. Code is MIT, data is CC-BY-4.0.",
   "creators": [
     {"name": "Tan, Y. X.", "affiliation": "Independent Researcher", "orcid": "0000-0000-0000-0000"}
   ],
   "keywords": ["quantum computing middleware", "calibration-aware scheduling", "qubit placement", "calibration drift", "T_valid", "reliability composition", "measurement study", "QPU reproducibility"],
-  "license": {"id": "mit"},
+  "license": {"id": "cc-by-4.0"},
   "upload_type": "software",
   "access_right": "open",
   "communities": [{"identifier": "zenodo"}],
-  "version": "v7.0-data-release",
+  "version": "v8.0-data-release",
   "language": "eng",
   "notes": "If you use calibration_total JSON or E2E batches, please cite the TC paper (IEEE Transactions on Computers, submitted) and the Zenodo DOI. Name-disambiguation: not the Brain-Computer Interface UniMind."
 }

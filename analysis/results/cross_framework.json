@@ -2,23 +2,23 @@
   "measurements": {
     "qiskit_bell": {
       "success": true,
-      "latency_ms": 13.84,
+      "latency_ms": 25.05,
       "00": 521,
       "11": 503
     },
     "qiskit_angle_pure_ry": {
       "success": true,
-      "latency_ms": 7.23,
+      "latency_ms": 23.23,
       "ry": 10,
       "x": 0
     },
     "pennylane_bell": {
       "success": true,
-      "latency_ms": 6.58
+      "latency_ms": 8.91
     },
     "pennylane_angle": {
       "success": true,
-      "latency_ms": 5.09,
+      "latency_ms": 9.14,
       "expval": [
         -0.333,
         -0.5,
@@ -27,7 +27,7 @@
     },
     "unimind_bell_intent": {
       "success": true,
-      "latency_ms": 456.73,
+      "latency_ms": 570.64,
       "result_snippet": "RULE_BASED_FALLBACK: stdout: \nresult: Bell state circuit prepared (rule-based fallback)"
     }
   },

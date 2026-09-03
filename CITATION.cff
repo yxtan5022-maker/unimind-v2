@@ -8,8 +8,8 @@ authors:
     orcid: https://orcid.org/0000-0000-0000-0000
     affiliation: "Independent Researcher"
     email: yxtan5022@gmail.com
-version: v7.0-data-release
-date-released: 2026-09-02
+version: v8.0-data-release
+date-released: 2026-09-03
 license: MIT
 repository-code: https://github.com/yxtan5022-maker/unimind-v2
 keywords:
@@ -31,4 +31,4 @@ references:
         given-names: Y. X.
     journal: "IEEE Transactions on Computers (submitted, measurement study)"
     year: 2026
-    notes: "v7 TC submit-ready (11p full / 6p compact). Every number traceable to QPU job ID or calibration JSON in data/."
+    notes: "v8 TC submit-ready (12p full). Every number traceable to QPU job ID or calibration JSON in data/."

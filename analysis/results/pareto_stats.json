@@ -1,30 +1,40 @@
 {
-  "total_records": 150,
-  "new_records": 100,
-  "pareto_count": 76,
-  "pareto_rate": 0.5067,
+  "total_records": 270,
+  "new_records": 30,
+  "pareto_count": 108,
+  "pareto_rate": 0.4,
   "by_sampling": {
     "dirichlet": {
-      "total": 101,
-      "pareto": 74,
-      "pareto_rate": 0.7326732673267327,
-      "avg_d_err": 0.007038418785547749
+      "total": 173,
+      "pareto": 102,
+      "pareto_rate": 0.5895953757225434,
+      "avg_d_err": 0.006767497734563498
     },
     "uniform": {
-      "total": 49,
-      "pareto": 2,
-      "pareto_rate": 0.04081632653061224,
-      "avg_d_err": 0.0058466661127638654
+      "total": 97,
+      "pareto": 6,
+      "pareto_rate": 0.061855670103092786,
+      "avg_d_err": 0.006079326009206186
     }
   },
-  "pareto_frontier_size": 4,
+  "pareto_frontier_size": 12,
   "frontier_iters": [
     57,
     64,
     90,
-    117
+    117,
+    157,
+    164,
+    187,
+    194,
+    217,
+    224,
+    247,
+    254
   ],
   "best_avg_d_err": -0.003429630408611121,
   "best_iter": 2,
-  "best_sampling": "dirichlet"
+  "best_sampling": "dirichlet",
+  "best_new_iter": 243,
+  "best_new_avg_d_err": 0.0016370484525496478
 }
